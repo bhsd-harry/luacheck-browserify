@@ -1,0 +1,34 @@
+{
+	"name": "luacheck-browserify",
+	"version": "0.0.0",
+	"description": "Luacheck in browser",
+	"keywords": [
+		"luacheck",
+		"lint",
+		"browser"
+	],
+	"homepage": "https://github.com/bhsd-harry/luacheck#readme",
+	"bugs": {
+		"url": "https://github.com/bhsd-harry/luacheck/issues"
+	},
+	"license": "MIT",
+	"files": [
+		"src/dist.js"
+	],
+	"browser": "src/dist.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bhsd-harry/luacheck.git"
+	},
+	"scripts": {
+		"lint": "eslint src/bundle.js scripts/wasm.js",
+		"build": "cd src; node ./bundle.js && cd .. && esbuild scripts/wasm.js --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module",
+		"server": "npm run test:end; http-server .. -c-1 --cors &",
+		"test:end": "pkill -x http-server"
+	},
+	"devDependencies": {
+		"@bhsd/common": "^0.4.4",
+		"luabundle": "^1.7.0",
+		"wasmoon": "^1.16.0"
+	}
+}

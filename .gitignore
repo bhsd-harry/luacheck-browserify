@@ -11,3 +11,4 @@ build/bin/*
 package
 scripts/UnicodeData-*
 docsrc/.doctrees
+src/bundle.json

@@ -8,31 +8,25 @@ local stages = {}
 -- containing format string for the issue or a function returning it given the issue,
 -- and `fields` containing array of extra fields this warning can have.
 
-stages.names = {
-   "parse",
-   "unwrap_parens",
-   "linearize",
-   "parse_inline_options",
-   "name_functions",
-   "resolve_locals",
-   "detect_bad_whitespace",
-   "detect_cyclomatic_complexity",
-   "detect_empty_blocks",
-   "detect_empty_statements",
-   "detect_globals",
-   "detect_reversed_fornum_loops",
-   "detect_unbalanced_assignments",
-   "detect_uninit_accesses",
-   "detect_unreachable_code",
-   "detect_unused_fields",
-   "detect_unused_locals"
-}
-
 stages.modules = {}
 
-for _, name in ipairs(stages.names) do
-   table.insert(stages.modules, require("luacheck.stages." .. name))
-end
+table.insert(stages.modules, require("luacheck.stages.parse"))
+table.insert(stages.modules, require("luacheck.stages.unwrap_parens"))
+table.insert(stages.modules, require("luacheck.stages.linearize"))
+table.insert(stages.modules, require("luacheck.stages.parse_inline_options"))
+table.insert(stages.modules, require("luacheck.stages.name_functions"))
+table.insert(stages.modules, require("luacheck.stages.resolve_locals"))
+table.insert(stages.modules, require("luacheck.stages.detect_bad_whitespace"))
+table.insert(stages.modules, require("luacheck.stages.detect_cyclomatic_complexity"))
+table.insert(stages.modules, require("luacheck.stages.detect_empty_blocks"))
+table.insert(stages.modules, require("luacheck.stages.detect_empty_statements"))
+table.insert(stages.modules, require("luacheck.stages.detect_globals"))
+table.insert(stages.modules, require("luacheck.stages.detect_reversed_fornum_loops"))
+table.insert(stages.modules, require("luacheck.stages.detect_unbalanced_assignments"))
+table.insert(stages.modules, require("luacheck.stages.detect_uninit_accesses"))
+table.insert(stages.modules, require("luacheck.stages.detect_unreachable_code"))
+table.insert(stages.modules, require("luacheck.stages.detect_unused_fields"))
+table.insert(stages.modules, require("luacheck.stages.detect_unused_locals"))
 
 stages.warnings = {}
 

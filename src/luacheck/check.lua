@@ -2,7 +2,7 @@ local check_state = require "luacheck.check_state"
 local core_utils = require "luacheck.core_utils"
 local parse_inline_options = require "luacheck.stages.parse_inline_options"
 local parser = require "luacheck.parser"
-local stages = require "luacheck.stages"
+local stages = require "luacheck.stages.init"
 local utils = require "luacheck.utils"
 
 local inline_option_fields = utils.array_to_set(parse_inline_options.inline_option_fields)

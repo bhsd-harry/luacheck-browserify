@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"luacheck",
@@ -45,6 +45,7 @@
 		"eslint-plugin-unicorn": "^54.0.0",
 		"http-server": "^14.1.0",
 		"luabundle": "^1.7.0",
+		"luamin": "^1.0.4",
 		"stylelint": "^16.6.1",
 		"stylelint-config-recommended": "^14.0.0",
 		"typescript": "^5.5.3",

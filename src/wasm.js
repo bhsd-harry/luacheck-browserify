@@ -3,8 +3,8 @@
 /** @typedef {{code: string, line: number, column: number, end_column: number, msg?: string, func?: boolean}} Report */
 /** @typedef {{line: number, column: number, end_column: number, msg: string, severity: 1 | 2}} Diagnostic */
 
-const {LuaFactory} = require('wasmoon');
-const script = require('./bundle.json');
+const {LuaFactory} = require('wasmoon'),
+	script = require('./bundle.json');
 
 const warnings = {
 	'011': 'Syntax error',

@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"luacheck",
@@ -22,7 +22,7 @@
 	},
 	"scripts": {
 		"lint": "eslint src/*.js",
-		"build": "cd src; node ./bundle.js && cd .. && esbuild src/wasm.js --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module && sed -i '' 's|https://unpkg.com|https://testingcf.jsdelivr.net/npm|' dist/index.min.js",
+		"build": "cd src; node ./bundle.js && cd .. && esbuild src/wasm.js --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module",
 		"server": "npm run test:end; http-server .. -c-1 --cors &",
 		"test:end": "pkill -x http-server"
 	},

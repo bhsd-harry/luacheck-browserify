@@ -4,6 +4,7 @@
 /** @typedef {{line: number, column: number, end_column: number, msg: string, severity: 1 | 2}} Diagnostic */
 
 const {LuaFactory} = require('wasmoon'),
+	{version} = require('wasmoon/package.json'),
 	script = require('./bundle.json');
 
 const warnings = {
@@ -113,8 +114,11 @@ class Luacheck {
 	}
 }
 
-(async () => {
-	const lua = await new LuaFactory().createEngine();
-	await lua.doString(script);
-	Object.assign(globalThis, {luacheck: new Luacheck(lua.global.get('check'))});
-})();
+Object.assign(globalThis, {
+	luacheck: (async () => {
+		const lua = await new LuaFactory(`https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`)
+			.createEngine();
+		await lua.doString(script);
+		return new Luacheck(lua.global.get('check'));
+	})(),
+});

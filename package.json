@@ -13,9 +13,9 @@
 	},
 	"license": "MIT",
 	"files": [
-		"src/dist.js"
+		"dist/index.min.js"
 	],
-	"browser": "src/dist.js",
+	"browser": "dist/index.min.js",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/bhsd-harry/luacheck.git"

@@ -116,8 +116,10 @@ class Luacheck {
 
 Object.assign(globalThis, {
 	luacheck: (async () => {
-		const lua = await new LuaFactory(`https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`)
-			.createEngine();
+		const uri = typeof global === 'object'
+				? undefined
+				: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`,
+			lua = await new LuaFactory(uri).createEngine();
 		await lua.doString(script);
 		return new Luacheck(lua.global.get('check'));
 	})(),

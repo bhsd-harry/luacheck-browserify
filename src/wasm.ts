@@ -6,14 +6,14 @@ declare interface LuaReport {
 	msg?: string;
 	func?: boolean;
 }
-declare interface Diagnostic {
+declare type checkFunc = (s: string, std: string) => Record<string, never> | LuaReport[];
+export interface Diagnostic {
 	line: number;
 	column: number;
 	end_column: number;
 	msg: string;
 	severity: 1 | 2;
 }
-declare type checkFunc = (s: string, std: string) => Record<string, never> | LuaReport[];
 
 import {LuaFactory} from 'wasmoon';
 import {version} from 'wasmoon/package.json';

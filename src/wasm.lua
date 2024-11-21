@@ -256,6 +256,6 @@ local opt = {
 	max_string_line_length = false,
 	max_comment_line_length = false,
 }
-function check(str)
-	return luacheck.check_strings({str}, opt)[1]
+function check(str, std_name)
+	return luacheck.check_strings({str}, std_name and {std = std_name} or opt)[1]
 end

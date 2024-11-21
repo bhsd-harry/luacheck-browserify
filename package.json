@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"luacheck",
@@ -13,16 +13,18 @@
 	},
 	"license": "MIT",
 	"files": [
-		"dist/index.min.js"
+		"dist/*.[jt]s"
 	],
+	"main": "dist/wasm.js",
 	"browser": "dist/index.min.js",
+	"types": "dist/wasm.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/bhsd-harry/luacheck.git"
 	},
 	"scripts": {
-		"lint": "eslint src/*.js",
-		"build": "cd src; node ./bundle.js && cd .. && esbuild src/wasm.js --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module",
+		"lint": "tsc --noEmit && eslint src/*.[jt]s",
+		"build": "cd src; node ./bundle.js && cd .. && tsc && esbuild src/wasm.ts --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module",
 		"server": "npm run test:end; http-server .. -c-1 --cors &",
 		"test:end": "pkill -x http-server"
 	},

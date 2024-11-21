@@ -15,7 +15,7 @@
 
 [Luacheck](https://github.com/mpeterv/luacheck) is a static analyzer and a linter for [Lua](http://www.lua.org). Luacheck detects various issues such as usage of undefined global variables, unused variables and values, accessing uninitialized variables, unreachable code and more. Most aspects of checking are configurable: there are options for defining custom project-related globals, for selecting set of standard globals (version of Lua standard library), etc. Luacheck itself is written in Lua and runs on different Lua versions.
 
-Luacheck-browserify is a fork of Luacheck that has been modified to work in browser environments. The Lua code is executed using [Wasmoon](https://github.com/ceifa/wasmoon). It is specifically configured to check [Lua modules in MediaWiki sites](https://www.mediawiki.org/wiki/Lua/Overview).
+Luacheck-browserify is a fork of Luacheck that has been modified to work in browser environments. The Lua code is executed using [Wasmoon](https://github.com/ceifa/wasmoon). Luacheck-browserify can also be specifically configured to check [Lua modules in MediaWiki sites](https://www.mediawiki.org/wiki/Lua/Overview).
 
 ## Installation
 
@@ -35,13 +35,14 @@ or
 
 ## Basic usage
 
-After Luacheck-browserify is installed, a global promise object `luacheck` is available. The `luacheck` promise resolves to a class instance with a `queue` method that can be called with a string of Lua code to check. The function returns a promise that resolves with an array of warnings.
+After Luacheck-browserify is installed, a global async function `luacheck` is available. The `luacheck` function takes a required string argument to specify the standard globals similar to the [`--std` CLI option](https://luacheck.readthedocs.io/en/stable/cli.html#command-line-options), and its return value is resolved with a class instance with an async `queue` method that can be called with a string of Lua code to check. The `queue` method returns a promise that is resolved with an array of warnings.
 
 ```javascript
-console.log(await (await luacheck).queue('local a, b, c = nil'));
+const Luacheck = await luacheck('max');
+console.log(await Luacheck.queue('local a, b, c = nil'));
 ```
 
-For more info, see [Luacheck documentation](https://luacheck.readthedocs.io/en/stable/).
+For more info about the warnings, see [Luacheck documentation](https://luacheck.readthedocs.io/en/stable/warnings.html).
 
 ## Related projects
 

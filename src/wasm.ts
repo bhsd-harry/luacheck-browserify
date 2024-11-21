@@ -1,13 +1,25 @@
-'use strict';
+declare interface LuaReport {
+	code: string;
+	line: number;
+	column: number;
+	end_column: number;
+	msg?: string;
+	func?: boolean;
+}
+declare interface Diagnostic {
+	line: number;
+	column: number;
+	end_column: number;
+	msg: string;
+	severity: 1 | 2;
+}
+declare type checkFunc = (s: string, std: string) => Record<string, never> | LuaReport[];
 
-/** @typedef {{code: string, line: number, column: number, end_column: number, msg?: string, func?: boolean}} Report */
-/** @typedef {{line: number, column: number, end_column: number, msg: string, severity: 1 | 2}} Diagnostic */
+import {LuaFactory} from 'wasmoon';
+import {version} from 'wasmoon/package.json';
+import script = require('./bundle.json');
 
-const {LuaFactory} = require('wasmoon'),
-	{version} = require('wasmoon/package.json'),
-	script = require('./bundle.json');
-
-const warnings = {
+const warnings: Record<string, string> = {
 	'011': 'Syntax error',
 	'021': 'Invalid inline option',
 	'022': 'Unpaired inline push directive',
@@ -56,71 +68,82 @@ const warnings = {
 
 /**
  * 添加警告信息
- * @param {Report[]} allErrors 语法警告
- * @returns {Diagnostic[]}
+ * @param allErrors 语法警告
  */
-const addMsg = allErrors => {
-	const errors = allErrors.filter(({code}) => !/^(?:6|5[45]|213)/u.test(code));
+const addMsg = (allErrors: LuaReport[]): Diagnostic[] => {
+	const errors: (LuaReport | Diagnostic)[] = allErrors.filter(({code}) => !/^(?:6|5[45]|213)/u.test(code));
 	for (const error of errors) {
-		error.msg ??= warnings[error.code].replace('$1', error.func ? 'function' : 'variable');
-		error.severity = /^[01]/u.test(error.code) ? 2 : 1;
+		const {code, func} = error as LuaReport;
+		error.msg ??= warnings[code]!.replace('$1', func ? 'function' : 'variable');
+		(error as Diagnostic).severity = /^[01]/u.test(code) ? 2 : 1;
 	}
-	return errors;
+	return errors as Diagnostic[];
 };
 
 class Luacheck {
-	/** @type {string} */ #text;
-	/** @type {Promise<Diagnostic[]> | undefined} */ #running;
+	#text: string;
+	#running: Promise<Diagnostic[]> | undefined;
 	#check;
+	#std;
 
-	/** @param {(s: string) => {} | Report[]} check Luacheck */
-	constructor(check) {
-		this.#check = check;
+	/**
+	 * @param check Luacheck
+	 * @param std 全局变量集
+	 */
+	constructor(check: Function, std: string) {
+		this.#check = check as checkFunc;
+		this.#std = std;
 	}
 
 	/**
 	 * 提交语法分析
-	 * @param {string} text 待分析的代码
-	 * @returns {Promise<Diagnostic[]>}
+	 * @param text 待分析的代码
 	 * @description
-	 * - 总是更新`#text`以便`lint`完成时可以判断是否需要重新分析
+	 * - 总是更新`#text`以便`#lint`完成时可以判断是否需要重新分析
 	 * - 如果已有进行中的分析，则返回该分析的结果
 	 * - 否则开始新的分析
 	 */
-	queue(text) {
+	queue(text: string): Promise<Diagnostic[]> {
 		this.#text = text;
-		this.#running ??= this.lint(text);
+		this.#running ??= this.#lint(text);
 		return this.#running;
 	}
 
 	/**
 	 * 执行语法分析
-	 * @param {string} text 待分析的代码
-	 * @returns {Promise<Diagnostic[]>}
+	 * @param text 待分析的代码
 	 * @description
 	 * - 完成后会检查`#text`是否已更新，如果是则重新分析
 	 * - 总是返回最新的分析结果
 	 */
-	async lint(text) { // eslint-disable-line require-await
-		const errors = this.#check(text);
+	async #lint(text: string): Promise<Diagnostic[]> { // eslint-disable-line require-await
+		const errors = this.#check(text, this.#std);
 		if (this.#text === text) {
 			setTimeout(() => {
 				this.#running = undefined;
 			}, 0);
 			return Array.isArray(errors) ? addMsg(errors) : [];
 		}
-		this.#running = this.lint(this.#text);
+		this.#running = this.#lint(this.#text);
 		return this.#running;
 	}
 }
 
-Object.assign(globalThis, {
-	luacheck: (async () => {
-		const uri = typeof global === 'object'
-				? undefined
-				: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`,
-			lua = await new LuaFactory(uri).createEngine();
-		await lua.doString(script);
-		return new Luacheck(lua.global.get('check'));
-	})(),
-});
+/**
+ * 创建一个`Luacheck`实例
+ * @param std 全局变量集
+ */
+const check = async (std: string): Promise<Luacheck> => {
+	const uri = typeof global === 'object'
+			? undefined
+			: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`,
+		lua = await new LuaFactory(uri).createEngine();
+	await lua.doString(script);
+	return new Luacheck(lua.global.get('check') as Function, std);
+};
+
+Object.assign(globalThis, {luacheck: check});
+
+declare global {
+	const luacheck: typeof check;
+}

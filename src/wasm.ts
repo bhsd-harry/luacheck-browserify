@@ -17,7 +17,7 @@ export interface Diagnostic {
 
 import {LuaFactory} from 'wasmoon';
 import {version} from 'wasmoon/package.json';
-import script = require('./bundle.json');
+import * as script from './bundle.json';
 
 const warnings: Record<string, string> = {
 	'011': 'Syntax error',
@@ -90,8 +90,8 @@ class Luacheck {
 	 * @param check Luacheck
 	 * @param std 全局变量集
 	 */
-	constructor(check: Function, std: string) {
-		this.#check = check as checkFunc;
+	constructor(check: checkFunc, std: string) {
+		this.#check = check;
 		this.#std = std;
 	}
 
@@ -134,12 +134,12 @@ class Luacheck {
  * @param std 全局变量集
  */
 const check = async (std: string): Promise<Luacheck> => {
-	const uri = typeof global === 'object'
+	const uri = typeof global === 'object' // eslint-disable-line unicorn/prefer-global-this
 			? undefined
 			: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`,
 		lua = await new LuaFactory(uri).createEngine();
 	await lua.doString(script);
-	return new Luacheck(lua.global.get('check') as Function, std);
+	return new Luacheck(lua.global.get('check') as checkFunc, std);
 };
 
 Object.assign(globalThis, {luacheck: check});

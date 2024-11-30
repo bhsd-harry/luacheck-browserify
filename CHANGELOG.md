@@ -1,4 +1,12 @@
-## v1.0.0
+## v0.1.1
+
+*2024-11-30*
+
+**Added**
+
+- Exported interface `Diagnostic`
+
+## v0.1.0
 
 *2024-11-21*
 

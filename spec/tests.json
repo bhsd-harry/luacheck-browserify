@@ -1,0 +1,3026 @@
+{
+	"argparse-0.2.0.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"bad_code.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"bad_flow.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"bad_whitespace.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"compat.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"custom_std_inline_options.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"defined.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"defined2.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"defined3.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"defined4.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"empty.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"global_fields.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"global_inline_options.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"globals.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"good_code.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"indirect_globals.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"inline_options.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"line_length.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"python_code.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"read_globals.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"read_globals_inline_options.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"redefined.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"reversed_fornum.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"unused_code.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"unused_secondaries.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"utf8.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	],
+	"utf8_error.lua": [
+		{
+			"column": 27,
+			"end_column": 32,
+			"line": 34,
+			"msg": "Unused loop variable",
+			"name": "setter",
+			"severity": 0
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 117,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 27,
+			"end_column": 30,
+			"line": 125,
+			"msg": "Unused argument",
+			"name": "self",
+			"severity": 1
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"indexing": [
+				"stdout",
+				"write"
+			],
+			"line": 143,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 16,
+			"end_column": 17,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 144,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 3,
+			"line": 523,
+			"msg": "A line contains only whitespace",
+			"severity": 0
+		},
+		{
+			"column": 25,
+			"end_column": 27,
+			"line": 605,
+			"msg": "Accessing an undefined global variable",
+			"name": "arg",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 44,
+			"line": 641,
+			"msg": "Left-hand side of an assignment is too long",
+			"severity": 1
+		},
+		{
+			"column": 7,
+			"end_column": 11,
+			"line": 942,
+			"msg": "Accessing an undefined global variable",
+			"name": "_TEST",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"indexing": [
+				"stderr",
+				"write"
+			],
+			"line": 945,
+			"msg": "Accessing an undefined global variable",
+			"name": "io",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 8,
+			"field": "exit",
+			"indexing": [
+				"exit"
+			],
+			"line": 946,
+			"msg": "Accessing an undefined field of a global variable",
+			"name": "os",
+			"severity": 2
+		},
+		{
+			"column": 41,
+			"end_column": 46,
+			"line": 957,
+			"msg": "Unused argument",
+			"name": "parser",
+			"severity": 1
+		}
+	]
+}

@@ -93,10 +93,10 @@ const getSeverity = (code: string): 0 | 1 | 2 => {
  * @param errors 语法警告
  */
 const addMsg = (errors: LuaReport[]): Diagnostic[] => errors.map(error => {
-	const {code, func, msg} = error;
+	const {code, msg, ...e} = error;
 	return {
-		...error,
-		msg: msg ?? warnings[code]?.replace('$1', func ? 'function' : 'variable'),
+		...e,
+		msg: msg ?? warnings[code]?.replace('$1', e.func ? 'function' : 'variable'),
 		severity: getSeverity(code),
 	} as LuaReport | Diagnostic;
 }).filter((error): error is Diagnostic => Boolean(error.msg));

@@ -5,6 +5,7 @@
 	"keywords": [
 		"luacheck",
 		"lint",
+		"linter",
 		"browser"
 	],
 	"homepage": "https://github.com/bhsd-harry/luacheck#readme",
@@ -23,10 +24,11 @@
 		"url": "git+https://github.com/bhsd-harry/luacheck.git"
 	},
 	"scripts": {
-		"lint:ts": "tsc --noEmit && eslint src/*.[jt]s",
+		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint": "npm run lint:ts",
 		"build": "cd src; node ./bundle.js && cd .. && tsc && esbuild dist/wasm.js --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module",
 		"server": "npm run test:end; http-server .. -c-1 --cors &",
+		"test": "node spec/test.js",
 		"test:end": "pkill -x http-server"
 	},
 	"devDependencies": {

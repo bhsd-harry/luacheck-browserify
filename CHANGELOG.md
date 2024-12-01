@@ -1,3 +1,11 @@
+## v0.2.0
+
+*2024-12-01*
+
+**Changed**
+
+- Minor warnings are now reported as `severity: 0`
+
 ## v0.1.1
 
 *2024-11-30*

@@ -42,6 +42,19 @@ const Luacheck = await luacheck('max');
 console.log(await Luacheck.queue('local a, b, c = nil'));
 ```
 
+The warnings are objects with the following properties:
+
+```typescript
+interface {
+	line: number;
+	column: number;
+	end_column: number;
+	msg: string;
+	/** 0: info, 1: warning, 2: error */
+	severity: 0 | 1 | 2;
+}
+```
+
 For more info about the warnings, see [Luacheck documentation](https://luacheck.readthedocs.io/en/stable/warnings.html).
 
 ## Related projects

@@ -12,7 +12,7 @@ export interface Diagnostic {
 	column: number;
 	end_column: number;
 	msg: string;
-	severity: 1 | 2;
+	severity: 0 | 1 | 2;
 }
 
 import {LuaFactory} from 'wasmoon';
@@ -34,6 +34,7 @@ const warnings: Record<string, string> = {
 	143: 'Accessing an undefined field of a global variable',
 	211: 'Unused local $1',
 	212: 'Unused argument',
+	213: 'Unused loop variable',
 	214: 'Unused variable',
 	221: 'Local variable is accessed but never set',
 	231: 'Local variable is set but never accessed',
@@ -61,24 +62,44 @@ const warnings: Record<string, string> = {
 	521: 'Unused label',
 	531: 'Left-hand side of an assignment is too short',
 	532: 'Left-hand side of an assignment is too long',
+	541: 'Empty do-end block',
+	542: 'Empty if branch',
+	551: 'Empty statement',
+	561: 'Cyclomatic complexity is too high',
 	571: 'A numeric for loop goes from #(expr) down to 1 or less without negative step',
 	581: 'Negation of a relational operator: operator can be flipped',
 	582: 'Error prone negation: negation has a higher priority than equality',
+	611: 'A line contains only whitespace',
+	612: 'A line contains trailing whitespace',
+	613: 'Trailing whitespace in a string',
+	614: 'Trailing whitespace in a comment',
+	621: 'Inconsistent indentation',
+	631: 'Line is too long',
+};
+
+/**
+ * 获取警告等级
+ * @param code 错误代码
+ */
+const getSeverity = (code: string): 0 | 1 | 2 => {
+	if (/^[01]/u.test(code)) {
+		return 2;
+	}
+	return /^(?:6|5[45]|213)/u.test(code) ? 0 : 1;
 };
 
 /**
  * 添加警告信息
- * @param allErrors 语法警告
+ * @param errors 语法警告
  */
-const addMsg = (allErrors: LuaReport[]): Diagnostic[] => {
-	const errors: (LuaReport | Diagnostic)[] = allErrors.filter(({code}) => !/^(?:6|5[45]|213)/u.test(code));
-	for (const error of errors) {
-		const {code, func} = error as LuaReport;
-		error.msg ??= warnings[code]!.replace('$1', func ? 'function' : 'variable');
-		(error as Diagnostic).severity = /^[01]/u.test(code) ? 2 : 1;
-	}
-	return errors as Diagnostic[];
-};
+const addMsg = (errors: LuaReport[]): Diagnostic[] => errors.map(error => {
+	const {code, func, msg} = error;
+	return {
+		...error,
+		msg: msg ?? warnings[code]?.replace('$1', func ? 'function' : 'variable'),
+		severity: getSeverity(code),
+	} as LuaReport | Diagnostic;
+}).filter((error): error is Diagnostic => Boolean(error.msg));
 
 class Luacheck {
 	#text: string;

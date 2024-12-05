@@ -8,25 +8,25 @@
 		"linter",
 		"browser"
 	],
-	"homepage": "https://github.com/bhsd-harry/luacheck#readme",
+	"homepage": "https://github.com/bhsd-harry/luacheck-browserify#readme",
 	"bugs": {
-		"url": "https://github.com/bhsd-harry/luacheck/issues"
+		"url": "https://github.com/bhsd-harry/luacheck-browserify/issues"
 	},
 	"license": "MIT",
 	"files": [
-		"dist/*.[jt]s"
+		"dist/*.min.js",
+		"dist/*.d.ts"
 	],
-	"main": "dist/wasm.js",
 	"browser": "dist/index.min.js",
 	"types": "dist/wasm.d.ts",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bhsd-harry/luacheck.git"
+		"url": "git+https://github.com/bhsd-harry/luacheck-browserify.git"
 	},
 	"scripts": {
 		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint": "npm run lint:ts",
-		"build": "cd src; node ./bundle.js && cd .. && tsc && esbuild dist/wasm.js --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module",
+		"build": "cd src; node ./bundle.js && cd .. && tsc && esbuild dist/wasm.js --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module && eslint --no-eslintrc -c .eslintrc.dist.cjs dist/index.min.js",
 		"server": "npm run test:end; http-server .. -c-1 --cors &",
 		"test": "node spec/test.js",
 		"test:end": "pkill -x http-server"

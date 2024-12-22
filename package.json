@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"luacheck",
@@ -27,12 +27,12 @@
 		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint": "npm run lint:ts",
 		"build": "cd src; node ./bundle.js && cd .. && tsc && esbuild dist/wasm.js --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module && eslint --no-eslintrc -c .eslintrc.dist.cjs dist/index.min.js",
-		"server": "npm run test:end; http-server .. -c-1 --cors &",
+		"server": "npm run test:end; http-server .. -c-1 --cors -s &",
 		"test": "mocha",
 		"test:end": "pkill -x http-server"
 	},
 	"devDependencies": {
-		"@bhsd/common": "^0.5.0",
+		"@bhsd/common": "^0.6.3",
 		"@stylistic/eslint-plugin": "^2.11.0",
 		"@stylistic/stylelint-plugin": "^3.1.1",
 		"@types/mocha": "^10.0.10",

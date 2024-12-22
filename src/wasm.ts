@@ -155,12 +155,12 @@ class Luacheck {
  * @param std 全局变量集
  */
 const check = async (std: string): Promise<Luacheck> => {
-	const uri = typeof global === 'object' // eslint-disable-line unicorn/prefer-global-this
+	const uri = typeof process === 'object' && typeof process.versions?.node === 'string'
 			? undefined
 			: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`,
 		lua = await new LuaFactory(uri).createEngine();
 	await lua.doString(script);
-	return new Luacheck(lua.global.get('check') as checkFunc, std);
+	return new Luacheck(lua.global.get('check') satisfies checkFunc, std);
 };
 
 Object.assign(globalThis, {luacheck: check});

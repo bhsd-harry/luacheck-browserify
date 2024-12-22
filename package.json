@@ -28,13 +28,14 @@
 		"lint": "npm run lint:ts",
 		"build": "cd src; node ./bundle.js && cd .. && tsc && esbuild dist/wasm.js --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module && eslint --no-eslintrc -c .eslintrc.dist.cjs dist/index.min.js",
 		"server": "npm run test:end; http-server .. -c-1 --cors &",
-		"test": "node spec/test.js",
+		"test": "mocha",
 		"test:end": "pkill -x http-server"
 	},
 	"devDependencies": {
 		"@bhsd/common": "^0.5.0",
 		"@stylistic/eslint-plugin": "^2.11.0",
 		"@stylistic/stylelint-plugin": "^3.1.1",
+		"@types/mocha": "^10.0.10",
 		"@types/node": "^22.10.1",
 		"@typescript-eslint/eslint-plugin": "^8.16.0",
 		"@typescript-eslint/parser": "^8.16.0",
@@ -52,6 +53,7 @@
 		"http-server": "^14.1.0",
 		"luabundle": "^1.7.0",
 		"luamin": "^1.0.4",
+		"mocha": "^10.8.2",
 		"stylelint": "^16.11.0",
 		"stylelint-config-recommended": "^14.0.0",
 		"typescript": "^5.7.2",

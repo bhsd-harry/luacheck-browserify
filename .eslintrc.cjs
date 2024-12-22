@@ -2,4 +2,14 @@
 
 const config = require('@bhsd/common/eslintrc.node.cjs');
 
-module.exports = config;
+module.exports = {
+	...config,
+	overrides: [
+		{
+			files: 'spec/test.js',
+			env: {
+				mocha: true,
+			},
+		},
+	],
+};

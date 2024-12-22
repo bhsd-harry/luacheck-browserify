@@ -3,26 +3,24 @@
 
 const fs = require('fs'),
 	path = require('path'),
-	assert = require('assert');
-require('../dist/wasm.js');
-const init = process.argv[2] === 'init',
-	/** @type {Record<string, import('../dist/wasm').Diagnostic[]>} */ tests = init ? {} : require('./tests.json');
+	assert = require('assert'),
+	/** @type {Record<string, import('../dist/wasm').Diagnostic[]>} */ tests = require('./tests.json');
 
-(async () => {
-	const Luacheck = await luacheck();
+describe('Luacheck', () => {
 	for (const file of fs.readdirSync('spec/samples/')) {
 		if (file.endsWith('.lua')) {
-			const warnings = await Luacheck.queue(fs.readFileSync(path.join('spec', 'samples', file), 'utf8'));
-			if (init) {
+			it(file, async () => { // eslint-disable-line no-loop-func
+				const code = fs.readFileSync(path.join('spec', 'samples', file), 'utf8'),
+					warnings = await (await luacheck()).queue(code),
+					oldWarnings = tests[file];
 				tests[file] = warnings.map(
 					warning => Object.fromEntries(Object.entries(warning).sort(([a], [b]) => a.localeCompare(b))),
 				);
-			} else {
-				assert.deepStrictEqual(warnings, tests[file]);
-			}
+				assert.deepStrictEqual(warnings, oldWarnings);
+			});
 		}
 	}
-	if (init) {
+	after(() => {
 		fs.writeFileSync('spec/tests.json', `${JSON.stringify(tests, null, '\t')}\n`);
-	}
-})();
+	});
+});

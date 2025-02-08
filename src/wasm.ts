@@ -17,7 +17,7 @@ export interface Diagnostic {
 
 import {LuaFactory} from 'wasmoon';
 import {version} from 'wasmoon/package.json';
-import * as script from './bundle.json';
+import {script} from './bundle.json';
 
 const warnings: Record<string, string> = {
 	'011': 'Syntax error',
@@ -92,14 +92,15 @@ const getSeverity = (code: string): 0 | 1 | 2 => {
  * 添加警告信息
  * @param errors 语法警告
  */
-const addMsg = (errors: LuaReport[]): Diagnostic[] => errors.map(error => {
-	const {code, msg, ...e} = error;
-	return {
-		...e,
-		msg: msg ?? warnings[code]?.replace('$1', e.func ? 'function' : 'variable'),
-		severity: getSeverity(code),
-	} as LuaReport | Diagnostic;
-}).filter((error): error is Diagnostic => Boolean(error.msg));
+const addMsg = (errors: LuaReport[]): Diagnostic[] => errors
+	.map((error): Omit<Diagnostic, 'msg'> & {msg: string | undefined} => {
+		const {code, msg, ...e} = error;
+		return {
+			...e,
+			msg: msg ?? warnings[code]?.replace('$1', e.func ? 'function' : 'variable'),
+			severity: getSeverity(code),
+		};
+	}).filter((error): error is Diagnostic => Boolean(error.msg));
 
 class Luacheck {
 	#text: string;
@@ -155,12 +156,13 @@ class Luacheck {
  * @param std 全局变量集
  */
 const check = async (std: string): Promise<Luacheck> => {
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 	const uri = typeof process === 'object' && typeof process.versions?.node === 'string'
 			? undefined
 			: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`,
 		lua = await new LuaFactory(uri).createEngine();
 	await lua.doString(script);
-	return new Luacheck(lua.global.get('check') satisfies checkFunc, std);
+	return new Luacheck(lua.global.get('check') as checkFunc, std);
 };
 
 Object.assign(globalThis, {luacheck: check});

@@ -1,6 +1,6 @@
 {
 	"diff": false,
 	"reporter": "progress",
-	"file": "dist/wasm.js",
+	"file": "dist/index.min.js",
 	"spec": "spec/test.js"
 }

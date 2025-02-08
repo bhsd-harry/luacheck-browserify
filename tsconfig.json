@@ -3,7 +3,7 @@
 		"src/wasm.ts"
 	],
 	"compilerOptions": {
-		"target": "ES2023",
+		"target": "ES2024",
 		"module": "CommonJS",
 		"resolveJsonModule": true,
 		"declaration": true,

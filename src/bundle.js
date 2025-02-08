@@ -9,4 +9,5 @@ const bundledLua = bundle('./luacheck/init.lua', {force: true, isolate: true, me
 	f = fs.readFileSync('wasm.lua', 'utf8'),
 	s = luamin.minify(`${bundledLua.slice(0, i + 1)}local luacheck=${bundledLua.slice(i + 7)}\n${f}`);
 fs.writeFileSync('bundle.lua', `${s}\nreturn check`);
-fs.writeFileSync('bundle.json', `${JSON.stringify(s)}\n`);
+fs.writeFileSync('bundle.json', `${JSON.stringify({script: s}, null, '\t')}\n`);
+fs.copyFileSync(require.resolve('wasmoon/dist/glue.wasm'), '../dist/glue.wasm');

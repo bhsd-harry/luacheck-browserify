@@ -193,6 +193,9 @@ local std = {
 						truncate = {},
 						unstripNoWiki = {},
 						unstrip = {},
+						JSON_PRESERVE_KEYS = {},
+						JSON_TRY_FIXING = {},
+						JSON_PRETTY = {},
 					},
 				},
 				title = {

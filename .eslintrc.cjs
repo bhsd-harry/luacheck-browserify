@@ -4,6 +4,10 @@ const config = require('@bhsd/common/eslintrc.node.cjs');
 
 module.exports = {
 	...config,
+	ignorePatterns: [
+		...config.ignorePatterns,
+		'doc/',
+	],
 	overrides: [
 		...config.overrides,
 		{

@@ -140,14 +140,17 @@ class Luacheck {
 	 */
 	async #lint(text: string): Promise<Diagnostic[]> { // eslint-disable-line require-await
 		const errors = this.#check(text, this.#std);
-		if (this.#text === text) {
+		return new Promise(resolve => {
 			setTimeout(() => {
-				this.#running = undefined;
+				if (this.#text === text) {
+					this.#running = undefined;
+					resolve(Array.isArray(errors) ? addMsg(errors) : []);
+					return;
+				}
+				this.#running = this.#lint(this.#text);
+				resolve(this.#running);
 			}, 0);
-			return Array.isArray(errors) ? addMsg(errors) : [];
-		}
-		this.#running = this.#lint(this.#text);
-		return this.#running;
+		});
 	}
 }
 

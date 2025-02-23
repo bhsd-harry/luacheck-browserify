@@ -548,7 +548,7 @@
 			],
 			"indirect": true,
 			"line": 2,
-			"msg": "Accessing an undefined field of a global variable",
+			"msg": "Accessing an undefined field of a global variable using a local alias",
 			"name": "table",
 			"previous_indexing_len": 1,
 			"severity": 2
@@ -571,7 +571,7 @@
 			],
 			"indirect": true,
 			"line": 8,
-			"msg": "Setting an undefined field of a global variable",
+			"msg": "Setting an undefined field of a global variable using a local alias",
 			"name": "table",
 			"previous_indexing_len": 2,
 			"severity": 2
@@ -863,7 +863,7 @@
 			],
 			"indirect": true,
 			"line": 5,
-			"msg": "Setting an undefined field of a global variable",
+			"msg": "Setting an undefined field of a global variable using a local alias",
 			"name": "table",
 			"previous_indexing_len": 2,
 			"severity": 2
@@ -1257,9 +1257,17 @@
 	],
 	"unused_code.lua": [
 		{
+			"column": 7,
+			"end_column": 9,
+			"line": 2,
+			"msg": "Local variable is mutated but never accessed",
+			"name": "foo",
+			"severity": 1
+		},
+		{
 			"column": 18,
 			"end_column": 20,
-			"line": 3,
+			"line": 4,
 			"msg": "Unused argument",
 			"name": "baz",
 			"severity": 1
@@ -1267,7 +1275,7 @@
 		{
 			"column": 8,
 			"end_column": 8,
-			"line": 4,
+			"line": 5,
 			"msg": "Unused loop variable",
 			"name": "i",
 			"severity": 0
@@ -1275,7 +1283,7 @@
 		{
 			"column": 13,
 			"end_column": 13,
-			"line": 5,
+			"line": 6,
 			"msg": "Unused local variable",
 			"name": "q",
 			"severity": 1
@@ -1283,7 +1291,7 @@
 		{
 			"column": 11,
 			"end_column": 11,
-			"line": 7,
+			"line": 8,
 			"msg": "Unused loop variable",
 			"name": "a",
 			"severity": 0
@@ -1291,7 +1299,7 @@
 		{
 			"column": 14,
 			"end_column": 14,
-			"line": 7,
+			"line": 8,
 			"msg": "Unused loop variable",
 			"name": "b",
 			"severity": 0
@@ -1299,7 +1307,7 @@
 		{
 			"column": 17,
 			"end_column": 17,
-			"line": 7,
+			"line": 8,
 			"msg": "Unused loop variable",
 			"name": "c",
 			"severity": 0
@@ -1307,44 +1315,14 @@
 		{
 			"column": 10,
 			"end_column": 14,
-			"line": 8,
+			"line": 9,
 			"msg": "Accessing an undefined global variable",
 			"name": "print",
 			"severity": 2
 		},
 		{
-			"column": 7,
-			"end_column": 7,
-			"line": 13,
-			"msg": "Value assigned to a local variable is unused",
-			"name": "x",
-			"overwritten_column": 1,
-			"overwritten_end_column": 1,
-			"overwritten_line": 14,
-			"severity": 1
-		},
-		{
-			"column": 1,
-			"end_column": 1,
-			"line": 14,
-			"msg": "Value assigned to a local variable is unused",
-			"name": "x",
-			"overwritten_column": 1,
-			"overwritten_end_column": 1,
-			"overwritten_line": 15,
-			"severity": 1
-		},
-		{
-			"column": 8,
-			"end_column": 12,
-			"line": 15,
-			"msg": "Accessing an undefined global variable",
-			"name": "print",
-			"severity": 2
-		},
-		{
-			"column": 13,
-			"end_column": 17,
+			"column": 22,
+			"end_column": 26,
 			"line": 18,
 			"msg": "Accessing an undefined global variable",
 			"name": "print",
@@ -1354,9 +1332,71 @@
 			"column": 7,
 			"end_column": 7,
 			"line": 21,
+			"msg": "Value assigned to a local variable is unused",
+			"name": "x",
+			"overwritten_column": 1,
+			"overwritten_end_column": 1,
+			"overwritten_line": 22,
+			"severity": 1
+		},
+		{
+			"column": 1,
+			"end_column": 1,
+			"line": 22,
+			"msg": "Value assigned to a local variable is unused",
+			"name": "x",
+			"overwritten_column": 1,
+			"overwritten_end_column": 1,
+			"overwritten_line": 23,
+			"severity": 1
+		},
+		{
+			"column": 8,
+			"end_column": 12,
+			"line": 23,
+			"msg": "Accessing an undefined global variable",
+			"name": "print",
+			"severity": 2
+		},
+		{
+			"column": 13,
+			"end_column": 17,
+			"line": 26,
+			"msg": "Accessing an undefined global variable",
+			"name": "print",
+			"severity": 2
+		},
+		{
+			"column": 7,
+			"end_column": 7,
+			"line": 29,
 			"msg": "Local variable is set but never accessed",
 			"name": "z",
 			"severity": 1
+		},
+		{
+			"column": 19,
+			"end_column": 23,
+			"line": 35,
+			"msg": "Accessing an undefined global variable",
+			"name": "print",
+			"severity": 2
+		},
+		{
+			"column": 19,
+			"end_column": 23,
+			"line": 40,
+			"msg": "Accessing an undefined global variable",
+			"name": "print",
+			"severity": 2
+		},
+		{
+			"column": 23,
+			"end_column": 27,
+			"line": 45,
+			"msg": "Accessing an undefined global variable",
+			"name": "print",
+			"severity": 2
 		}
 	],
 	"unused_secondaries.lua": [
@@ -1455,6 +1495,61 @@
 			"end_column": 11,
 			"line": 2,
 			"msg": "expected statement near 'о'",
+			"severity": 2
+		}
+	],
+	"compound_operators.lua": [
+		{
+			"column": 1,
+			"end_column": 7,
+			"line": 2,
+			"msg": "Invalid use of a compound operator",
+			"operator": "+=",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 6,
+			"line": 3,
+			"msg": "Invalid use of a compound operator",
+			"operator": "-=",
+			"severity": 2
+		},
+		{
+			"column": 2,
+			"end_column": 7,
+			"line": 5,
+			"msg": "Invalid use of a compound operator",
+			"operator": "/=",
+			"severity": 2
+		},
+		{
+			"column": 1,
+			"end_column": 8,
+			"line": 10,
+			"msg": "Invalid use of a compound operator",
+			"operator": "*=",
+			"severity": 2
+		}
+	],
+	"luanti.lua": [
+		{
+			"column": 11,
+			"end_column": 14,
+			"line": 1,
+			"msg": "Accessing an undefined global variable",
+			"name": "core",
+			"severity": 2
+		},
+		{
+			"column": 11,
+			"end_column": 14,
+			"indexing": [
+				"get_current_modname"
+			],
+			"line": 2,
+			"msg": "Accessing an undefined global variable",
+			"name": "core",
 			"severity": 2
 		}
 	]

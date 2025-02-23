@@ -322,4 +322,55 @@ end
    it("handles argparse sample", function()
       assert.table(check(io.open("spec/samples/argparse-0.2.0.lua", "rb"):read("*a")))
    end)
+
+   it("recommends using the opposite operator when negating a relational operator", function()
+      assert.same({
+         {code = "581", line = 1, column = 13, end_column = 23, operator = ">", replacement_operator = "<="}
+      }, check[[
+         if not (5 > 5) then return end
+]])
+   end)
+
+   describe("error-prone negations", function()
+      it("as sole conditions", function()
+         assert.same({
+            {code = "582", line = 1, column = 16, end_column = 24}
+         }, check[[
+            if not 5 > 5 then return end
+]])
+      end)
+
+      it("as subexpressions", function()
+         assert.same({
+            {code = "582", line = 1, column = 25, end_column = 34}
+         }, check[[
+            if not 5 or not 5 == 5 then return end
+]])
+      end)
+
+      it("doesn't warn if properly parenthesized", function()
+         assert.same({}, check[[
+            if (not 5) == 5 then return end
+]])
+      end)
+
+      it("doesn't warn for a literal 'not'", function()
+         assert.same({}, check[[
+            if 5 == "not" then return end
+]])
+      end)
+   end)
+
+   it("doesn't warn on similarly named variables", function()
+      assert.same({}, check[[
+         local eq = true
+         if not eq then return end
+]])
+   end)
+
+   it("doesn't warn on error-prone negations if they have explicit parentheses", function()
+      assert.same({}, check[[
+         if (not 5) > 5 then return end
+]])
+   end)
 end)

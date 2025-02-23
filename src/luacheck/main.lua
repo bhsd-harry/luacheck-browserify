@@ -26,7 +26,7 @@ local function get_parser()
       "luacheck", "luacheck " .. luacheck._VERSION .. ", a linter and a static analyzer for Lua.", [[
 Links:
 
-   Luacheck on GitHub: https://github.com/mpeterv/luacheck
+   Luacheck on GitHub: https://github.com/lunarmodules/luacheck
    Luacheck documentation: https://luacheck.readthedocs.org]])
       :help_max_width(80)
 
@@ -69,6 +69,12 @@ Links:
          :count "*"
          :argname "<patt>"
          :action "concat"
+         :init(nil),
+      parser:option("--operators", "Allow compound operators matching patterns")
+         :args "+"
+         :count "*"
+         :argname "<patt>"
+         :action "concat"
          :init(nil))
 
    parser:group("Options for configuring allowed globals",
@@ -81,9 +87,13 @@ Links:
          "   lua52c - globals of Lua 5.2 with LUA_COMPAT_ALL;\n" ..
          "   lua53 - globals of Lua 5.3;\n" ..
          "   lua53c - globals of Lua 5.3 with LUA_COMPAT_5_2;\n" ..
+         "   lua54 - globals of Lua 5.4;\n" ..
+         "   lua54c - globals of Lua 5.4 with LUA_COMPAT_5_3;\n" ..
          "   luajit - globals of LuaJIT 2.x;\n" ..
          "   ngx_lua - globals of Openresty lua-nginx-module 0.10.10, including standard LuaJIT 2.x globals;\n" ..
          "   love - globals added by LÖVE;\n" ..
+         "   luanti - globals added by Luanti (formerly Minetest);\n" ..
+         "   playdate - globals added by the Playdate SDK;\n" ..
          "   busted - globals added by Busted 2.0, by default added for files ending with _spec.lua within spec, " ..
          "test, and tests subdirectories;\n" ..
          "   rockspec - globals allowed in rockspecs, by default added for files ending with .rockspec;\n" ..
@@ -347,7 +357,7 @@ if utils.is_instance(err, utils.InvalidPatternError) then
 elseif type(err) == "string" and err:find("interrupted!$") then
    critical("Interrupted")
 else
-   local msg = ("Luacheck %s bug (please report at https://github.com/mpeterv/luacheck/issues):\n%s\n%s"):format(
+   local msg = ("Luacheck %s bug (please report at https://github.com/lunarmodules/luacheck/issues):\n%s\n%s"):format(
       luacheck._VERSION, err, traceback)
    critical(msg)
 end

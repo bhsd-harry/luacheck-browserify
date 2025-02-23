@@ -1,4 +1,6 @@
 local love = require "luacheck.builtin_standards.love"
+local luanti = require "luacheck.builtin_standards.luanti"
+local playdate = require "luacheck.builtin_standards.playdate"
 local ngx = require "luacheck.builtin_standards.ngx"
 local standards = require "luacheck.standards"
 
@@ -28,6 +30,7 @@ string_defs.min = standards.def_fields("byte", "char", "dump", "find", "format",
 string_defs.lua51 = add_defs(string_defs.min, standards.def_fields("gfind"))
 string_defs.lua52 = string_defs.min
 string_defs.lua53 = add_defs(string_defs.min, standards.def_fields("pack", "packsize", "unpack"))
+string_defs.lua54 = string_defs.lua53
 string_defs.luajit = string_defs.lua51
 
 local file_defs = {}
@@ -50,6 +53,7 @@ file_defs.min = {
 file_defs.lua51 = file_defs.min
 file_defs.lua52 = file_defs.min
 file_defs.lua53 = add_defs(file_defs.min, {fields = {__name = string_defs.lua53}})
+file_defs.lua54 = add_defs(file_defs.min, {fields = {__name = string_defs.lua54}})
 file_defs.luajit = file_defs.min
 
 local function make_min_def(method_defs)
@@ -221,6 +225,18 @@ lua_defs.lua53c = add_defs(lua_defs.lua53, {
       math = standards.def_fields("atan2", "cosh", "frexp", "ldexp", "log10", "pow", "sinh", "tanh")
    }
 })
+lua_defs.lua54 = add_defs(lua_defs.lua53, {
+   fields = {
+      warn = empty,
+      debug = standards.def_fields("setcstacklimit"),
+      coroutine = standards.def_fields("close"),
+   }
+})
+lua_defs.lua54c = add_defs(lua_defs.lua54, {
+   fields = {
+      math = standards.def_fields("atan2", "cosh", "frexp", "ldexp", "log10", "pow", "sinh", "tanh")
+   }
+})
 lua_defs.luajit = add_defs(make_min_def("luajit"), {
    fields = {
       bit = standards.def_fields("arshift", "band", "bnot", "bor", "bswap", "bxor", "lshift", "rol", "ror",
@@ -247,7 +263,7 @@ lua_defs.luajit = add_defs(make_min_def("luajit"), {
    }
 })
 lua_defs.ngx_lua = add_defs(lua_defs.luajit, ngx)
-lua_defs.max = add_defs(lua_defs.lua51c, lua_defs.lua52c, lua_defs.lua53c, lua_defs.luajit)
+lua_defs.max = add_defs(lua_defs.lua51c, lua_defs.lua52c, lua_defs.lua53c, lua_defs.lua54c, lua_defs.luajit)
 
 for name, def in pairs(lua_defs) do
    builtin_standards[name] = def_to_std(def)
@@ -262,6 +278,8 @@ local function get_running_lua_std_name()
       return "lua52c"
    elseif _VERSION == "Lua 5.3" then
       return "lua53c"
+   elseif _VERSION == "Lua 5.4" then
+      return "lua54c"
    else
       return "max"
    end
@@ -271,13 +289,19 @@ builtin_standards._G = builtin_standards[get_running_lua_std_name()]
 
 builtin_standards.busted = {
    read_globals = {
-      "describe", "insulate", "expose", "it", "pending", "before_each", "after_each",
+      "describe", "insulate", "expose", "it", "pending", "before_each", "after_each", "match",
       "lazy_setup", "lazy_teardown", "strict_setup", "strict_teardown", "setup", "teardown",
       "context", "spec", "test", "assert", "spy", "mock", "stub", "finally", "randomize"
    }
 }
 
 builtin_standards.love = love
+
+builtin_standards.luanti = luanti
+-- Minetest was renamed to Luanti. Keep an alias for compatibility.
+builtin_standards.minetest = luanti
+
+builtin_standards.playdate = playdate
 
 builtin_standards.rockspec = {
    globals = {
@@ -292,7 +316,33 @@ builtin_standards.luacheckrc = {
       "allow_defined_top", "module", "globals", "read_globals", "new_globals", "new_read_globals", "not_globals",
       "ignore", "enable", "only", "std", "max_line_length", "max_code_line_length", "max_string_line_length",
       "max_comment_line_length", "max_cyclomatic_complexity", "quiet", "color", "codes", "ranges", "formatter",
-      "cache", "jobs", "files", "stds", "exclude_files", "include_files"
+      "cache", "jobs", "files", "stds", "exclude_files", "include_files", "operators"
+   }
+}
+
+builtin_standards.ldoc = {
+   globals = {
+      -- Fields from cli parameters
+      "file", "project", "title", "package", "all", "format", "output", "dir", "colon", "boilerplate", "ext", "one",
+      "style", "template", "merge", "icon",
+      -- `config.ld` additional fields
+      "description", "full_description", "examples", "readme", "topics", "pretty", "prettify_files", "charset", "sort",
+      "no_return_or_parms", "no_lua_ref", "backtick_references", "plain", "wrap", "manual_url", "no_summary",
+      "custom_tags", "custom_see_handler", "custom_display_name_handler", "not_luadoc", "no_space_before_args",
+      "template_escape", "user_keywords", "postprocess_html",
+      -- Available functions
+      "alias", "add_language_extension", "add_section", "new_type", "tparam_alias", "custom_see_handler",
+      -- "Undocumented" fields
+      "kind_names", "topics", "unqualified", "dont_escape_underscore", "custom_css", "version", "no_args_infer",
+      "parse_extra", "output", "dir", "charset", "ignore", "module_file", "vars", "wrap", "not_luadoc",
+      "merge_error_groups", "sort_modules", "use_markdown_titles", "custom_references", "global_lookup", "convert_opt"
+   }
+}
+
+builtin_standards.sile = {
+   globals = {
+      package = { fields = { "searchpath" } },
+      "SILE", "SU", "luautf8", "pl", "fluent", "executablePath", "extendSilePath", "CASILE"
    }
 }
 

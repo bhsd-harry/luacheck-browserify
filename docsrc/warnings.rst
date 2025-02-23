@@ -10,6 +10,7 @@ Code Description
 021  An invalid inline option.
 022  An unpaired inline push directive.
 023  An unpaired inline pop directive.
+033  Invalid use of a compound operator. (Lua doesn't support compound operator by default; if using an extension that does, please set the operators option.)
 111  Setting an undefined global variable.
 112  Mutating an undefined global variable.
 113  Accessing an undefined global variable.
@@ -21,6 +22,7 @@ Code Description
 211  Unused local variable.
 212  Unused argument.
 213  Unused loop variable.
+214  Used variable.
 221  Local variable is accessed but never set.
 231  Local variable is set but never accessed.
 232  An argument is set but never accessed.
@@ -52,6 +54,8 @@ Code Description
 551  An empty statement.
 561  Cyclomatic complexity of a function is too high.
 571  A numeric for loop goes from #(expr) down to 1 or less without negative step.
+581  Negation of a relational operator- operator can be flipped.
+582  Error prone negation: negation has a higher priority than equality.
 611  A line consists of nothing but whitespace.
 612  A line contains trailing whitespace.
 613  Trailing whitespace in a string.
@@ -99,6 +103,11 @@ Unused variables (2xx) and values (3xx)
 ---------------------------------------
 
 Luacheck generates warnings for all unused local variables except one named ``_``. It also detects variables which are set but never accessed or accessed but never set.
+
+"Unused hint" (214)
+^^^^^^^^^^^^^^^^^^^
+
+If a function argument starts with an underscore ``_``, it recevies an "unused hint", meaning that it's intended to be left unused.  If it is used, a 214 warning is generated.
 
 Unused values and uninitialized variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -227,6 +236,22 @@ going from ``#(some expression)`` to ``1`` or a smaller constant when the loop s
    for i = #t, 1, -1 do
       print(t[i])
    end
+
+Error-prone and Unnecessary Negations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Negation has a higher priority than relational operators; (not x == 3) is interpreted as (not x) == 3, rather than not (x == 3).
+
+Negating the output of a relational operator is unnecessary; each one has another operator that can be used directly:
+
+not (x == y) => x ~= y
+not (x ~= y) => x == y
+not (x > y) => x <= y
+not (x >= y) => x < y
+not (x < y) => x >= y
+not (x <= y) => x > y
+
+These replacements work for all numbers, but can fail with metatables or NaN's.
 
 Formatting issues (6xx)
 -----------------------

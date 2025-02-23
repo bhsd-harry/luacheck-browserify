@@ -191,19 +191,20 @@ Checking spec/samples/bad_code.lua                5 warnings
     spec/samples/bad_code.lua:8:10: variable 'opt' was previously defined as an argument on line 7
     spec/samples/bad_code.lua:9:11: accessing undefined variable 'hepler'
 
-Checking spec/samples/unused_code.lua             9 warnings
+Checking spec/samples/unused_code.lua             10 warnings
 
-    spec/samples/unused_code.lua:3:18: unused argument 'baz'
-    spec/samples/unused_code.lua:4:8: unused loop variable 'i'
-    spec/samples/unused_code.lua:5:13: unused variable 'q'
-    spec/samples/unused_code.lua:7:11: unused loop variable 'a'
-    spec/samples/unused_code.lua:7:14: unused loop variable 'b'
-    spec/samples/unused_code.lua:7:17: unused loop variable 'c'
-    spec/samples/unused_code.lua:13:7: value assigned to variable 'x' is overwritten on line 14 before use
-    spec/samples/unused_code.lua:14:1: value assigned to variable 'x' is overwritten on line 15 before use
-    spec/samples/unused_code.lua:21:7: variable 'z' is never accessed
+    spec/samples/unused_code.lua:2:7: variable 'foo' is mutated but never accessed
+    spec/samples/unused_code.lua:4:18: unused argument 'baz'
+    spec/samples/unused_code.lua:5:8: unused loop variable 'i'
+    spec/samples/unused_code.lua:6:13: unused variable 'q'
+    spec/samples/unused_code.lua:8:11: unused loop variable 'a'
+    spec/samples/unused_code.lua:8:14: unused loop variable 'b'
+    spec/samples/unused_code.lua:8:17: unused loop variable 'c'
+    spec/samples/unused_code.lua:21:7: value assigned to variable 'x' is overwritten on line 22 before use
+    spec/samples/unused_code.lua:22:1: value assigned to variable 'x' is overwritten on line 23 before use
+    spec/samples/unused_code.lua:29:7: variable 'z' is never accessed
 
-Total: 14 warnings / 0 errors in 3 files
+Total: 15 warnings / 0 errors in 3 files
 ]], get_output "-q spec/samples/bad_code.lua spec/samples/good_code.lua spec/samples/unused_code.lua --no-config")
       assert.equal([[
 Total: 0 warnings / 0 errors in 1 file
@@ -213,14 +214,14 @@ Total: 0 warnings / 0 errors in 1 file
    it("suppresses warnings output with -qq", function()
       assert.equal([[
 Checking spec/samples/bad_code.lua                5 warnings
-Checking spec/samples/unused_code.lua             9 warnings
+Checking spec/samples/unused_code.lua             10 warnings
 
-Total: 14 warnings / 0 errors in 3 files
+Total: 15 warnings / 0 errors in 3 files
 ]], get_output "-qq spec/samples/bad_code.lua spec/samples/good_code.lua spec/samples/unused_code.lua --no-config")
    end)
 
    it("suppresses file info output with -qqq", function()
-      assert.equal([[Total: 14 warnings / 0 errors in 3 files
+      assert.equal([[Total: 15 warnings / 0 errors in 3 files
 ]], get_output "-qqq spec/samples/bad_code.lua spec/samples/good_code.lua spec/samples/unused_code.lua --no-config")
    end)
 
@@ -294,6 +295,36 @@ Total: 5 warnings / 0 errors in 1 file
 ]], get_output "--std lua51+lua52+lua53 spec/samples/bad_code.lua --no-config")
    end)
 
+   it("raises critical errors on config without additional operators", function()
+      assert.equal([[Checking spec/samples/compound_operators.lua      4 errors
+
+    spec/samples/compound_operators.lua:2:1: assignment uses compound operator +=
+    spec/samples/compound_operators.lua:3:1: assignment uses compound operator -=
+    spec/samples/compound_operators.lua:5:2: assignment uses compound operator /=
+    spec/samples/compound_operators.lua:10:1: assignment uses compound operator *=
+
+Total: 0 warnings / 4 errors in 1 file
+]], get_output "spec/samples/compound_operators.lua --no-config")
+   end)
+
+   it("raises critical errors for unfiltered additional operators", function()
+      assert.equal([[Checking spec/samples/compound_operators.lua      3 errors
+
+    spec/samples/compound_operators.lua:3:1: assignment uses compound operator -=
+    spec/samples/compound_operators.lua:5:2: assignment uses compound operator /=
+    spec/samples/compound_operators.lua:10:1: assignment uses compound operator *=
+
+Total: 0 warnings / 3 errors in 1 file
+]], get_output "spec/samples/compound_operators.lua --no-config --operators +=")
+   end)
+
+   it("allows to define allowed compound operators", function()
+      assert.equal([[Checking spec/samples/compound_operators.lua      OK
+
+Total: 0 warnings / 0 errors in 1 file
+]], get_output "spec/samples/compound_operators.lua --config=spec/configs/compound_operators_config.luacheckrc")
+   end)
+
    it("allows to ignore some variables", function()
       assert.equal([[
 Checking spec/samples/bad_code.lua                3 warnings
@@ -318,32 +349,34 @@ Total: 1 warning / 0 errors in 1 file
 
    it("recognizes different types of variables", function()
       assert.equal([[
-Checking spec/samples/unused_code.lua             9 warnings
+Checking spec/samples/unused_code.lua             10 warnings
 
-    spec/samples/unused_code.lua:3:18: unused argument 'baz'
-    spec/samples/unused_code.lua:4:8: unused loop variable 'i'
-    spec/samples/unused_code.lua:5:13: unused variable 'q'
-    spec/samples/unused_code.lua:7:11: unused loop variable 'a'
-    spec/samples/unused_code.lua:7:14: unused loop variable 'b'
-    spec/samples/unused_code.lua:7:17: unused loop variable 'c'
-    spec/samples/unused_code.lua:13:7: value assigned to variable 'x' is overwritten on line 14 before use
-    spec/samples/unused_code.lua:14:1: value assigned to variable 'x' is overwritten on line 15 before use
-    spec/samples/unused_code.lua:21:7: variable 'z' is never accessed
+    spec/samples/unused_code.lua:2:7: variable 'foo' is mutated but never accessed
+    spec/samples/unused_code.lua:4:18: unused argument 'baz'
+    spec/samples/unused_code.lua:5:8: unused loop variable 'i'
+    spec/samples/unused_code.lua:6:13: unused variable 'q'
+    spec/samples/unused_code.lua:8:11: unused loop variable 'a'
+    spec/samples/unused_code.lua:8:14: unused loop variable 'b'
+    spec/samples/unused_code.lua:8:17: unused loop variable 'c'
+    spec/samples/unused_code.lua:21:7: value assigned to variable 'x' is overwritten on line 22 before use
+    spec/samples/unused_code.lua:22:1: value assigned to variable 'x' is overwritten on line 23 before use
+    spec/samples/unused_code.lua:29:7: variable 'z' is never accessed
 
-Total: 9 warnings / 0 errors in 1 file
+Total: 10 warnings / 0 errors in 1 file
 ]], get_output "spec/samples/unused_code.lua --no-config")
    end)
 
    it("allows to ignore unused arguments", function()
       assert.equal([[
-Checking spec/samples/unused_code.lua             4 warnings
+Checking spec/samples/unused_code.lua             5 warnings
 
-    spec/samples/unused_code.lua:5:13: unused variable 'q'
-    spec/samples/unused_code.lua:13:7: value assigned to variable 'x' is overwritten on line 14 before use
-    spec/samples/unused_code.lua:14:1: value assigned to variable 'x' is overwritten on line 15 before use
-    spec/samples/unused_code.lua:21:7: variable 'z' is never accessed
+    spec/samples/unused_code.lua:2:7: variable 'foo' is mutated but never accessed
+    spec/samples/unused_code.lua:6:13: unused variable 'q'
+    spec/samples/unused_code.lua:21:7: value assigned to variable 'x' is overwritten on line 22 before use
+    spec/samples/unused_code.lua:22:1: value assigned to variable 'x' is overwritten on line 23 before use
+    spec/samples/unused_code.lua:29:7: variable 'z' is never accessed
 
-Total: 4 warnings / 0 errors in 1 file
+Total: 5 warnings / 0 errors in 1 file
 ]], get_output "spec/samples/unused_code.lua --no-unused-args --no-config")
    end)
 
@@ -421,7 +454,7 @@ Total: 5 warnings / 0 errors in 2 files
       assert.matches([[
 Checking spec/samples/bad.rockspec                Runtime error
 
-    spec/samples/bad%.rockspec: line 1: attempt to call .+
+    spec/samples/bad%.rockspec: line 1: .*call.*
 
 Total: 0 warnings / 0 errors in 0 files, couldn't check 1 file
 ]], get_output "spec/samples/bad.rockspec --no-config")
@@ -990,7 +1023,7 @@ spec/samples/python_code.lua:1:6: (E011) expected '=' near '__future__'
    end)
 
    it("expands folders", function()
-      assert.matches("^Total: %d+ warnings / %d+ errors in 26 files\n$", get_output "spec/samples -qqq --no-config --exclude-files spec/samples/global_fields.lua")
+      assert.matches("^Total: %d+ warnings / %d+ errors in 28 files\n$", get_output "spec/samples -qqq --no-config --exclude-files spec/samples/global_fields.lua")
    end)
 
    it("uses --include-files when expanding folders", function()
@@ -1159,13 +1192,13 @@ Checking spec/samples/unused_secondaries.lua      1 warning
 
 Checking spec/samples/unused_code.lua             7 warnings
 
-    spec/samples/unused_code.lua:3:18: unused argument 'baz'
-    spec/samples/unused_code.lua:4:8: unused loop variable 'i'
-    spec/samples/unused_code.lua:7:11: unused loop variable 'a'
-    spec/samples/unused_code.lua:7:14: unused loop variable 'b'
-    spec/samples/unused_code.lua:7:17: unused loop variable 'c'
-    spec/samples/unused_code.lua:13:7: value assigned to variable 'x' is overwritten on line 14 before use
-    spec/samples/unused_code.lua:14:1: value assigned to variable 'x' is overwritten on line 15 before use
+    spec/samples/unused_code.lua:4:18: unused argument 'baz'
+    spec/samples/unused_code.lua:5:8: unused loop variable 'i'
+    spec/samples/unused_code.lua:8:11: unused loop variable 'a'
+    spec/samples/unused_code.lua:8:14: unused loop variable 'b'
+    spec/samples/unused_code.lua:8:17: unused loop variable 'c'
+    spec/samples/unused_code.lua:21:7: value assigned to variable 'x' is overwritten on line 22 before use
+    spec/samples/unused_code.lua:22:1: value assigned to variable 'x' is overwritten on line 23 before use
 
 Total: 8 warnings / 0 errors in 2 files
 ]], get_output "spec/samples/unused_secondaries.lua spec/samples/unused_code.lua --config=spec/configs/multioverride_config.luacheckrc")
@@ -1182,7 +1215,7 @@ Checking spec/samples/bad_code.lua                4 warnings
 
 Checking spec/samples/unused_code.lua             1 warning
 
-    spec/samples/unused_code.lua:5:13: unused variable 'q'
+    spec/samples/unused_code.lua:6:13: unused variable 'q'
 
 Total: 5 warnings / 0 errors in 2 files
 ]], get_output "spec/samples/bad_code.lua spec/samples/unused_code.lua --config=spec/configs/override_config.luacheckrc --enable=211")
@@ -1190,7 +1223,7 @@ Total: 5 warnings / 0 errors in 2 files
 
          it("allows using cli-specific options in top level config", function()
             assert.equal([[Files: 2
-Warnings: 14
+Warnings: 15
 Errors: 0
 Quiet: 0
 Color: false
@@ -1202,23 +1235,25 @@ Codes: true
             assert.equal(([[
 Checking spec/samples/argparse-0.2.0.lua          9 warnings
 Checking spec/samples/compat.lua                  4 warnings
+Checking spec/samples/compound_operators.lua      4 errors
 Checking spec/samples/custom_std_inline_options.lua 3 warnings / 1 error
 Checking spec/samples/global_inline_options.lua   3 warnings
 Checking spec/samples/globals.lua                 2 warnings
 Checking spec/samples/indirect_globals.lua        3 warnings
 Checking spec/samples/inline_options.lua          7 warnings / 2 errors
 Checking spec/samples/line_length.lua             8 warnings
+Checking spec/samples/luanti.lua                  2 warnings
 Checking spec/samples/python_code.lua             1 error
 Checking spec/samples/read_globals.lua            5 warnings
 Checking spec/samples/read_globals_inline_options.lua 3 warnings
 Checking spec/samples/redefined.lua               7 warnings
 Checking spec/samples/reversed_fornum.lua         1 warning
-Checking spec/samples/unused_code.lua             9 warnings
+Checking spec/samples/unused_code.lua             10 warnings
 Checking spec/samples/unused_secondaries.lua      4 warnings
 Checking spec/samples/utf8.lua                    4 warnings
 Checking spec/samples/utf8_error.lua              1 error
 
-Total: 72 warnings / 5 errors in 19 files
+Total: 75 warnings / 9 errors in 21 files
 ]]):gsub("(spec/samples)/", "%1"..package.config:sub(1, 1)),
             get_output "spec/samples --config=spec/configs/exclude_files_config.luacheckrc -qq --exclude-files spec/samples/global_fields.lua")
          end)
@@ -1227,23 +1262,25 @@ Total: 72 warnings / 5 errors in 19 files
             assert.equal([[
 Checking argparse-0.2.0.lua                       9 warnings
 Checking compat.lua                               4 warnings
+Checking compound_operators.lua                   4 errors
 Checking custom_std_inline_options.lua            3 warnings / 1 error
 Checking global_inline_options.lua                3 warnings
 Checking globals.lua                              2 warnings
 Checking indirect_globals.lua                     3 warnings
 Checking inline_options.lua                       7 warnings / 2 errors
 Checking line_length.lua                          8 warnings
+Checking luanti.lua                               2 warnings
 Checking python_code.lua                          1 error
 Checking read_globals.lua                         5 warnings
 Checking read_globals_inline_options.lua          3 warnings
 Checking redefined.lua                            7 warnings
 Checking reversed_fornum.lua                      1 warning
-Checking unused_code.lua                          9 warnings
+Checking unused_code.lua                          10 warnings
 Checking unused_secondaries.lua                   4 warnings
 Checking utf8.lua                                 4 warnings
 Checking utf8_error.lua                           1 error
 
-Total: 72 warnings / 5 errors in 19 files
+Total: 75 warnings / 9 errors in 21 files
 ]], get_output(". --config=spec/configs/exclude_files_config.luacheckrc -qq --exclude-files global_fields.lua", "spec/samples/"))
          end)
 
@@ -1251,21 +1288,23 @@ Total: 72 warnings / 5 errors in 19 files
             assert.equal([[
 Checking argparse-0.2.0.lua                       9 warnings
 Checking compat.lua                               4 warnings
+Checking compound_operators.lua                   4 errors
 Checking custom_std_inline_options.lua            3 warnings / 1 error
 Checking global_inline_options.lua                3 warnings
 Checking globals.lua                              2 warnings
 Checking indirect_globals.lua                     3 warnings
 Checking inline_options.lua                       7 warnings / 2 errors
 Checking line_length.lua                          8 warnings
+Checking luanti.lua                               2 warnings
 Checking python_code.lua                          1 error
 Checking redefined.lua                            7 warnings
 Checking reversed_fornum.lua                      1 warning
-Checking unused_code.lua                          9 warnings
+Checking unused_code.lua                          10 warnings
 Checking unused_secondaries.lua                   4 warnings
 Checking utf8.lua                                 4 warnings
 Checking utf8_error.lua                           1 error
 
-Total: 64 warnings / 5 errors in 17 files
+Total: 67 warnings / 9 errors in 19 files
 ]], get_output(". --config=spec/configs/exclude_files_config.luacheckrc -qq --exclude-files global_fields.lua --exclude-files " .. quote("./read*"), "spec/samples/"))
          end)
 
@@ -1313,6 +1352,20 @@ Checking spec/samples/globals.lua                 1 warning
 
 Total: 1 warning / 0 errors in 1 file
 ]], get_output "spec/samples/globals.lua --config=spec/configs/import_config.luacheckrc")
+         end)
+
+         describe("responds to builtin std preset", function()
+            it("luanti", function()
+               -- make sure luanti sample has something that normally throws a lint error
+               assert.equal(1, get_exitcode "spec/samples/luanti.lua --no-config")
+               -- test both the new "luanti" std name and the "minetest" compatibility alias
+               for _, std_name in ipairs {"luanti", "minetest"} do
+	               -- turning on luanti std should pass all lints
+	               assert.equal(0, get_exitcode("spec/samples/luanti.lua --no-config --std " .. std_name))
+	               -- confirm luanti std set isn't just blindly allowing anything
+	               assert.equal(1, get_exitcode("spec/samples/sample.rockspec --no-config --std " .. std_name))
+	           end
+            end)
          end)
 
          describe("global path", function()

@@ -4,6 +4,7 @@ declare interface LuaReport {
 	column: number;
 	end_column: number;
 	msg?: string;
+	indirect?: boolean;
 	func?: boolean;
 }
 declare type checkFunc = (s: string, std: string) => Record<string, never> | LuaReport[];
@@ -24,14 +25,15 @@ const warnings: Record<string, string> = {
 	'021': 'Invalid inline option',
 	'022': 'Unpaired inline push directive',
 	'023': 'Unpaired inline pop directive',
+	'033': 'Invalid use of a compound operator',
 	111: 'Setting an undefined global variable',
 	112: 'Mutating an undefined global variable',
 	113: 'Accessing an undefined global variable',
 	121: 'Setting a read-only global variable',
-	122: 'Seeting a read-only field of a global variable',
+	122: 'Setting a read-only field of a global variable$2',
 	131: 'Unused implicitly defined global variable',
-	142: 'Setting an undefined field of a global variable',
-	143: 'Accessing an undefined field of a global variable',
+	142: 'Setting an undefined field of a global variable$2',
+	143: 'Accessing an undefined field of a global variable$2',
 	211: 'Unused local $1',
 	212: 'Unused argument',
 	213: 'Unused loop variable',
@@ -85,7 +87,7 @@ const getSeverity = (code: string): 0 | 1 | 2 => {
 	if (/^[01]/u.test(code)) {
 		return 2;
 	}
-	return /^(?:6|5[45]|213)/u.test(code) ? 0 : 1;
+	return /^(?:6|5[4-6]|213)/u.test(code) ? 0 : 1;
 };
 
 /**
@@ -97,7 +99,8 @@ const addMsg = (errors: LuaReport[]): Diagnostic[] => errors
 		const {code, msg, ...e} = error;
 		return {
 			...e,
-			msg: msg ?? warnings[code]?.replace('$1', e.func ? 'function' : 'variable'),
+			msg: msg ?? warnings[code]?.replace('$1', e.func ? 'function' : 'variable')
+				.replace('$2', e.indirect ? ' using a local alias' : ''),
 			severity: getSeverity(code),
 		};
 	}).filter((error): error is Diagnostic => Boolean(error.msg));

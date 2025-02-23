@@ -13,7 +13,9 @@
 
 ## Overview
 
-[Luacheck](https://github.com/mpeterv/luacheck) is a static analyzer and a linter for [Lua](http://www.lua.org). Luacheck detects various issues such as usage of undefined global variables, unused variables and values, accessing uninitialized variables, unreachable code and more. Most aspects of checking are configurable: there are options for defining custom project-related globals, for selecting set of standard globals (version of Lua standard library), etc. Luacheck itself is written in Lua and runs on different Lua versions.
+[Luacheck](https://github.com/lunarmodules/luacheck) is a static analyzer and a linter for [Lua](http://www.lua.org). Luacheck detects various issues such as usage of undefined global variables, unused variables and values, accessing uninitialized variables, unreachable code and more. Most aspects of checking are configurable: there are options for defining custom project-related globals, for selecting set of standard globals (version of Lua standard library), for filtering warnings by type and name of related variable, etc.
+
+Luacheck supports checking Lua files using syntax of Lua 5.1 - 5.4, and LuaJIT. Luacheck itself is written in Lua and runs on all of mentioned Lua versions.
 
 Luacheck-browserify is a fork of Luacheck that has been modified to work in browser environments. The Lua code is executed using [Wasmoon](https://github.com/ceifa/wasmoon). Luacheck-browserify can also be specifically configured to check [Lua modules in MediaWiki sites](https://www.mediawiki.org/wiki/Lua/Overview).
 

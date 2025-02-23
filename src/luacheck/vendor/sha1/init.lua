@@ -8,7 +8,7 @@ local sha1 = {
 SHA-1 secure hash and HMAC-SHA1 signature computation in Lua,
 using bit and bit32 modules and Lua 5.3 operators when available
 and falling back to a pure Lua implementation on Lua 5.1.
-Based on code orignally by Jeffrey Friedl and modified by
+Based on code originally by Jeffrey Friedl and modified by
 Eike Decker and Enrique García Cota.]],
    _LICENSE = [[
 MIT LICENSE
@@ -39,7 +39,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.]]
 sha1.version = "0.6.0"
 
 local function choose_ops()
-   if _VERSION:find("5%.3") then
+   if tonumber(_VERSION:match"%d+%.%d+") >= 5.3 then
       return "lua53_ops"
    elseif pcall(require, "bit") then
       return "bit_ops"

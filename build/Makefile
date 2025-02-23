@@ -1,25 +1,27 @@
 # Makefile for (cross)compiling luacheck binaries.
 # Do not use directly, run scripts/build-binaries.sh instead.
 
-LUA_VERSION= 5.3.5
-LFS_VERSION= 1.7.0-2
-ARGPARSE_VERSION= 0.6.0-1
-LANES_VERSION= 3.10.1-1
+LUA_VERSION= 5.4.4
+LFS_VERSION= 1.8.0-1
+ARGPARSE_VERSION= 0.7.1-1
+LANES_VERSION= 3.16.0-0
 
 LUA_DIR= lua-$(LUA_VERSION)
 LFS_DIR= luafilesystem-$(LFS_VERSION)/luafilesystem
-ARGPARSE_DIR= argparse-$(ARGPARSE_VERSION)/argparse
+ARGPARSE_DIR= argparse-$(ARGPARSE_VERSION)/argparse-$(ARGPARSE_VERSION:-1=)
 LANES_DIR= lanes-$(LANES_VERSION)/lanes
 
 BASE_CC= gcc
 BASE_AR= ar rc
 BASE_RANLIB= ranlib
 BASE_STRIP= strip
+BASE_NM= nm
 
 CROSS=
 CC= $(CROSS)$(BASE_CC)
 CFLAGS= -O2 -Wall -Wextra
 AR= $(CROSS)$(BASE_AR)
+NM= $(CROSS)$(BASE_NM)
 RANLIB= $(CROSS)$(BASE_RANLIB)
 STRIP= $(CROSS)$(BASE_STRIP)
 
@@ -72,23 +74,24 @@ $(LANES_A):	$(LANES_O)
 	$(AR) $@ $^
 	$(RANLIB) $@
 
-bin/luacheck.lua.c: $(LUA_A) $(LFS_A) $(LANES_A)
+$(TARGET): $(LUA_A) $(LFS_A) $(LANES_A)
 	cp $(LUA_A) .
 	cp $(LFS_A) .
 	cp $(ARGPARSE_DIR)/src/argparse.lua .
 	cp $(LANES_A) .
 	cp $(LANES_DIR)/src/lanes.lua .
 	cp -r ../src/luacheck .
-	CC="" luastatic bin/luacheck.lua luacheck/*.lua luacheck/*/*.lua luacheck/*/*/*.lua argparse.lua lanes.lua liblua.a lfs.a lanes.a
-
-$(TARGET):	bin/luacheck.lua.c
-	$(CC) $(if $(LINUX),-static) -Os $< $(LUA_A) $(LFS_A) $(LANES_A) -I$(LUA_DIR)/src -lm $(if $(LINUX),-lpthread) -o $@
-	$(STRIP) $@
+	cp -f bin/luacheck.lua bin/luacheck_bin.lua
+	CC=$(CC) NM=$(NM) RANLIB=$(RANLIB) luastatic bin/luacheck_bin.lua luacheck/*.lua luacheck/*/*.lua luacheck/*/*/*.lua argparse.lua lanes.lua $(LUA_A) $(LFS_A) $(LANES_A) -lm $(if $(LINUX),-lpthread) -I$(LUA_DIR)/src
+	rm luacheck_bin.luastatic.c
+	$(STRIP) luacheck_bin*
+	mv luacheck_bin* $(TARGET)
 
 clean:
-	rm -f $(TARGET) bin/luacheck.lua.c
+	rm -f $(TARGET) luacheck.luastatic.c
 	rm -f $(LUA_O) $(LUA_A) $(LFS_O) $(LFS_A) $(LANES_O) $(LANES_A)
-	rm -f argparse.lua lanes.lua liblua.a lfs.a lanes.a
+	rm -f argparse.lua lanes.lua lfs.a lanes.a liblua.a
 	rm -rf luacheck
+	rm -f luacheck_bin*
 
 .PHONY: default fetch clean

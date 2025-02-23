@@ -156,10 +156,10 @@ local std = {
 						server = {},
 						siteName = {},
 						stylePath = {},
-						namespaces = {},
-						contentNamespaces = {},
-						subjectNamespaces = {},
-						talkNamespaces = {},
+						namespaces = {other_fields = true},
+						contentNamespaces = {other_fields = true},
+						subjectNamespaces = {other_fields = true},
+						talkNamespaces = {other_fields = true},
 						stats = {
 							fields = {
 								pages = {},

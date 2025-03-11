@@ -1,3 +1,11 @@
+## v0.4.0
+
+*2025-03-28*
+
+**Added**
+
+- New static method `luacheck.check`
+
 ## v0.3.0
 
 *2025-02-23*

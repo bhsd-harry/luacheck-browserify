@@ -37,11 +37,17 @@ or
 
 ## Basic usage
 
-After Luacheck-browserify is installed, a global async function `luacheck` is available. The `luacheck` function takes a required string argument to specify the standard globals similar to the [`--std` CLI option](https://luacheck.readthedocs.io/en/stable/cli.html#command-line-options), and its return value is resolved with a class instance with an async `queue` method that can be called with a string of Lua code to check. The `queue` method returns a promise that is resolved with an array of warnings.
+After Luacheck-browserify is installed, a global async function `luacheck` is available. The `luacheck` function takes a required string argument to specify the standard globals similar to the [`--std` CLI option](https://luacheck.readthedocs.io/en/stable/cli.html#command-line-options), and its return value resolves with a class instance with an async `queue` method that can be called with a string of Lua code to check. The `queue` method returns a promise that resolves with an array of warnings.
 
 ```javascript
 const Luacheck = await luacheck('max');
 console.log(await Luacheck.queue('local a, b, c = nil'));
+```
+
+Otherwise, the `luacheck.check` function can be called with a string of Lua code and a string of standard globals to return a promise that resolves with an array of warnings.
+
+```javascript
+console.log(await luacheck.check('local a, b, c = nil', 'max'));
 ```
 
 The warnings are objects with the following properties:

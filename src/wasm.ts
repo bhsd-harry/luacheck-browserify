@@ -1,3 +1,8 @@
+import {LuaFactory} from 'wasmoon';
+import {version} from 'wasmoon/package.json';
+import {script} from './bundle.json';
+import type {LuaEngine} from 'wasmoon';
+
 declare interface LuaReport {
 	code: string;
 	line: number;
@@ -8,6 +13,7 @@ declare interface LuaReport {
 	func?: boolean;
 }
 declare type checkFunc = (s: string, std: string) => Record<string, never> | LuaReport[];
+declare type checkFuncAsync = (s: string, std: string) => Promise<Diagnostic[]>;
 export interface Diagnostic {
 	line: number;
 	column: number;
@@ -15,10 +21,6 @@ export interface Diagnostic {
 	msg: string;
 	severity: 0 | 1 | 2;
 }
-
-import {LuaFactory} from 'wasmoon';
-import {version} from 'wasmoon/package.json';
-import {script} from './bundle.json';
 
 const warnings: Record<string, string> = {
 	'011': 'Syntax error',
@@ -115,7 +117,7 @@ class Luacheck {
 	 * @param check Luacheck
 	 * @param std 全局变量集
 	 */
-	constructor(check: checkFunc, std: string) {
+	constructor(check: checkFuncAsync, std: string) {
 		this.#check = check;
 		this.#std = std;
 	}
@@ -142,12 +144,12 @@ class Luacheck {
 	 * - 总是返回最新的分析结果
 	 */
 	async #lint(text: string): Promise<Diagnostic[]> { // eslint-disable-line require-await
-		const errors = this.#check(text, this.#std);
+		const errors = await this.#check(text, this.#std);
 		return new Promise(resolve => {
 			setTimeout(() => {
 				if (this.#text === text) {
 					this.#running = undefined;
-					resolve(Array.isArray(errors) ? addMsg(errors) : []);
+					resolve(errors);
 					return;
 				}
 				this.#running = this.#lint(this.#text);
@@ -157,22 +159,35 @@ class Luacheck {
 	}
 }
 
+let lua: Promise<LuaEngine> | undefined;
+
+/**
+ * 使用Luacheck进行语法检查
+ * @param s 待检查的代码
+ * @param std 全局变量集
+ */
+const checkAsync: checkFuncAsync = async (s, std) => {
+	if (!lua) {
+		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+		const uri = typeof process === 'object' && typeof process.versions?.node === 'string'
+			? undefined
+			: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`;
+		lua = new LuaFactory(uri).createEngine();
+		await (await lua).doString(script);
+	}
+	const errors = ((await lua).global.get('check') as checkFunc)(s, std);
+	return Array.isArray(errors) ? addMsg(errors) : [];
+};
+
 /**
  * 创建一个`Luacheck`实例
  * @param std 全局变量集
  */
-const check = async (std: string): Promise<Luacheck> => {
-	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-	const uri = typeof process === 'object' && typeof process.versions?.node === 'string'
-			? undefined
-			: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`,
-		lua = await new LuaFactory(uri).createEngine();
-	await lua.doString(script);
-	return new Luacheck(lua.global.get('check') as checkFunc, std);
-};
+const luaCheck = (std: string): Luacheck => new Luacheck(checkAsync, std);
+luaCheck.check = checkAsync;
 
-Object.assign(globalThis, {luacheck: check});
+Object.assign(globalThis, {luacheck: luaCheck});
 
 declare global {
-	const luacheck: typeof check;
+	const luacheck: typeof luaCheck;
 }

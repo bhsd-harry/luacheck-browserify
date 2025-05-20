@@ -1,3 +1,11 @@
+## v0.5.0
+
+*2025-05-26*
+
+**Added**
+
+- A copy of the [wasmoon](https://npmjs.com/package/wasmoon) library's Wasm file is now included
+
 ## v0.4.0
 
 *2025-03-28*

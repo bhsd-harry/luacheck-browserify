@@ -159,7 +159,17 @@ class Luacheck {
 	}
 }
 
-let lua: Promise<LuaEngine> | undefined;
+let lua: Promise<LuaEngine> | undefined,
+	uri: string | undefined;
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+if (typeof process !== 'object' || typeof process.versions?.node !== 'string') {
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/prefer-global-this
+	const src = (self.document?.currentScript as HTMLScriptElement | null | undefined)?.src,
+		re = /\/\w+\.min\.js$/u;
+	uri = src && re.test(src)
+		? src.replace(re, '/glue.wasm')
+		: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`;
+}
 
 /**
  * 使用Luacheck进行语法检查
@@ -168,10 +178,6 @@ let lua: Promise<LuaEngine> | undefined;
  */
 const checkAsync: checkFuncAsync = async (s, std) => {
 	if (!lua) {
-		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-		const uri = typeof process === 'object' && typeof process.versions?.node === 'string'
-			? undefined
-			: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`;
 		lua = new LuaFactory(uri).createEngine();
 		await (await lua).doString(script);
 	}
@@ -186,7 +192,8 @@ const checkAsync: checkFuncAsync = async (s, std) => {
 const luaCheck = (std: string): Luacheck => new Luacheck(checkAsync, std);
 luaCheck.check = checkAsync;
 
-Object.assign(globalThis, {luacheck: luaCheck});
+// eslint-disable-next-line unicorn/prefer-global-this
+Object.assign(typeof globalThis === 'object' ? globalThis : self, {luacheck: luaCheck});
 
 declare global {
 	const luacheck: typeof luaCheck;

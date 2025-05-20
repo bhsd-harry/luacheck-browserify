@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"luacheck",
@@ -15,7 +15,9 @@
 	"license": "MIT",
 	"files": [
 		"dist/*.min.js",
-		"dist/*.d.ts"
+		"dist/*.map",
+		"dist/*.d.ts",
+		"*.txt"
 	],
 	"browser": "dist/index.min.js",
 	"types": "dist/wasm.d.ts",
@@ -26,13 +28,13 @@
 	"scripts": {
 		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint": "npm run lint:ts",
-		"build": "cd src; node ./bundle.js && cd .. && tsc && esbuild src/wasm.ts --charset=utf8 --bundle --minify --target=es2019 --format=iife --outfile=dist/index.min.js --external:url --external:module && eslint --no-eslintrc -c .eslintrc.dist.cjs dist/index.min.js",
+		"build": "cd src; node ./bundle.js && cd .. && tsc && node build.js && eslint --no-eslintrc -c .eslintrc.dist.cjs dist/*.min.js",
 		"server": "npm run test:end; http-server .. -c-1 --cors -s &",
 		"test": "mocha",
 		"test:end": "pkill -x http-server"
 	},
 	"devDependencies": {
-		"@bhsd/common": "^0.10.1",
+		"@bhsd/common": "^0.11.0",
 		"@stylistic/eslint-plugin": "^3.1.0",
 		"@stylistic/stylelint-plugin": "^3.1.2",
 		"@types/mocha": "^10.0.10",

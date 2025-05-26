@@ -1,5 +1,6 @@
-doc
-.eslintcache
-src/bundle.lua
-src/bundle.json
-dist/
+/.eslintcache
+/src/bundle.lua
+/src/bundle.json
+/doc/
+/dist/
+/.vscode/

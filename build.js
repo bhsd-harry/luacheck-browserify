@@ -1,9 +1,10 @@
 'use strict';
 
 const fs = require('fs'),
-	esbuild = require('esbuild');
+	esbuild = require('esbuild'),
+	{name, version, homepage} = require('wasmoon/package.json');
 
-const config = {
+const /** @type {esbuild.BuildOptions} */ config = {
 	entryPoints: ['./src/wasm.ts'],
 	charset: 'utf8',
 	bundle: true,
@@ -16,15 +17,16 @@ const config = {
 };
 
 (async () => {
-	await esbuild.build({
+	let /** @type {esbuild.BuildOptions} */ options = {
 		...config,
 		minify: true,
 		sourcemap: true,
 		target: 'es2019',
 		outfile: 'dist/index.min.js',
-	});
+	};
+	await esbuild.build(options);
 
-	await esbuild.build({
+	options = {
 		...config,
 		target: 'es2017',
 		outfile: 'dist/es8.min.js',
@@ -46,7 +48,14 @@ const config = {
 				},
 			},
 		],
-	});
+	};
+	await esbuild.build(options);
 
-	fs.copyFileSync(require.resolve('wasmoon/LICENSE'), 'dist/third-party-notices.txt');
+	const license = fs.readFileSync(require.resolve('wasmoon/LICENSE'), 'utf8');
+	fs.writeFileSync(
+		'ThirdPartyNotices.txt',
+		`%% ${name} version ${version} (${homepage})
+=========================================
+${license}`,
+	);
 })();

@@ -17,7 +17,8 @@
 		"dist/*.min.js",
 		"dist/*.map",
 		"dist/*.d.ts",
-		"*.txt"
+		"dist/*.wasm",
+		"ThirdPartyNotices.txt"
 	],
 	"browser": "dist/index.min.js",
 	"types": "dist/wasm.d.ts",
@@ -29,14 +30,11 @@
 		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint": "npm run lint:ts",
 		"build": "cd src; node ./bundle.js && cd .. && tsc && node build.js && eslint --no-eslintrc -c .eslintrc.dist.cjs dist/*.min.js",
-		"server": "npm run test:end; http-server .. -c-1 --cors -s &",
-		"test": "mocha",
-		"test:end": "pkill -x http-server"
+		"test": "mocha"
 	},
 	"devDependencies": {
-		"@bhsd/common": "^0.11.0",
+		"@bhsd/common": "^0.12.0",
 		"@stylistic/eslint-plugin": "^3.1.0",
-		"@stylistic/stylelint-plugin": "^3.1.2",
 		"@types/mocha": "^10.0.10",
 		"@types/node": "^22.13.1",
 		"@typescript-eslint/eslint-plugin": "^8.23.0",
@@ -47,19 +45,14 @@
 		"eslint-plugin-eslint-comments": "^3.2.0",
 		"eslint-plugin-jsdoc": "^50.6.3",
 		"eslint-plugin-json-es": "^1.6.0",
-		"eslint-plugin-markdown": "4.0.1",
 		"eslint-plugin-n": "^17.15.1",
 		"eslint-plugin-promise": "^7.2.1",
 		"eslint-plugin-regexp": "^2.7.0",
 		"eslint-plugin-unicorn": "^56.0.1",
-		"http-server": "^14.1.1",
 		"luabundle": "^1.7.0",
 		"luamin": "^1.0.4",
 		"mocha": "^11.1.0",
-		"stylelint": "^16.19.1",
-		"stylelint-config-recommended": "^16.0.0",
 		"typescript": "^5.7.3",
-		"wasmoon": "^1.16.0",
-		"wikiparser-node": "^1.20.3"
+		"wasmoon": "^1.16.0"
 	}
 }

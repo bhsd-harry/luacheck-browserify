@@ -1,3 +1,11 @@
+## v0.5.1
+
+*2025-06-15*
+
+**Fixed**
+
+- `mw.language.new` and other globals in a MediaWiki environment
+
 ## v0.5.0
 
 *2025-05-26*

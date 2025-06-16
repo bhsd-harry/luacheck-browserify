@@ -1,6 +1,5 @@
 local std = {
 	read_globals = {
-		'_G',
 		'_VERSION',
 		'assert',
 		'error',
@@ -21,6 +20,7 @@ local std = {
 		'unpack',
 		'xpcall',
 		'require',
+		_G = {other_fields = true, read_only = false},
 		debug = {
 			fields = {
 				traceback = {},
@@ -70,9 +70,9 @@ local std = {
 		},
 		package = {
 			fields = {
-				loaded = {},
-				loaders = {},
-				preload = {},
+				loaded = {other_fields = true, read_only = false},
+				loaders = {other_fields = true, read_only = false},
+				preload = {other_fields = true, read_only = false},
 				seeall = {},
 			},
 		},

@@ -1,10 +1,18 @@
+## v0.5.2
+
+*2025-06-16*
+
+**Fixed**
+
+- `package.loaded`, `package.loaders` and `package.preload` in a MediaWiki environment
+
 ## v0.5.1
 
 *2025-06-15*
 
 **Fixed**
 
-- `mw.language.new` and other globals in a MediaWiki environment
+- `mw.language` library in a MediaWiki environment
 
 ## v0.5.0
 

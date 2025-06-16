@@ -113,19 +113,6 @@
 	],
 	"bad_code.lua": [
 		{
-			"column": 1,
-			"end_column": 7,
-			"field": "loaded.?",
-			"indexing": [
-				"loaded",
-				true
-			],
-			"line": 1,
-			"msg": "Setting an undefined field of a global variable",
-			"name": "package",
-			"severity": 2
-		},
-		{
 			"column": 16,
 			"end_column": 21,
 			"func": true,
@@ -259,19 +246,6 @@
 			"line": 25,
 			"msg": "Loop can be executed at most once",
 			"severity": 1
-		},
-		{
-			"column": 7,
-			"end_column": 13,
-			"field": "loaded.foo",
-			"indexing": [
-				"loaded",
-				"foo"
-			],
-			"line": 26,
-			"msg": "Accessing an undefined field of a global variable",
-			"name": "package",
-			"severity": 2
 		},
 		{
 			"column": 7,
@@ -574,32 +548,6 @@
 			"msg": "Setting an undefined field of a global variable using a local alias",
 			"name": "table",
 			"previous_indexing_len": 2,
-			"severity": 2
-		},
-		{
-			"column": 1,
-			"end_column": 7,
-			"field": "loaded.hello",
-			"indexing": [
-				"loaded",
-				"hello"
-			],
-			"line": 10,
-			"msg": "Setting an undefined field of a global variable",
-			"name": "package",
-			"severity": 2
-		},
-		{
-			"column": 1,
-			"end_column": 7,
-			"field": "loaded.?",
-			"indexing": [
-				"loaded",
-				true
-			],
-			"line": 11,
-			"msg": "Setting an undefined field of a global variable",
-			"name": "package",
 			"severity": 2
 		},
 		{

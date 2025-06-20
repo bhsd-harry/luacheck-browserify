@@ -1,6 +1,7 @@
 {
 	"argparse-0.2.0.lua": [
 		{
+			"code": "213",
 			"column": 27,
 			"end_column": 32,
 			"line": 34,
@@ -9,6 +10,7 @@
 			"severity": 0
 		},
 		{
+			"code": "212",
 			"column": 27,
 			"end_column": 30,
 			"line": 117,
@@ -17,6 +19,7 @@
 			"severity": 1
 		},
 		{
+			"code": "212",
 			"column": 27,
 			"end_column": 30,
 			"line": 125,
@@ -25,6 +28,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 16,
 			"end_column": 17,
 			"indexing": [
@@ -37,6 +41,7 @@
 			"severity": 2
 		},
 		{
+			"code": "143",
 			"column": 16,
 			"end_column": 17,
 			"field": "exit",
@@ -49,6 +54,7 @@
 			"severity": 2
 		},
 		{
+			"code": "611",
 			"column": 1,
 			"end_column": 3,
 			"line": 523,
@@ -56,6 +62,7 @@
 			"severity": 0
 		},
 		{
+			"code": "113",
 			"column": 25,
 			"end_column": 27,
 			"line": 605,
@@ -64,6 +71,7 @@
 			"severity": 2
 		},
 		{
+			"code": "532",
 			"column": 13,
 			"end_column": 44,
 			"line": 641,
@@ -71,6 +79,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 7,
 			"end_column": 11,
 			"line": 942,
@@ -79,6 +88,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 7,
 			"end_column": 8,
 			"indexing": [
@@ -91,6 +101,7 @@
 			"severity": 2
 		},
 		{
+			"code": "143",
 			"column": 7,
 			"end_column": 8,
 			"field": "exit",
@@ -103,6 +114,7 @@
 			"severity": 2
 		},
 		{
+			"code": "212",
 			"column": 41,
 			"end_column": 46,
 			"line": 957,
@@ -113,6 +125,7 @@
 	],
 	"bad_code.lua": [
 		{
+			"code": "211",
 			"column": 16,
 			"end_column": 21,
 			"func": true,
@@ -122,6 +135,7 @@
 			"severity": 1
 		},
 		{
+			"code": "212",
 			"column": 23,
 			"end_column": 25,
 			"line": 3,
@@ -130,6 +144,7 @@
 			"severity": 1
 		},
 		{
+			"code": "111",
 			"column": 10,
 			"end_column": 16,
 			"line": 7,
@@ -139,6 +154,7 @@
 			"top": true
 		},
 		{
+			"code": "412",
 			"column": 10,
 			"end_column": 12,
 			"line": 8,
@@ -150,6 +166,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 11,
 			"end_column": 16,
 			"line": 9,
@@ -160,6 +177,7 @@
 	],
 	"bad_flow.lua": [
 		{
+			"code": "113",
 			"column": 4,
 			"end_column": 5,
 			"indexing": [
@@ -171,6 +189,7 @@
 			"severity": 2
 		},
 		{
+			"code": "542",
 			"column": 28,
 			"end_column": 31,
 			"line": 1,
@@ -178,6 +197,7 @@
 			"severity": 0
 		},
 		{
+			"code": "541",
 			"column": 4,
 			"end_column": 5,
 			"line": 6,
@@ -185,6 +205,7 @@
 			"severity": 0
 		},
 		{
+			"code": "113",
 			"column": 10,
 			"end_column": 11,
 			"indexing": [
@@ -196,6 +217,7 @@
 			"severity": 2
 		},
 		{
+			"code": "532",
 			"column": 10,
 			"end_column": 17,
 			"line": 12,
@@ -203,6 +225,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 10,
 			"end_column": 14,
 			"line": 13,
@@ -211,6 +234,7 @@
 			"severity": 2
 		},
 		{
+			"code": "531",
 			"column": 10,
 			"end_column": 23,
 			"line": 16,
@@ -218,6 +242,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 10,
 			"end_column": 14,
 			"line": 17,
@@ -226,6 +251,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 7,
 			"end_column": 11,
 			"line": 21,
@@ -234,6 +260,7 @@
 			"severity": 2
 		},
 		{
+			"code": "511",
 			"column": 7,
 			"end_column": 37,
 			"line": 21,
@@ -241,6 +268,7 @@
 			"severity": 1
 		},
 		{
+			"code": "512",
 			"column": 1,
 			"end_column": 13,
 			"line": 25,
@@ -248,6 +276,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 7,
 			"end_column": 11,
 			"line": 29,
@@ -258,6 +287,7 @@
 	],
 	"bad_whitespace.lua": [
 		{
+			"code": "612",
 			"column": 26,
 			"end_column": 26,
 			"line": 4,
@@ -265,6 +295,7 @@
 			"severity": 0
 		},
 		{
+			"code": "614",
 			"column": 25,
 			"end_column": 25,
 			"line": 8,
@@ -272,6 +303,7 @@
 			"severity": 0
 		},
 		{
+			"code": "613",
 			"column": 20,
 			"end_column": 22,
 			"line": 14,
@@ -279,6 +311,7 @@
 			"severity": 0
 		},
 		{
+			"code": "614",
 			"column": 30,
 			"end_column": 30,
 			"line": 17,
@@ -286,6 +319,7 @@
 			"severity": 0
 		},
 		{
+			"code": "614",
 			"column": 40,
 			"end_column": 40,
 			"line": 22,
@@ -293,6 +327,7 @@
 			"severity": 0
 		},
 		{
+			"code": "611",
 			"column": 1,
 			"end_column": 1,
 			"line": 26,
@@ -300,6 +335,7 @@
 			"severity": 0
 		},
 		{
+			"code": "611",
 			"column": 1,
 			"end_column": 1,
 			"line": 27,
@@ -307,6 +343,7 @@
 			"severity": 0
 		},
 		{
+			"code": "611",
 			"column": 1,
 			"end_column": 2,
 			"line": 28,
@@ -314,6 +351,7 @@
 			"severity": 0
 		},
 		{
+			"code": "611",
 			"column": 1,
 			"end_column": 3,
 			"line": 29,
@@ -321,6 +359,7 @@
 			"severity": 0
 		},
 		{
+			"code": "621",
 			"column": 1,
 			"end_column": 2,
 			"line": 34,
@@ -330,6 +369,7 @@
 	],
 	"compat.lua": [
 		{
+			"code": "113",
 			"column": 2,
 			"end_column": 8,
 			"line": 1,
@@ -338,6 +378,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 14,
 			"end_column": 19,
 			"line": 1,
@@ -346,6 +387,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 22,
 			"end_column": 28,
 			"line": 1,
@@ -354,6 +396,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 34,
 			"end_column": 39,
 			"line": 1,
@@ -364,6 +407,7 @@
 	],
 	"custom_std_inline_options.lua": [
 		{
+			"code": "113",
 			"column": 10,
 			"end_column": 16,
 			"line": 3,
@@ -372,6 +416,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 19,
 			"end_column": 23,
 			"line": 3,
@@ -380,6 +425,7 @@
 			"severity": 2
 		},
 		{
+			"code": "021",
 			"column": 1,
 			"end_column": 26,
 			"line": 5,
@@ -388,6 +434,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 10,
 			"end_column": 16,
 			"line": 6,
@@ -396,6 +443,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 19,
 			"end_column": 23,
 			"line": 6,
@@ -404,6 +452,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 25,
 			"end_column": 26,
 			"line": 6,
@@ -414,6 +463,7 @@
 	],
 	"defined.lua": [
 		{
+			"code": "111",
 			"column": 1,
 			"end_column": 3,
 			"line": 1,
@@ -423,6 +473,7 @@
 			"top": true
 		},
 		{
+			"code": "112",
 			"column": 10,
 			"end_column": 12,
 			"indexing": [
@@ -434,6 +485,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 4,
 			"end_column": 6,
 			"line": 4,
@@ -444,6 +496,7 @@
 	],
 	"defined2.lua": [
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 3,
 			"indexing": [
@@ -457,6 +510,7 @@
 	],
 	"defined3.lua": [
 		{
+			"code": "111",
 			"column": 1,
 			"end_column": 3,
 			"line": 1,
@@ -466,6 +520,7 @@
 			"top": true
 		},
 		{
+			"code": "111",
 			"column": 1,
 			"end_column": 3,
 			"line": 2,
@@ -475,6 +530,7 @@
 			"top": true
 		},
 		{
+			"code": "111",
 			"column": 1,
 			"end_column": 3,
 			"line": 3,
@@ -486,6 +542,7 @@
 	],
 	"defined4.lua": [
 		{
+			"code": "111",
 			"column": 10,
 			"end_column": 12,
 			"line": 1,
@@ -495,6 +552,7 @@
 			"top": true
 		},
 		{
+			"code": "111",
 			"column": 4,
 			"end_column": 6,
 			"line": 2,
@@ -503,6 +561,7 @@
 			"severity": 2
 		},
 		{
+			"code": "111",
 			"column": 4,
 			"end_column": 6,
 			"line": 3,
@@ -514,6 +573,7 @@
 	"empty.lua": [],
 	"global_fields.lua": [
 		{
+			"code": "143",
 			"column": 16,
 			"end_column": 16,
 			"field": "upsert",
@@ -528,6 +588,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 5,
 			"line": 4,
@@ -536,6 +597,7 @@
 			"severity": 2
 		},
 		{
+			"code": "142",
 			"column": 1,
 			"end_column": 6,
 			"field": "insert.foo",
@@ -551,6 +613,7 @@
 			"severity": 2
 		},
 		{
+			"code": "143",
 			"column": 7,
 			"end_column": 12,
 			"field": "gfind",
@@ -563,6 +626,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 5,
 			"line": 27,
@@ -571,6 +635,7 @@
 			"severity": 2
 		},
 		{
+			"code": "143",
 			"column": 7,
 			"end_column": 12,
 			"field": "find",
@@ -583,6 +648,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 5,
 			"line": 32,
@@ -591,6 +657,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 7,
 			"end_column": 12,
 			"line": 32,
@@ -599,6 +666,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 5,
 			"line": 33,
@@ -607,6 +675,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 7,
 			"end_column": 12,
 			"indexing": [
@@ -618,6 +687,7 @@
 			"severity": 2
 		},
 		{
+			"code": "112",
 			"column": 1,
 			"end_column": 6,
 			"indexing": [
@@ -629,6 +699,7 @@
 			"severity": 2
 		},
 		{
+			"code": "112",
 			"column": 1,
 			"end_column": 6,
 			"indexing": [
@@ -641,6 +712,7 @@
 			"severity": 2
 		},
 		{
+			"code": "112",
 			"column": 1,
 			"end_column": 6,
 			"indexing": [
@@ -652,6 +724,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 5,
 			"line": 37,
@@ -660,6 +733,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 7,
 			"end_column": 12,
 			"indexing": [
@@ -672,6 +746,7 @@
 			"severity": 2
 		},
 		{
+			"code": "112",
 			"column": 1,
 			"end_column": 6,
 			"indexing": [
@@ -684,6 +759,7 @@
 			"severity": 2
 		},
 		{
+			"code": "021",
 			"column": 1,
 			"end_column": 27,
 			"line": 40,
@@ -691,6 +767,7 @@
 			"severity": 2
 		},
 		{
+			"code": "112",
 			"column": 1,
 			"end_column": 6,
 			"indexing": [
@@ -702,6 +779,7 @@
 			"severity": 2
 		},
 		{
+			"code": "112",
 			"column": 1,
 			"end_column": 6,
 			"indexing": [
@@ -715,6 +793,7 @@
 	],
 	"global_inline_options.lua": [
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 5,
 			"line": 3,
@@ -723,6 +802,7 @@
 			"severity": 2
 		},
 		{
+			"code": "131",
 			"column": 10,
 			"end_column": 10,
 			"line": 6,
@@ -731,6 +811,7 @@
 			"severity": 2
 		},
 		{
+			"code": "111",
 			"column": 4,
 			"end_column": 6,
 			"line": 7,
@@ -739,6 +820,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 4,
 			"end_column": 8,
 			"line": 10,
@@ -747,6 +829,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 5,
 			"line": 15,
@@ -755,6 +838,7 @@
 			"severity": 2
 		},
 		{
+			"code": "111",
 			"column": 4,
 			"end_column": 11,
 			"line": 18,
@@ -766,6 +850,7 @@
 	],
 	"globals.lua": [
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 5,
 			"line": 1,
@@ -774,6 +859,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 7,
 			"end_column": 13,
 			"line": 1,
@@ -782,6 +868,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 15,
 			"end_column": 20,
 			"line": 1,
@@ -793,6 +880,7 @@
 	"good_code.lua": [],
 	"indirect_globals.lua": [
 		{
+			"code": "113",
 			"column": 11,
 			"end_column": 16,
 			"line": 2,
@@ -801,6 +889,7 @@
 			"severity": 2
 		},
 		{
+			"code": "142",
 			"column": 1,
 			"end_column": 8,
 			"field": "concat.foo.bar",
@@ -817,6 +906,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 32,
 			"end_column": 37,
 			"line": 5,
@@ -827,6 +917,7 @@
 	],
 	"inline_options.lua": [
 		{
+			"code": "211",
 			"column": 16,
 			"end_column": 16,
 			"func": true,
@@ -836,6 +927,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 4,
 			"end_column": 5,
 			"line": 12,
@@ -844,6 +936,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 3,
 			"line": 15,
@@ -852,6 +945,7 @@
 			"severity": 2
 		},
 		{
+			"code": "211",
 			"column": 10,
 			"end_column": 10,
 			"line": 22,
@@ -860,6 +954,7 @@
 			"severity": 1
 		},
 		{
+			"code": "211",
 			"column": 7,
 			"end_column": 7,
 			"line": 24,
@@ -868,6 +963,7 @@
 			"severity": 1
 		},
 		{
+			"code": "211",
 			"column": 10,
 			"end_column": 10,
 			"line": 24,
@@ -876,6 +972,7 @@
 			"severity": 1
 		},
 		{
+			"code": "022",
 			"column": 1,
 			"end_column": 17,
 			"line": 26,
@@ -883,6 +980,7 @@
 			"severity": 2
 		},
 		{
+			"code": "023",
 			"column": 4,
 			"end_column": 19,
 			"line": 28,
@@ -890,6 +988,7 @@
 			"severity": 2
 		},
 		{
+			"code": "541",
 			"column": 1,
 			"end_column": 6,
 			"line": 34,
@@ -897,6 +996,7 @@
 			"severity": 0
 		},
 		{
+			"code": "542",
 			"column": 10,
 			"end_column": 13,
 			"line": 35,
@@ -906,6 +1006,7 @@
 	],
 	"line_length.lua": [
 		{
+			"code": "631",
 			"column": 41,
 			"end_column": 47,
 			"line": 13,
@@ -914,6 +1015,7 @@
 			"severity": 0
 		},
 		{
+			"code": "631",
 			"column": 81,
 			"end_column": 85,
 			"line": 22,
@@ -922,6 +1024,7 @@
 			"severity": 0
 		},
 		{
+			"code": "631",
 			"column": 101,
 			"end_column": 104,
 			"line": 26,
@@ -931,6 +1034,7 @@
 			"severity": 0
 		},
 		{
+			"code": "631",
 			"column": 121,
 			"end_column": 125,
 			"line": 29,
@@ -942,6 +1046,7 @@
 	],
 	"python_code.lua": [
 		{
+			"code": "011",
 			"column": 6,
 			"end_column": 15,
 			"line": 1,
@@ -951,6 +1056,7 @@
 	],
 	"read_globals.lua": [
 		{
+			"code": "121",
 			"column": 1,
 			"end_column": 6,
 			"line": 1,
@@ -960,6 +1066,7 @@
 			"top": true
 		},
 		{
+			"code": "142",
 			"column": 1,
 			"end_column": 5,
 			"field": "append",
@@ -972,6 +1079,7 @@
 			"severity": 2
 		},
 		{
+			"code": "111",
 			"column": 1,
 			"end_column": 4,
 			"line": 3,
@@ -981,6 +1089,7 @@
 			"top": true
 		},
 		{
+			"code": "111",
 			"column": 1,
 			"end_column": 3,
 			"line": 4,
@@ -990,6 +1099,7 @@
 			"top": true
 		},
 		{
+			"code": "113",
 			"column": 12,
 			"end_column": 16,
 			"line": 4,
@@ -998,6 +1108,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 18,
 			"end_column": 20,
 			"line": 4,
@@ -1006,6 +1117,7 @@
 			"severity": 2
 		},
 		{
+			"code": "111",
 			"column": 1,
 			"end_column": 3,
 			"line": 5,
@@ -1015,6 +1127,7 @@
 			"top": true
 		},
 		{
+			"code": "113",
 			"column": 12,
 			"end_column": 16,
 			"line": 5,
@@ -1023,6 +1136,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 18,
 			"end_column": 20,
 			"line": 5,
@@ -1031,6 +1145,7 @@
 			"severity": 2
 		},
 		{
+			"code": "112",
 			"column": 1,
 			"end_column": 3,
 			"indexing": [
@@ -1042,6 +1157,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 15,
 			"end_column": 19,
 			"line": 6,
@@ -1050,6 +1166,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 21,
 			"end_column": 23,
 			"line": 6,
@@ -1060,6 +1177,7 @@
 	],
 	"read_globals_inline_options.lua": [
 		{
+			"code": "113",
 			"column": 10,
 			"end_column": 12,
 			"line": 2,
@@ -1068,6 +1186,7 @@
 			"severity": 2
 		},
 		{
+			"code": "121",
 			"column": 1,
 			"end_column": 3,
 			"line": 3,
@@ -1077,6 +1196,7 @@
 			"top": true
 		},
 		{
+			"code": "111",
 			"column": 11,
 			"end_column": 13,
 			"line": 3,
@@ -1086,6 +1206,7 @@
 			"top": true
 		},
 		{
+			"code": "112",
 			"column": 16,
 			"end_column": 18,
 			"indexing": [
@@ -1097,6 +1218,7 @@
 			"severity": 2
 		},
 		{
+			"code": "121",
 			"column": 1,
 			"end_column": 3,
 			"line": 5,
@@ -1108,6 +1230,7 @@
 	],
 	"redefined.lua": [
 		{
+			"code": "212",
 			"column": 11,
 			"end_column": 11,
 			"line": 3,
@@ -1117,6 +1240,7 @@
 			"severity": 1
 		},
 		{
+			"code": "431",
 			"column": 10,
 			"end_column": 10,
 			"line": 4,
@@ -1128,6 +1252,7 @@
 			"severity": 1
 		},
 		{
+			"code": "221",
 			"column": 13,
 			"end_column": 16,
 			"line": 4,
@@ -1136,6 +1261,7 @@
 			"severity": 1
 		},
 		{
+			"code": "412",
 			"column": 13,
 			"end_column": 16,
 			"line": 4,
@@ -1147,6 +1273,7 @@
 			"severity": 1
 		},
 		{
+			"code": "421",
 			"column": 13,
 			"end_column": 13,
 			"line": 7,
@@ -1158,6 +1285,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 7,
 			"end_column": 10,
 			"line": 8,
@@ -1166,6 +1294,7 @@
 			"severity": 2
 		},
 		{
+			"code": "431",
 			"column": 32,
 			"end_column": 35,
 			"line": 8,
@@ -1177,6 +1306,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 4,
 			"end_column": 8,
 			"line": 11,
@@ -1187,6 +1317,7 @@
 	],
 	"reversed_fornum.lua": [
 		{
+			"code": "571",
 			"column": 1,
 			"end_column": 23,
 			"limit": "-1.5",
@@ -1195,6 +1326,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 4,
 			"end_column": 8,
 			"line": 2,
@@ -1205,6 +1337,7 @@
 	],
 	"unused_code.lua": [
 		{
+			"code": "241",
 			"column": 7,
 			"end_column": 9,
 			"line": 2,
@@ -1213,6 +1346,7 @@
 			"severity": 1
 		},
 		{
+			"code": "212",
 			"column": 18,
 			"end_column": 20,
 			"line": 4,
@@ -1221,6 +1355,7 @@
 			"severity": 1
 		},
 		{
+			"code": "213",
 			"column": 8,
 			"end_column": 8,
 			"line": 5,
@@ -1229,6 +1364,7 @@
 			"severity": 0
 		},
 		{
+			"code": "211",
 			"column": 13,
 			"end_column": 13,
 			"line": 6,
@@ -1237,6 +1373,7 @@
 			"severity": 1
 		},
 		{
+			"code": "213",
 			"column": 11,
 			"end_column": 11,
 			"line": 8,
@@ -1245,6 +1382,7 @@
 			"severity": 0
 		},
 		{
+			"code": "213",
 			"column": 14,
 			"end_column": 14,
 			"line": 8,
@@ -1253,6 +1391,7 @@
 			"severity": 0
 		},
 		{
+			"code": "213",
 			"column": 17,
 			"end_column": 17,
 			"line": 8,
@@ -1261,6 +1400,7 @@
 			"severity": 0
 		},
 		{
+			"code": "113",
 			"column": 10,
 			"end_column": 14,
 			"line": 9,
@@ -1269,6 +1409,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 22,
 			"end_column": 26,
 			"line": 18,
@@ -1277,6 +1418,7 @@
 			"severity": 2
 		},
 		{
+			"code": "311",
 			"column": 7,
 			"end_column": 7,
 			"line": 21,
@@ -1288,6 +1430,7 @@
 			"severity": 1
 		},
 		{
+			"code": "311",
 			"column": 1,
 			"end_column": 1,
 			"line": 22,
@@ -1299,6 +1442,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 8,
 			"end_column": 12,
 			"line": 23,
@@ -1307,6 +1451,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 13,
 			"end_column": 17,
 			"line": 26,
@@ -1315,6 +1460,7 @@
 			"severity": 2
 		},
 		{
+			"code": "231",
 			"column": 7,
 			"end_column": 7,
 			"line": 29,
@@ -1323,6 +1469,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 19,
 			"end_column": 23,
 			"line": 35,
@@ -1331,6 +1478,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 19,
 			"end_column": 23,
 			"line": 40,
@@ -1339,6 +1487,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 23,
 			"end_column": 27,
 			"line": 45,
@@ -1349,6 +1498,7 @@
 	],
 	"unused_secondaries.lua": [
 		{
+			"code": "211",
 			"column": 7,
 			"end_column": 7,
 			"line": 3,
@@ -1358,6 +1508,7 @@
 			"severity": 1
 		},
 		{
+			"code": "211",
 			"column": 7,
 			"end_column": 7,
 			"line": 6,
@@ -1366,6 +1517,7 @@
 			"severity": 1
 		},
 		{
+			"code": "211",
 			"column": 13,
 			"end_column": 13,
 			"line": 6,
@@ -1375,6 +1527,7 @@
 			"severity": 1
 		},
 		{
+			"code": "113",
 			"column": 1,
 			"end_column": 5,
 			"line": 11,
@@ -1383,6 +1536,7 @@
 			"severity": 2
 		},
 		{
+			"code": "311",
 			"column": 1,
 			"end_column": 1,
 			"line": 12,
@@ -1394,6 +1548,7 @@
 	],
 	"utf8.lua": [
 		{
+			"code": "142",
 			"column": 1,
 			"end_column": 4,
 			"field": "분야 명",
@@ -1406,6 +1561,7 @@
 			"severity": 2
 		},
 		{
+			"code": "143",
 			"column": 16,
 			"end_column": 19,
 			"field": "値",
@@ -1418,6 +1574,7 @@
 			"severity": 2
 		},
 		{
+			"code": "211",
 			"column": 25,
 			"end_column": 25,
 			"line": 3,
@@ -1426,6 +1583,7 @@
 			"severity": 1
 		},
 		{
+			"code": "314",
 			"column": 5,
 			"end_column": 28,
 			"field": "päällekkäinen nimi a\\u{200B}b",
@@ -1439,6 +1597,7 @@
 	],
 	"utf8_error.lua": [
 		{
+			"code": "011",
 			"column": 11,
 			"end_column": 11,
 			"line": 2,
@@ -1448,6 +1607,7 @@
 	],
 	"compound_operators.lua": [
 		{
+			"code": "033",
 			"column": 1,
 			"end_column": 7,
 			"line": 2,
@@ -1456,6 +1616,7 @@
 			"severity": 2
 		},
 		{
+			"code": "033",
 			"column": 1,
 			"end_column": 6,
 			"line": 3,
@@ -1464,6 +1625,7 @@
 			"severity": 2
 		},
 		{
+			"code": "033",
 			"column": 2,
 			"end_column": 7,
 			"line": 5,
@@ -1472,6 +1634,7 @@
 			"severity": 2
 		},
 		{
+			"code": "033",
 			"column": 1,
 			"end_column": 8,
 			"line": 10,
@@ -1482,6 +1645,7 @@
 	],
 	"luanti.lua": [
 		{
+			"code": "113",
 			"column": 11,
 			"end_column": 14,
 			"line": 1,
@@ -1490,6 +1654,7 @@
 			"severity": 2
 		},
 		{
+			"code": "113",
 			"column": 11,
 			"end_column": 14,
 			"indexing": [

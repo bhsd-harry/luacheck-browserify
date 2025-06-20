@@ -57,6 +57,7 @@ interface {
 	line: number;
 	column: number;
 	end_column: number;
+	code: string;
 	msg: string;
 	/** 0: info, 1: warning, 2: error */
 	severity: 0 | 1 | 2;

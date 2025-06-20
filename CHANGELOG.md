@@ -1,3 +1,11 @@
+## v0.6.0
+
+*2025-06-21*
+
+**Added**
+
+- New property `code` added to the `Diagnostic` interface
+
 ## v0.5.2
 
 *2025-06-16*

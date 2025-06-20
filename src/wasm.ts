@@ -18,6 +18,7 @@ export interface Diagnostic {
 	line: number;
 	column: number;
 	end_column: number;
+	code: string;
 	msg: string;
 	severity: 0 | 1 | 2;
 }
@@ -101,6 +102,7 @@ const addMsg = (errors: LuaReport[]): Diagnostic[] => errors
 		const {code, msg, ...e} = error;
 		return {
 			...e,
+			code,
 			msg: msg ?? warnings[code]?.replace('$1', e.func ? 'function' : 'variable')
 				.replace('$2', e.indirect ? ' using a local alias' : ''),
 			severity: getSeverity(code),

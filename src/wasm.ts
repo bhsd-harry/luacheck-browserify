@@ -14,6 +14,7 @@ declare interface LuaReport {
 }
 declare type checkFunc = (s: string, std: string) => Record<string, never> | LuaReport[];
 declare type checkFuncAsync = (s: string, std: string) => Promise<Diagnostic[]>;
+declare const WorkerGlobalScope: Function; // eslint-disable-line @typescript-eslint/no-unsafe-function-type
 export interface Diagnostic {
 	line: number;
 	column: number;
@@ -165,8 +166,10 @@ let lua: Promise<LuaEngine> | undefined,
 	uri: string | undefined;
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 if (typeof process !== 'object' || typeof process.versions?.node !== 'string') {
-	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/prefer-global-this
-	const src = (self.document?.currentScript as HTMLScriptElement | null | undefined)?.src,
+	// eslint-disable-next-line unicorn/prefer-global-this
+	const src = typeof WorkerGlobalScope === 'function' && self instanceof WorkerGlobalScope
+			? location.href
+			: (document.currentScript as HTMLScriptElement | null)?.src,
 		re = /\/\w+\.min\.js$/u;
 	uri = src && re.test(src)
 		? src.replace(re, '/glue.wasm')

@@ -1,5 +1,6 @@
 import {LuaFactory} from 'wasmoon';
-import {version} from 'wasmoon/package.json';
+// @ts-expect-error wasm file
+import glue from 'wasmoon/dist/glue.wasm';
 import {script} from './bundle.json';
 import type {LuaEngine} from 'wasmoon';
 
@@ -14,7 +15,6 @@ declare interface LuaReport {
 }
 declare type checkFunc = (s: string, std: string) => Record<string, never> | LuaReport[];
 declare type checkFuncAsync = (s: string, std: string) => Promise<Diagnostic[]>;
-declare const WorkerGlobalScope: Function; // eslint-disable-line @typescript-eslint/no-unsafe-function-type
 export interface Diagnostic {
 	line: number;
 	column: number;
@@ -162,19 +162,9 @@ class Luacheck {
 	}
 }
 
-let lua: Promise<LuaEngine> | undefined,
-	uri: string | undefined;
+let lua: Promise<LuaEngine> | undefined;
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-if (typeof process !== 'object' || typeof process.versions?.node !== 'string') {
-	// eslint-disable-next-line unicorn/prefer-global-this
-	const src = typeof WorkerGlobalScope === 'function' && self instanceof WorkerGlobalScope
-			? location.href
-			: (document.currentScript as HTMLScriptElement | null)?.src,
-		re = /\/\w+\.min\.js$/u;
-	uri = src && re.test(src)
-		? src.replace(re, '/glue.wasm')
-		: `https://testingcf.jsdelivr.net/npm/wasmoon@${version}/dist/glue.wasm`;
-}
+const uri = typeof process === 'object' && typeof process.versions?.node === 'string' ? undefined : glue as string;
 
 /**
  * 使用Luacheck进行语法检查

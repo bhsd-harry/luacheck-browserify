@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "0.6.2",
+	"version": "0.7.0",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"luacheck",
@@ -16,9 +16,7 @@
 	"files": [
 		"dist/*.min.js",
 		"dist/*.map",
-		"dist/*.d.ts",
-		"dist/*.wasm",
-		"ThirdPartyNotices.txt"
+		"dist/*.d.ts"
 	],
 	"browser": "dist/index.min.js",
 	"types": "dist/wasm.d.ts",

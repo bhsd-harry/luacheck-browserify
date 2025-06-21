@@ -1,3 +1,11 @@
+## v0.7.0
+
+*2025-06-21*
+
+**Removed**
+
+- The copy of the [wasmoon](https://npmjs.com/package/wasmoon) library's Wasm file
+
 ## v0.6.2
 
 *2025-06-21*

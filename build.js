@@ -1,8 +1,7 @@
 'use strict';
 
 const fs = require('fs'),
-	esbuild = require('esbuild'),
-	{name, version, homepage} = require('wasmoon/package.json');
+	esbuild = require('esbuild');
 
 const /** @type {esbuild.BuildOptions} */ config = {
 	entryPoints: ['./src/wasm.ts'],
@@ -16,6 +15,36 @@ const /** @type {esbuild.BuildOptions} */ config = {
 	],
 };
 
+const /** @type {esbuild.Plugin} */ plugin = {
+	name: 'wasm',
+	setup(build) {
+		build.onResolve(
+			{filter: /\.wasm$/}, // eslint-disable-line require-unicode-regexp
+			({namespace, path}) => {
+				if (namespace === 'wasm-stub') {
+					return {path, namespace: 'wasm-binary'};
+				}
+				return {path: require.resolve(path), namespace: 'wasm-stub'};
+			},
+		);
+		build.onLoad(
+			{filter: /.*/, namespace: 'wasm-stub'}, // eslint-disable-line require-unicode-regexp
+			({path}) => ({
+				contents: `import wasm from ${JSON.stringify(path)};
+const blob = new Blob([wasm], {type: 'application/wasm'});
+export default URL.createObjectURL(blob);`,
+			}),
+		);
+		build.onLoad(
+			{filter: /.*/, namespace: 'wasm-binary'}, // eslint-disable-line require-unicode-regexp
+			({path}) => ({
+				contents: fs.readFileSync(path),
+				loader: 'binary',
+			}),
+		);
+	},
+};
+
 (async () => {
 	let /** @type {esbuild.BuildOptions} */ options = {
 		...config,
@@ -23,6 +52,7 @@ const /** @type {esbuild.BuildOptions} */ config = {
 		sourcemap: true,
 		target: 'es2019',
 		outfile: 'dist/index.min.js',
+		plugins: [plugin],
 	};
 	await esbuild.build(options);
 
@@ -36,8 +66,8 @@ const /** @type {esbuild.BuildOptions} */ config = {
 				setup(build) {
 					build.onLoad(
 						{filter: /\/wasmoon\/dist\/index.js$/}, // eslint-disable-line require-unicode-regexp
-						({path}) => ({
-							contents: fs.readFileSync(path, 'utf8')
+						({path: p}) => ({
+							contents: fs.readFileSync(p, 'utf8')
 								.replaceAll('await import(', 'require(')
 								.replaceAll(
 									'BigInt(',
@@ -47,6 +77,7 @@ const /** @type {esbuild.BuildOptions} */ config = {
 					);
 				},
 			},
+			plugin,
 		],
 		banner: {
 			js: `if (!Promise.prototype.finally) {
@@ -64,12 +95,4 @@ const /** @type {esbuild.BuildOptions} */ config = {
 		},
 	};
 	await esbuild.build(options);
-
-	const license = fs.readFileSync(require.resolve('wasmoon/LICENSE'), 'utf8');
-	fs.writeFileSync(
-		'ThirdPartyNotices.txt',
-		`%% ${name} version ${version} (${homepage})
-=========================================
-${license}`,
-	);
 })();

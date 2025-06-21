@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "0.6.1",
+	"version": "0.6.2",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"luacheck",

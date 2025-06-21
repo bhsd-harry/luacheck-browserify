@@ -48,6 +48,20 @@ const /** @type {esbuild.BuildOptions} */ config = {
 				},
 			},
 		],
+		banner: {
+			js: `if (!Promise.prototype.finally) {
+	Promise.prototype.finally = function(callback) {
+		if (typeof callback !== 'function') {
+			return this.then(callback, callback);
+		}
+		const P = this.constructor || Promise;
+		return this.then(
+			value => P.resolve(callback()).then(() => value),
+			reason => P.resolve(callback()).then(() => { throw reason; })
+		);
+	};
+}`,
+		},
 	};
 	await esbuild.build(options);
 

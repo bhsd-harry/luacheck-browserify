@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs'),
+	path = require('path'),
 	esbuild = require('esbuild');
 
 const /** @type {esbuild.BuildOptions} */ config = {
@@ -20,25 +21,28 @@ const /** @type {esbuild.Plugin} */ plugin = {
 	setup(build) {
 		build.onResolve(
 			{filter: /\.wasm$/}, // eslint-disable-line require-unicode-regexp
-			({namespace, path}) => {
+			({namespace, path: p}) => {
 				if (namespace === 'wasm-stub') {
-					return {path, namespace: 'wasm-binary'};
+					return {path: p, namespace: 'wasm-binary'};
 				}
-				return {path: require.resolve(path), namespace: 'wasm-stub'};
+				return {
+					path: path.relative('.', require.resolve(p)),
+					namespace: 'wasm-stub',
+				};
 			},
 		);
 		build.onLoad(
 			{filter: /.*/, namespace: 'wasm-stub'}, // eslint-disable-line require-unicode-regexp
-			({path}) => ({
-				contents: `import wasm from ${JSON.stringify(path)};
+			({path: p}) => ({
+				contents: `import wasm from ${JSON.stringify(p)};
 const blob = new Blob([wasm], {type: 'application/wasm'});
 export default URL.createObjectURL(blob);`,
 			}),
 		);
 		build.onLoad(
 			{filter: /.*/, namespace: 'wasm-binary'}, // eslint-disable-line require-unicode-regexp
-			({path}) => ({
-				contents: fs.readFileSync(path),
+			({path: p}) => ({
+				contents: fs.readFileSync(p),
 				loader: 'binary',
 			}),
 		);

@@ -7,6 +7,7 @@ module.exports = {
 	ignorePatterns: [
 		...config.ignorePatterns,
 		'doc/',
+		'esbuild/',
 	],
 	overrides: [
 		...config.overrides,

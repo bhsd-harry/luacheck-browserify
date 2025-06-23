@@ -48,6 +48,14 @@ export default URL.createObjectURL(blob);`,
 (async () => {
 	let /** @type {esbuild.BuildOptions} */ options = {
 		...config,
+		format: 'esm',
+		outfile: 'esbuild/index.js',
+		plugins: [plugin],
+	};
+	await esbuild.build(options);
+
+	options = {
+		...config,
 		minify: true,
 		sourcemap: true,
 		target: 'es2019',
@@ -58,6 +66,7 @@ export default URL.createObjectURL(blob);`,
 
 	options = {
 		...config,
+		minify: true,
 		target: 'es2017',
 		outfile: 'dist/es8.min.js',
 		plugins: [

@@ -34,7 +34,7 @@
 		"@bhsd/common": "^0.13.1",
 		"@stylistic/eslint-plugin": "^3.1.0",
 		"@types/mocha": "^10.0.10",
-		"@types/node": "^22.13.1",
+		"@types/node": "^24.0.8",
 		"@typescript-eslint/eslint-plugin": "^8.23.0",
 		"@typescript-eslint/parser": "^8.23.0",
 		"esbuild": "^0.25.0",

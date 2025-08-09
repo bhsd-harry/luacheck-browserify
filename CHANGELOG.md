@@ -1,4 +1,12 @@
-## v0.7.0
+## v0.8.0
+
+*2025-08-09*
+
+**Added**
+
+- New options of [standard globals](https://luacheck.readthedocs.io/en/stable/cli.html#command-line-options): `lua55` and `lua55c`
+
+## v0.7.1
 
 *2025-06-21*
 

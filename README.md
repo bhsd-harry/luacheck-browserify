@@ -47,7 +47,7 @@ console.log(await Luacheck.queue('local a, b, c = nil'));
 Otherwise, the `luacheck.check` function can be called with a string of Lua code and a string of standard globals to return a promise that resolves with an array of warnings.
 
 ```javascript
-console.log(await luacheck.check('local a, b, c = nil', 'max'));
+console.log(await luacheck.check('local a, b, c = nil', 'lua55c'));
 ```
 
 The warnings are objects with the following properties:

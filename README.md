@@ -3,21 +3,18 @@
 [![npm version](https://badge.fury.io/js/luacheck-browserify.svg)](https://www.npmjs.com/package/luacheck-browserify)
 [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
 
-## Contents
-
-* [Overview](#overview)
-* [Installation](#installation)
-* [Basic usage](#basic-usage)
-* [Related projects](#related-projects)
-* [Documentation](#documentation)
-
-## Overview
-
-[Luacheck](https://github.com/lunarmodules/luacheck) is a static analyzer and a linter for [Lua](http://www.lua.org). Luacheck detects various issues such as usage of undefined global variables, unused variables and values, accessing uninitialized variables, unreachable code and more. Most aspects of checking are configurable: there are options for defining custom project-related globals, for selecting set of standard globals (version of Lua standard library), for filtering warnings by type and name of related variable, etc.
+[Luacheck](https://github.com/lunarmodules/luacheck) is a static analyzer and a linter for [Lua](https://www.lua.org/). Luacheck detects various issues such as usage of undefined global variables, unused variables and values, accessing uninitialized variables, unreachable code and more. Most aspects of checking are configurable: there are options for defining custom project-related globals, for selecting set of standard globals (version of Lua standard library), for filtering warnings by type and name of related variable, etc.
 
 Luacheck supports checking Lua files using syntax of Lua 5.1 - 5.4, and LuaJIT. Luacheck itself is written in Lua and runs on all of mentioned Lua versions.
 
-Luacheck-browserify is a fork of Luacheck that has been modified to work in browser environments. The Lua code is executed using [Wasmoon](https://github.com/ceifa/wasmoon). Luacheck-browserify can also be specifically configured to check [Lua modules in MediaWiki sites](https://www.mediawiki.org/wiki/Lua/Overview).
+Luacheck-browserify is a fork of Luacheck that has been modified to work in browser environments. The Lua code is executed using [Wasmoon](https://www.npmjs.com/package/wasmoon). Luacheck-browserify can also be specifically configured to check [Lua modules in MediaWiki sites](https://www.mediawiki.org/wiki/Lua/Overview).
+
+## Contents
+
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+- [Related projects](#related-projects)
+- [Documentation](#documentation)
 
 ## Installation
 
@@ -72,8 +69,8 @@ For more info about the warnings, see [Luacheck documentation](https://luacheck.
 
 There are a few plugins which allow using Luacheck directly inside an editor, showing warnings inline:
 
-* For CodeMirror, [CodeMirror-MediaWiki](https://github.com/bhsd-harry/codemirror-mediawiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/codemirror-mediawiki/#Lua)).
-* For Monaco editor, [Monaco-Wiki](https://github.com/bhsd-harry/monaco-wiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/monaco-wiki/#Lua)).
+* For CodeMirror, [CodeMirror-MediaWiki](https://www.npmjs.com/package/@bhsd/codemirror-mediawiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/codemirror-mediawiki/#Lua)).
+* For Monaco editor, [Monaco-Wiki](https://www.npmjs.com/package/monaco-wiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/monaco-wiki/#Lua)).
 
 ## Documentation
 

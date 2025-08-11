@@ -12,7 +12,7 @@
 
 **Removed**
 
-- The copy of the [wasmoon](https://npmjs.com/package/wasmoon) library's Wasm file
+- The copy of the [wasmoon](https://www.npmjs.com/package/wasmoon) library's Wasm file
 
 ## v0.6.2
 
@@ -44,7 +44,7 @@
 
 **Added**
 
-- A copy of the [wasmoon](https://npmjs.com/package/wasmoon) library's Wasm file is now included
+- A copy of the [wasmoon](https://www.npmjs.com/package/wasmoon) library's Wasm file is now included
 
 ## v0.4.0
 

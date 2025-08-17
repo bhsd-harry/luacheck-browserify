@@ -28,10 +28,12 @@
 		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint": "npm run lint:ts",
 		"build": "cd src; node ./bundle.js && cd .. && tsc && node build.js && eslint --no-eslintrc -c .eslintrc.dist.cjs dist/*.min.js",
+		"test:node": "node --import=./dist/index.min.js --import=@bhsd/test-util/import.js --test --test-reporter=@bhsd/test-util/reporter.js spec/test.js",
 		"test": "mocha"
 	},
 	"devDependencies": {
 		"@bhsd/code-standard": "^1.0.1",
+		"@bhsd/test-util": "^0.1.0",
 		"@stylistic/eslint-plugin": "^3.1.0",
 		"@types/mocha": "^10.0.10",
 		"@types/node": "^24.0.10",

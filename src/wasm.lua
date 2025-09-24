@@ -206,6 +206,7 @@ local std = {
 						compare = {},
 						getCurrentTitle = {},
 						new = {},
+						newBatch = {},
 						makeTitle = {},
 					},
 				},

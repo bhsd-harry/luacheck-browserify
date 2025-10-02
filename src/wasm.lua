@@ -179,6 +179,11 @@ local std = {
 						},
 					},
 				},
+				svg = {
+					fields = {
+						new = {},
+					},
+				},
 				text = {
 					fields = {
 						decode = {},

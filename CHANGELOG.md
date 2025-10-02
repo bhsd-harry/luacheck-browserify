@@ -1,3 +1,19 @@
+## v0.8.2
+
+*2025-10-16*
+
+**Added**
+
+- `mw.svg.new` in a MediaWiki environment
+
+## v0.8.1
+
+*2025-09-24*
+
+**Added**
+
+- `mw.title.newBatch` in a MediaWiki environment
+
 ## v0.8.0
 
 *2025-08-09*

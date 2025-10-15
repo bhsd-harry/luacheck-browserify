@@ -125,6 +125,20 @@
 	],
 	"bad_code.lua": [
 		{
+			"code": "122",
+			"column": 1,
+			"end_column": 7,
+			"field": "loaded.?",
+			"indexing": [
+				"loaded",
+				true
+			],
+			"line": 1,
+			"msg": "Setting a read-only field of a global variable",
+			"name": "package",
+			"severity": 2
+		},
+		{
 			"code": "211",
 			"column": 16,
 			"end_column": 21,
@@ -610,6 +624,34 @@
 			"msg": "Setting an undefined field of a global variable using a local alias",
 			"name": "table",
 			"previous_indexing_len": 2,
+			"severity": 2
+		},
+		{
+			"code": "122",
+			"column": 1,
+			"end_column": 7,
+			"field": "loaded.hello",
+			"indexing": [
+				"loaded",
+				"hello"
+			],
+			"line": 10,
+			"msg": "Setting a read-only field of a global variable",
+			"name": "package",
+			"severity": 2
+		},
+		{
+			"code": "122",
+			"column": 1,
+			"end_column": 7,
+			"field": "loaded.?",
+			"indexing": [
+				"loaded",
+				true
+			],
+			"line": 11,
+			"msg": "Setting a read-only field of a global variable",
+			"name": "package",
 			"severity": 2
 		},
 		{

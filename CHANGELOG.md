@@ -6,6 +6,10 @@
 
 - `mw.svg.new` in a MediaWiki environment
 
+**Fixed**
+
+- `package.loaded`, `package.loaders` and `package.preload` are read-only in a MediaWiki environment
+
 ## v0.8.1
 
 *2025-09-24*

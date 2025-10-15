@@ -70,9 +70,9 @@ local std = {
 		},
 		package = {
 			fields = {
-				loaded = {other_fields = true, read_only = false},
-				loaders = {other_fields = true, read_only = false},
-				preload = {other_fields = true, read_only = false},
+				loaded = {other_fields = true},
+				loaders = {other_fields = true},
+				preload = {other_fields = true},
 				seeall = {},
 			},
 		},

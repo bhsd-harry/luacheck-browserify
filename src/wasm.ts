@@ -146,7 +146,7 @@ class Luacheck {
 	 * - 完成后会检查`#text`是否已更新，如果是则重新分析
 	 * - 总是返回最新的分析结果
 	 */
-	async #lint(text: string): Promise<Diagnostic[]> { // eslint-disable-line require-await
+	async #lint(text: string): Promise<Diagnostic[]> {
 		const errors = await this.#check(text, this.#std);
 		return new Promise(resolve => {
 			setTimeout(() => {

@@ -1,4 +1,4 @@
-import {jsDoc, node, extend} from '@bhsd/code-standard';
+import {jsDoc, node, browser, extend} from '@bhsd/code-standard';
 import globals from 'globals';
 
 export default extend(
@@ -15,5 +15,9 @@ export default extend(
 		languageOptions: {
 			globals: globals.mocha,
 		},
+	},
+	{
+		files: ['src/wasm.ts'],
+		...browser,
 	},
 );

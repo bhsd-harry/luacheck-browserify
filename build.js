@@ -1,3 +1,4 @@
+/* eslint-disable require-unicode-regexp */
 'use strict';
 
 const fs = require('fs'),
@@ -20,7 +21,7 @@ const /** @type {esbuild.Plugin} */ plugin = {
 	name: 'wasm',
 	setup(build) {
 		build.onResolve(
-			{filter: /\.wasm$/}, // eslint-disable-line require-unicode-regexp
+			{filter: /\.wasm$/},
 			({namespace, path: p}) => {
 				if (namespace === 'wasm-stub') {
 					return {path: p, namespace: 'wasm-binary'};
@@ -32,7 +33,7 @@ const /** @type {esbuild.Plugin} */ plugin = {
 			},
 		);
 		build.onLoad(
-			{filter: /.*/, namespace: 'wasm-stub'}, // eslint-disable-line require-unicode-regexp
+			{filter: /.*/, namespace: 'wasm-stub'},
 			({path: p}) => ({
 				contents: `import wasm from ${JSON.stringify(p)};
 const blob = new Blob([wasm], {type: 'application/wasm'});
@@ -40,7 +41,7 @@ export default URL.createObjectURL(blob);`,
 			}),
 		);
 		build.onLoad(
-			{filter: /.*/, namespace: 'wasm-binary'}, // eslint-disable-line require-unicode-regexp
+			{filter: /.*/, namespace: 'wasm-binary'},
 			({path: p}) => ({
 				contents: fs.readFileSync(p),
 				loader: 'binary',
@@ -78,7 +79,7 @@ export default URL.createObjectURL(blob);`,
 				name: 'alias',
 				setup(build) {
 					build.onLoad(
-						{filter: /\/wasmoon\/dist\/index.js$/}, // eslint-disable-line require-unicode-regexp
+						{filter: /\/wasmoon\/dist\/index.js$/},
 						({path: p}) => ({
 							contents: fs.readFileSync(p, 'utf8')
 								.replaceAll('await import(', 'require(')

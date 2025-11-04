@@ -1,0 +1,10 @@
+{
+	"ul-indent": {
+		"indent": 1
+	},
+	"no-hard-tabs": {
+		"code_blocks": false
+	},
+	"line-length": false,
+	"no-emphasis-as-heading": false
+}

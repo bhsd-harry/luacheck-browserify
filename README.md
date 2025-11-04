@@ -35,6 +35,7 @@ or
 ## Basic usage
 
 After Luacheck-browserify is installed, a global async function `luacheck` is available. The `luacheck` function takes a required second argument which is one of the following:
+
 - a string to specify the standard globals similar to the [`--std` CLI option](https://luacheck.readthedocs.io/en/stable/cli.html#command-line-options);
 
 ```javascript
@@ -102,8 +103,8 @@ For more info about the warnings, see [Luacheck documentation](https://luacheck.
 
 There are a few plugins which allow using Luacheck directly inside an editor, showing warnings inline:
 
-* For CodeMirror, [CodeMirror-MediaWiki](https://www.npmjs.com/package/@bhsd/codemirror-mediawiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/codemirror-mediawiki/#Lua)).
-* For Monaco editor, [Monaco-Wiki](https://www.npmjs.com/package/monaco-wiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/monaco-wiki/#Lua)).
+- For CodeMirror, [CodeMirror-MediaWiki](https://www.npmjs.com/package/@bhsd/codemirror-mediawiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/codemirror-mediawiki/#Lua)).
+- For Monaco editor, [Monaco-Wiki](https://www.npmjs.com/package/monaco-wiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/monaco-wiki/#Lua)).
 
 ## Documentation
 

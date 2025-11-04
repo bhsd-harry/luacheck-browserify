@@ -1,3 +1,15 @@
+## v0.9.0
+
+*2025-11-04*
+
+**Added**
+
+- Support for [custom sets of globals](https://luacheck.readthedocs.io/en/stable/config.html#custom-sets-of-globals) and other Luacheck [configuration options](https://luacheck.readthedocs.io/en/stable/config.html#config-options)
+
+**Fixed**
+
+- Some globals are now read-only in a MediaWiki environment
+
 ## v0.8.2
 
 *2025-10-16*

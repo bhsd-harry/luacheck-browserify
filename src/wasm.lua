@@ -1,25 +1,25 @@
 local std = {
 	read_globals = {
-		'_VERSION',
-		'assert',
-		'error',
-		'getfenv',
-		'getmetatable',
-		'ipairs',
-		'next',
-		'pairs',
-		'pcall',
-		'rawequal',
-		'rawget',
-		'rawset',
-		'select',
-		'setmetatable',
-		'tonumber',
-		'tostring',
-		'type',
-		'unpack',
-		'xpcall',
-		'require',
+		_VERSION = {},
+		assert = {},
+		error = {},
+		getfenv = {},
+		getmetatable = {},
+		ipairs = {},
+		next = {},
+		pairs = {},
+		pcall = {},
+		rawequal = {},
+		rawget = {},
+		rawset = {},
+		select = {},
+		setmetatable = {},
+		tonumber = {},
+		tostring = {},
+		type = {},
+		unpack = {},
+		xpcall = {},
+		require = {},
 		_G = {other_fields = true, read_only = false},
 		debug = {
 			fields = {
@@ -268,5 +268,11 @@ local opt = {
 	max_comment_line_length = false,
 }
 function check(str, std_name)
-	return luacheck.check_strings({str}, std_name and {std = std_name} or opt)[1]
+	local options = opt
+	if type(std_name) == 'table' and std_name.std ~= nil then
+		options = std_name
+	elseif std_name ~= nil then
+		options = {std = std_name}
+	end
+	return luacheck.check_strings({str}, options)[1]
 end

@@ -173,7 +173,7 @@ const uri = typeof process === 'object' && typeof process.versions?.node === 'st
  */
 const checkAsync: checkFuncAsync = async (s, std) => {
 	if (!lua) {
-		lua = new LuaFactory(uri).createEngine();
+		lua = new LuaFactory(uri).createEngine({enableProxy: false});
 		await (await lua).doString(script);
 	}
 	const errors = ((await lua).global.get('check') as checkFunc)(s, std);

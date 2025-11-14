@@ -1,4 +1,4 @@
-local std = {
+local scribunto = {
 	read_globals = {
 		_VERSION = {},
 		assert = {},
@@ -139,6 +139,8 @@ local std = {
 						isValidBuiltInCode = {},
 						isValidCode = {},
 						new = {},
+						FALLBACK_MESSAGES = {},
+						FALLBACK_STRICT = {},
 					},
 				},
 				message = {
@@ -261,7 +263,7 @@ local std = {
 	},
 }
 local opt = {
-	std = std,
+	std = scribunto,
 	max_line_length = false,
 	max_code_line_length = false,
 	max_string_line_length = false,

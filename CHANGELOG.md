@@ -1,4 +1,12 @@
 <!-- markdownlint-disable first-line-h1 -->
+## v0.9.1
+
+*2025-11-24*
+
+**Added**
+
+- `mw.language.FALLBACK_MESSAGES` and `mw.language.FALLBACK_STRICT` in a MediaWiki environment
+
 ## v0.9.0
 
 *2025-11-04*

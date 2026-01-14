@@ -1,11 +1,19 @@
 <!-- markdownlint-disable first-line-h1 -->
+## v0.9.2
+
+*2026-01-15*
+
+**Added**
+
+- [`mw.wikibase`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#mw.wikibase) library in a MediaWiki environment
+
 ## v0.9.1
 
 *2025-11-24*
 
 **Added**
 
-- `mw.language.FALLBACK_MESSAGES` and `mw.language.FALLBACK_STRICT` in a MediaWiki environment
+- [`mw.language.FALLBACK_MESSAGES` and `mw.language.FALLBACK_STRICT`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#mw.language.getFallbacksFor) in a MediaWiki environment
 
 ## v0.9.0
 
@@ -25,11 +33,11 @@
 
 **Added**
 
-- `mw.svg.new` in a MediaWiki environment
+- [`mw.svg.new`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#mw.svg.new) in a MediaWiki environment
 
 **Fixed**
 
-- `package.loaded`, `package.loaders` and `package.preload` are read-only in a MediaWiki environment
+- [`package.loaded`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#package.loaded), [`package.loaders`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#package.loaders) and [`package.preload`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#package.preload) are read-only in a MediaWiki environment
 
 ## v0.8.1
 
@@ -37,7 +45,7 @@
 
 **Added**
 
-- `mw.title.newBatch` in a MediaWiki environment
+- [`mw.title.newBatch`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#mw.title.newBatch) in a MediaWiki environment
 
 ## v0.8.0
 
@@ -69,7 +77,7 @@
 
 **Fixed**
 
-- `package.loaded`, `package.loaders` and `package.preload` in a MediaWiki environment
+- [`package.loaded`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#package.loaded), [`package.loaders`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#package.loaders) and [`package.preload`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#package.preload) in a MediaWiki environment
 
 ## v0.5.1
 
@@ -77,7 +85,7 @@
 
 **Fixed**
 
-- `mw.language` library in a MediaWiki environment
+- [`mw.language`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#Language_library) library in a MediaWiki environment
 
 ## v0.5.0
 

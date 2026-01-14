@@ -258,6 +258,7 @@ local scribunto = {
 					},
 				},
 				ext = {other_fields = true},
+				wikibase = {other_fields = true},
 			},
 		},
 	},

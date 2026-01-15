@@ -128,7 +128,8 @@ local function add_fields(def, fields, overwrite, ignore_array_part, default_rea
       return
    end
 
-   for field_name, field_def in pairs(fields) do
+   for fn, field_def in pairs(fields) do
+      local field_name = fn
       if type(field_name) == "string" or not ignore_array_part then
          if type(field_name) ~= "string" then
             field_name = field_def

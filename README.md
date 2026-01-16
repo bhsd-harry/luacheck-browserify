@@ -34,7 +34,7 @@ or
 
 ## Basic usage
 
-After Luacheck-browserify is installed, a global async function `luacheck` is available. The `luacheck` function takes a required second argument which is one of the following:
+After Luacheck-browserify is installed, a global async function `luacheck` is available. The `luacheck` function takes a **required** second argument which is one of the following:
 
 - a string to specify the standard globals similar to the [`--std` CLI option](https://luacheck.readthedocs.io/en/stable/cli.html#command-line-options);
 
@@ -51,11 +51,13 @@ const Luacheck = luacheck({
 });
 ```
 
-- a Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options) that must contain a `std` key.
+- a Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options) that **must** contain a `std` key.
 
 ```javascript
 const Luacheck = luacheck({std: 'max'});
 ```
+
+In addition to the standard globals provided by Luacheck (e.g., `lua53` for Lua 5.3), Luacheck-browserify also supports `mediawiki` for MediaWiki-specific globals implemented in the [Scribunto extension](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual).
 
 The `luacheck` function returns a class instance with an async `queue` method that can be called with a string of Lua code to check. The `queue` method returns a promise that resolves with an array of warnings.
 

@@ -1,4 +1,13 @@
 <!-- markdownlint-disable first-line-h1 -->
+## v0.10.0
+
+*2026-01-16*
+
+**Added**
+
+- New standard globals option `mediawiki` for MediaWiki-specific globals implemented in the [Scribunto extension](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual)
+- `mw.getLanguage` and `mw.getContentLanguage` in a MediaWiki environment
+
 ## v0.9.2
 
 *2026-01-15*

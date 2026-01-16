@@ -1,0 +1,127 @@
+{
+	"Test.lua": [
+		{
+			"code": "213",
+			"column": 6,
+			"end_column": 10,
+			"line": 20,
+			"msg": "Unused loop variable",
+			"name": "index",
+			"severity": 0
+		},
+		{
+			"code": "213",
+			"column": 6,
+			"end_column": 10,
+			"line": 38,
+			"msg": "Unused loop variable",
+			"name": "index",
+			"severity": 0
+		},
+		{
+			"code": "113",
+			"column": 5,
+			"end_column": 21,
+			"line": 95,
+			"msg": "Accessing an undefined global variable",
+			"name": "isoTestDataGlobal",
+			"severity": 2
+		},
+		{
+			"code": "111",
+			"column": 3,
+			"end_column": 19,
+			"line": 96,
+			"msg": "Setting an undefined global variable",
+			"name": "isoTestDataGlobal",
+			"severity": 2
+		},
+		{
+			"code": "111",
+			"column": 5,
+			"end_column": 21,
+			"line": 98,
+			"msg": "Setting an undefined global variable",
+			"name": "isoTestDataGlobal",
+			"severity": 2
+		},
+		{
+			"code": "113",
+			"column": 25,
+			"end_column": 41,
+			"line": 98,
+			"msg": "Accessing an undefined global variable",
+			"name": "isoTestDataGlobal",
+			"severity": 2
+		},
+		{
+			"code": "113",
+			"column": 12,
+			"end_column": 28,
+			"line": 99,
+			"msg": "Accessing an undefined global variable",
+			"name": "isoTestDataGlobal",
+			"severity": 2
+		},
+		{
+			"code": "212",
+			"column": 18,
+			"end_column": 22,
+			"line": 135,
+			"msg": "Unused argument",
+			"name": "frame",
+			"severity": 1
+		},
+		{
+			"code": "212",
+			"column": 24,
+			"end_column": 28,
+			"line": 139,
+			"msg": "Unused argument",
+			"name": "frame",
+			"severity": 1
+		}
+	],
+	"EchoTest.lua": [],
+	"Metatables.lua": [
+		{
+			"code": "212",
+			"column": 17,
+			"end_column": 21,
+			"line": 5,
+			"msg": "Unused argument",
+			"name": "frame",
+			"severity": 1
+		},
+		{
+			"code": "212",
+			"column": 26,
+			"end_column": 30,
+			"line": 9,
+			"msg": "Unused argument",
+			"name": "frame",
+			"severity": 1
+		},
+		{
+			"code": "212",
+			"column": 22,
+			"end_column": 22,
+			"line": 13,
+			"msg": "Unused argument",
+			"name": "t",
+			"severity": 1
+		},
+		{
+			"code": "212",
+			"column": 18,
+			"end_column": 22,
+			"line": 14,
+			"msg": "Unused argument",
+			"name": "frame",
+			"severity": 1
+		}
+	],
+	"Redirected.lua": [],
+	"Test2.lua": [],
+	"UnstripTest.lua": []
+}

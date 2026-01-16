@@ -109,7 +109,9 @@ local scribunto = {
 				addWarning = {},
 				allToString = {},
 				clone = {},
+				getContentLanguage = {},
 				getCurrentFrame = {},
+				getLanguage = {},
 				incrementExpensiveFunctionCount = {},
 				isSubsting = {},
 				loadData = {},
@@ -276,6 +278,9 @@ function check(str, std_name)
 		options = std_name
 	elseif std_name ~= nil then
 		options = {std = std_name}
+	end
+	if options.std == 'mediawiki' then
+		options.std = scribunto
 	end
 	return luacheck.check_strings({str}, options)[1]
 end

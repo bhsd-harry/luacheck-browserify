@@ -18,8 +18,6 @@ Luacheck-browserify is a fork of Luacheck that has been modified to work in brow
 
 ## Installation
 
-### Using CDN
-
 As a NPM package, Luacheck-browserify can be included in a project using a CDN. Add the following script tag to the HTML file:
 
 ```html
@@ -100,8 +98,6 @@ interface {
 For more info about the warnings, see [Luacheck documentation](https://luacheck.readthedocs.io/en/stable/warnings.html).
 
 ## Related projects
-
-### Editor support
 
 There are a few plugins which allow using Luacheck directly inside an editor, showing warnings inline:
 

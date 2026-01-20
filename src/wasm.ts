@@ -164,7 +164,9 @@ class Luacheck {
 
 let lua: Promise<LuaEngine> | undefined;
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-const uri = typeof process === 'object' && typeof process.versions?.node === 'string' ? undefined : glue as string;
+const uri = typeof process === 'object' && typeof process.versions?.node === 'string'
+	? require.resolve('wasmoon/dist/glue.wasm')
+	: glue as string;
 
 /**
  * 使用Luacheck进行语法检查

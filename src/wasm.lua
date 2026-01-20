@@ -1,3 +1,5 @@
+local luacheck = require('luacheck')
+
 local scribunto = {
 	read_globals = {
 		_VERSION = {},

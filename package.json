@@ -16,7 +16,6 @@
 	"license": "MIT",
 	"files": [
 		"dist/*.min.js",
-		"dist/*.map",
 		"dist/*.d.ts"
 	],
 	"main": "dist/index.min.js",
@@ -37,31 +36,31 @@
 		"test": "npm run test:main && npm run test:es8 && npm run test:lua"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^2.0.0",
-		"@stylistic/eslint-plugin": "^5.7.1",
+		"@bhsd/code-standard": "^2.1.0",
+		"@stylistic/eslint-plugin": "^5.9.0",
 		"@types/mocha": "^10.0.10",
-		"@types/node": "^24.10.9",
+		"@types/node": "^24.11.0",
 		"@typescript-eslint/eslint-plugin": "^8.54.0",
 		"@typescript-eslint/parser": "^8.54.0",
-		"esbuild": "^0.27.2",
-		"eslint": "^9.39.2",
-		"eslint-plugin-es-x": "^9.3.0",
+		"esbuild": "^0.27.3",
+		"eslint": "^9.39.3",
+		"eslint-plugin-es-x": "^9.5.0",
 		"eslint-plugin-eslint-comments": "^3.2.0",
-		"eslint-plugin-jsdoc": "^62.5.0",
-		"eslint-plugin-jsonc": "^2.21.0",
-		"eslint-plugin-n": "^17.23.2",
+		"eslint-plugin-jsdoc": "^62.7.1",
+		"eslint-plugin-jsonc": "^3.1.1",
+		"eslint-plugin-n": "^17.24.0",
 		"eslint-plugin-promise": "^7.2.1",
 		"eslint-plugin-regexp": "^3.0.0",
-		"eslint-plugin-unicorn": "^62.0.0",
-		"globals": "^17.2.0",
+		"eslint-plugin-unicorn": "^63.0.0",
+		"globals": "^17.4.0",
 		"luabundle": "^1.7.0",
 		"luamin": "^1.0.4",
-		"markdownlint-cli2": "^0.20.0",
+		"markdownlint-cli2": "^0.21.0",
 		"mocha": "^11.7.5",
 		"typescript": "^5.9.3",
 		"wasmoon": "^1.16.0"
 	},
 	"engines": {
-		"node": ">=20.19.5"
+		"node": ">=20.19.0"
 	}
 }

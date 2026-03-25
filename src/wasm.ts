@@ -111,6 +111,7 @@ const addMsg = (errors: LuaReport[]): Diagnostic[] => errors
 	}).filter((error): error is Diagnostic => Boolean(error.msg));
 
 class Luacheck {
+	// @ts-expect-error 无需初始化
 	#text: string;
 	#running: Promise<Diagnostic[]> | undefined;
 	#check;

@@ -57,7 +57,7 @@
 		"luamin": "^1.0.4",
 		"markdownlint-cli2": "^0.21.0",
 		"mocha": "^11.7.5",
-		"typescript": "^5.9.3",
+		"typescript": "^6.0.2",
 		"wasmoon": "^1.16.0"
 	},
 	"engines": {

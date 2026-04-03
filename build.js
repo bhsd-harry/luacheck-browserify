@@ -62,7 +62,6 @@ export default URL.createObjectURL(blob);`,
 	options = {
 		...config,
 		minify: true,
-		sourcemap: true,
 		target: 'es2019',
 		outfile: 'dist/index.min.js',
 		plugins: [plugin],

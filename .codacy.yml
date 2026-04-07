@@ -1,6 +1,8 @@
 ---
 exclude_paths:
   - "*.yml"
+  - ".*.yaml"
+  - "bin/**"
+  - "scripts/**"
   - "src/luacheck/**"
-  - "spec/Scribunto/**"
-  - "spec/samples/**"
+  - "spec/**/*.lua"

@@ -5,4 +5,6 @@ exclude_paths:
   - "bin/**"
   - "scripts/**"
   - "src/luacheck/**"
+  - "spec/*.lua"
   - "spec/**/*.lua"
+  - "spec/**/*.sh"

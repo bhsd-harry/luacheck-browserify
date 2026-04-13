@@ -13,6 +13,8 @@ Luacheck-browserify is a fork of Luacheck that has been modified to work in brow
 
 - [Installation](#installation)
 - [Basic usage](#basic-usage)
+	- [Class instance methods](#class-instance-methods)
+	- [Static method](#static-method)
 - [Related projects](#related-projects)
 - [Documentation](#documentation)
 
@@ -49,13 +51,15 @@ const Luacheck = luacheck({
 });
 ```
 
-- a Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options) that **must** contain a `std` key.
+- a Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options) that **must** contain a `std` key. This is especially useful for [filtering warnings](https://luacheck.readthedocs.io/en/stable/cli.html#patterns-1) by [warning codes](https://luacheck.readthedocs.io/en/stable/warnings.html) and/or variable names.
 
 ```javascript
 const Luacheck = luacheck({std: 'max'});
 ```
 
 In addition to the standard globals provided by Luacheck (e.g., `lua53` for Lua 5.3), Luacheck-browserify also supports `mediawiki` for MediaWiki-specific globals implemented in the [Scribunto extension](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual).
+
+### Class instance methods
 
 The `luacheck` function returns a class instance with an async `queue` method that can be called with a string of Lua code to check. The `queue` method returns a promise that resolves with an array of warnings.
 
@@ -64,7 +68,16 @@ const Luacheck = luacheck('max');
 console.log(await Luacheck.queue('local a, b, c = nil'));
 ```
 
-Otherwise, the `luacheck.check` function can be called with a string of Lua code and specified standard globals or Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options) to return a promise that resolves with an array of warnings.
+The `setConfig` method of the class instance can be used to dynamically configure the checker.
+
+```javascript
+const Luacheck = luacheck('max');
+Luacheck.setConfig('lua55c');
+```
+
+### Static method
+
+Otherwise, the `luacheck.check` static method can be called with a string of Lua code and specified standard globals or Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options) to return a promise that resolves with an array of warnings.
 
 ```javascript
 console.log(await luacheck.check('local a, b, c = nil', 'lua55c'));

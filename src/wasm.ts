@@ -4,25 +4,27 @@ import glue from 'wasmoon/dist/glue.wasm';
 import {script} from './bundle.json';
 import type {LuaEngine} from 'wasmoon';
 
-declare interface LuaReport {
+declare interface Config {
+	std: string | object;
+	[key: string]: unknown;
+}
+declare interface Warning {
 	code: string;
 	line: number;
 	column: number;
 	end_column: number;
+}
+declare interface LuaReport extends Warning {
 	msg?: string;
 	indirect?: boolean;
 	func?: boolean;
 }
-declare type checkFunc = (s: string, std: string) => Record<string, never> | LuaReport[];
-declare type checkFuncAsync = (s: string, std: string) => Promise<Diagnostic[]>;
-export interface Diagnostic {
-	line: number;
-	column: number;
-	end_column: number;
-	code: string;
+export interface Diagnostic extends Warning {
 	msg: string;
 	severity: 0 | 1 | 2;
 }
+declare type checkFunc = (s: string, std?: string | Config) => Record<string, never> | LuaReport[];
+declare type checkFuncAsync = (s: string, std?: string | Config) => Promise<Diagnostic[]>;
 
 const warnings: Record<string, string> = {
 	'011': 'Syntax error',
@@ -116,20 +118,44 @@ class Luacheck {
 	#running: Promise<Diagnostic[]> | undefined;
 	#check;
 	#std;
+	#serialized: string | undefined;
+	#configured = true;
 
 	/**
 	 * @param check Luacheck
-	 * @param std 全局变量集
+	 * @param std 全局变量集或Luacheck配置对象
 	 */
-	constructor(check: checkFuncAsync, std: string) {
+	constructor(check: checkFuncAsync, std?: string | Config) {
 		this.#check = check;
 		this.#std = std;
+		this.#serialized = JSON.stringify(std);
 	}
 
 	/**
+	 * Update the standard globals or configuration object
+	 *
+	 * 更新全局变量集或配置对象
+	 * @param std standard globals or a Luacheck configuration object / 全局变量集或Luacheck配置对象
+	 */
+	setConfig(std?: string | Config): void {
+		const serialized = JSON.stringify(std);
+		if (serialized !== this.#serialized) {
+			this.#std = std;
+			this.#serialized = serialized;
+			this.#configured = true;
+		}
+	}
+
+	/**
+	 * Queue a syntax check
+	 *
 	 * 提交语法分析
-	 * @param text 待分析的代码
+	 * @param text code to check / 待分析的代码
 	 * @description
+	 * - Always update `#text` so that when `#lint` finishes it can check if it needs to re-run
+	 * - If there is already a check running, return its result
+	 * - Otherwise, start a new check
+	 *
 	 * - 总是更新`#text`以便`#lint`完成时可以判断是否需要重新分析
 	 * - 如果已有进行中的分析，则返回该分析的结果
 	 * - 否则开始新的分析
@@ -148,10 +174,19 @@ class Luacheck {
 	 * - 总是返回最新的分析结果
 	 */
 	async #lint(text: string): Promise<Diagnostic[]> {
-		const errors = await this.#check(text, this.#std);
+		const configured = this.#configured;
+		this.#configured = false;
+		let errors: Diagnostic[] = [];
+		try {
+			errors = await this.#check(text, this.#std);
+		} catch (e) {
+			if (configured) {
+				console.error(e);
+			}
+		}
 		return new Promise(resolve => {
 			setTimeout(() => {
-				if (this.#text === text) {
+				if (this.#text === text && !this.#configured) {
 					this.#running = undefined;
 					resolve(errors);
 					return;
@@ -170,24 +205,31 @@ const uri = typeof process === 'object' && typeof process.versions?.node === 'st
 	: glue as string;
 
 /**
+ * Syntax check using Luacheck
+ *
  * 使用Luacheck进行语法检查
- * @param s 待检查的代码
- * @param std 全局变量集
+ * @param text code to check / 待检查的代码
+ * @param std standard globals or a Luacheck configuration object / 全局变量集或Luacheck配置对象
  */
-const checkAsync: checkFuncAsync = async (s, std) => {
+const checkAsync: checkFuncAsync = async (text, std) => {
 	if (!lua) {
 		lua = new LuaFactory(uri).createEngine({enableProxy: false});
 		await (await lua).doString(script);
 	}
-	const errors = ((await lua).global.get('check') as checkFunc)(s, std);
+	const errors = ((await lua).global.get('check') as checkFunc)(text, std);
 	return Array.isArray(errors) ? addMsg(errors) : [];
 };
 
 /**
+ * Create a `Luacheck` instance
+ *
  * 创建一个`Luacheck`实例
- * @param std 全局变量集
+ * @param std {@link https://luacheck.readthedocs.io/en/stable/config.html#custom-sets-of-globals standard globals }
+ * or a {@link https://luacheck.readthedocs.io/en/stable/config.html#config-options Luacheck configuration object }
+ * / {@link https://luacheck.readthedocs.io/en/stable/config.html#custom-sets-of-globals 全局变量集}
+ * 或{@link https://luacheck.readthedocs.io/en/stable/config.html#config-options Luacheck配置对象}
  */
-const luaCheck = (std: string): Luacheck => new Luacheck(checkAsync, std);
+const luaCheck = (std?: string | Config): Luacheck => new Luacheck(checkAsync, std);
 luaCheck.check = checkAsync;
 
 // eslint-disable-next-line unicorn/prefer-global-this

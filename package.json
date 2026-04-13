@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "0.10.1",
+	"version": "0.11.0",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"lua",
@@ -26,6 +26,7 @@
 		"url": "git+https://github.com/bhsd-harry/luacheck-browserify.git"
 	},
 	"scripts": {
+		"ls": "npm i --package-lock-only && npm ls --package-lock-only --all --omit=dev",
 		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint:md": "markdownlint-cli2 '**/*.md'",
 		"lint": "npm run lint:ts && npm run lint:md",
@@ -36,31 +37,31 @@
 		"test": "npm run test:main && npm run test:es8 && npm run test:lua"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^2.2.0",
+		"@bhsd/code-standard": "^2.3.0",
 		"@eslint-community/eslint-plugin-eslint-comments": "^4.7.1",
 		"@stylistic/eslint-plugin": "^5.10.0",
 		"@types/mocha": "^10.0.10",
 		"@types/node": "^24.11.0",
-		"@typescript-eslint/eslint-plugin": "^8.58.0",
-		"@typescript-eslint/parser": "^8.58.0",
-		"esbuild": "^0.27.7",
-		"eslint": "^10.2.0",
+		"@typescript-eslint/eslint-plugin": "^8.59.0",
+		"@typescript-eslint/parser": "^8.59.0",
+		"esbuild": "^0.28.0",
+		"eslint": "^10.2.1",
 		"eslint-plugin-es-x": "^9.6.0",
-		"eslint-plugin-jsdoc": "^62.7.1",
+		"eslint-plugin-jsdoc": "^62.9.0",
 		"eslint-plugin-jsonc": "^3.1.2",
 		"eslint-plugin-n": "^17.24.0",
 		"eslint-plugin-promise": "^7.2.1",
 		"eslint-plugin-regexp": "^3.1.0",
 		"eslint-plugin-unicorn": "^64.0.0",
-		"globals": "^17.4.0",
+		"globals": "^17.5.0",
 		"luabundle": "^1.7.0",
 		"luamin": "^1.0.4",
-		"markdownlint-cli2": "^0.21.0",
+		"markdownlint-cli2": "^0.22.1",
 		"mocha": "^11.7.5",
-		"typescript": "^6.0.2",
+		"typescript": "^6.0.3",
 		"wasmoon": "^1.16.0"
 	},
 	"overrides": {
-		"eslint": "^10.2.0"
+		"eslint": "^10.2.1"
 	}
 }

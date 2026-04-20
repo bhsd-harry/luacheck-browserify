@@ -8,16 +8,30 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        luaVersion: [ "5.4", "5.3", "5.2", "5.1", "luajit" ] # , "luajit-openresty"
+        luaVersion: [ "5.4", "5.3", "5.2", "5.1", "luajit" , "luajit-openresty" ]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
       - name: Setup ‘lua’
+        if: ${{ !startsWith(matrix.luaVersion, 'luajit') }}
         uses: luarocks/gh-actions-lua@master
         with:
           luaVersion: ${{ matrix.luaVersion }}
+
+      # For the multithreading tests (lanes) to work with
+      # LuaJIT / OpenResty interpreters, we have to build LuaJIT / OpenResty
+      # with the setting `-DLUAJIT_USE_SYSMALLOC` turned on,
+      # because the memory allocator employed by these interpreters
+      # does NOT work well with lanes: see
+      # https://github.com/LuaLanes/lanes/issues/217#issuecomment-1665856470
+      - name: Setup ‘luajit’
+        if: ${{ startsWith(matrix.luaVersion, 'luajit') }}
+        uses: luarocks/gh-actions-lua@master
+        with:
+          luaVersion: ${{ matrix.luaVersion }}
+          luaCompileFlags: XCFLAGS=-DLUAJIT_USE_SYSMALLOC
 
       - name: Setup ‘luarocks’
         uses: luarocks/gh-actions-luarocks@master

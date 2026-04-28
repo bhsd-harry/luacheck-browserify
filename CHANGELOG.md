@@ -1,6 +1,8 @@
 <!-- markdownlint-disable first-line-h1 -->
 ## v0.11.0
 
+*2026-04-29*
+
 **Added**
 
 - New method `luacheck.prototype.setConfig`

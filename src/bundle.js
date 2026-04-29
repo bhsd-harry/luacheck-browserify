@@ -28,7 +28,7 @@ const bundledLua = bundle('./luacheck/init.lua', {
 				'detect_unreachable_code',
 				'detect_unused_fields',
 				'detect_unused_locals',
-			].reverse().map(name => `luacheck.stages.${name}`);
+			].toReversed().map(name => `luacheck.stages.${name}`);
 		},
 	}),
 	i = bundledLua.lastIndexOf('\n') + 1,

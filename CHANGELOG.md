@@ -5,7 +5,7 @@
 
 **Added**
 
-- New method `luacheck.prototype.setConfig`
+- New method `luacheck#setConfig`
 
 ## v0.10.1
 

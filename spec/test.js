@@ -16,28 +16,27 @@ const fs = require('fs'),
  * @param {Set<string>} [ignores] 忽略的问题
  */
 const execute = (diagnose, ignores) => {
-	for (const file of fs.readdirSync('spec/samples/')) {
-		if (file.endsWith('.lua')) {
-			it(file, async () => {
-				const codes = fs.readFileSync(path.join('spec/samples', file), 'utf8');
-				let oldWarnings = tests[file],
-					warnings = await diagnose(codes, file);
-				if (ignores) {
-					const predicate = ({code, name}) => !ignores.has(code)
-						|| code === '111' && name !== '_ENV'
-						|| code === '122' && name !== 'package'
-						|| code === '143' && name !== 'os';
-					oldWarnings = oldWarnings.filter(predicate);
-					warnings = warnings.filter(predicate);
-				}
-				assert.deepStrictEqual(warnings, oldWarnings);
-			});
-		}
+	for (const file of fs.globSync('spec/samples/*.lua')) {
+		const desc = path.basename(file);
+		it(desc, async () => {
+			const codes = fs.readFileSync(file, 'utf8');
+			let oldWarnings = tests[desc],
+				warnings = await diagnose(codes, desc);
+			if (ignores) {
+				const predicate = ({code, name}) => !ignores.has(code)
+					|| code === '111' && name !== '_ENV'
+					|| code === '122' && name !== 'package'
+					|| code === '143' && name !== 'os';
+				oldWarnings = oldWarnings.filter(warning => predicate(warning));
+				warnings = warnings.filter(warning => predicate(warning));
+			}
+			assert.deepStrictEqual(warnings, oldWarnings);
+		});
 	}
 };
 
 const toJson = warnings => warnings.map(
-	warning => Object.fromEntries(Object.entries(warning).sort(([a], [b]) => a.localeCompare(b))),
+	warning => Object.fromEntries(Object.entries(warning).toSorted(([a], [b]) => a.localeCompare(b))),
 );
 
 describe('Luacheck', () => {
@@ -67,15 +66,14 @@ const ignores = [
  * @param {(code: string, file: string) => Promise<Diagnostic[]>} diagnose 诊断函数
  */
 const executeScribunto = diagnose => {
-	for (const file of fs.readdirSync('spec/Scribunto/')) {
-		if (file.endsWith('.lua')) {
-			it(file, async () => {
-				const codes = fs.readFileSync(path.join('spec/Scribunto', file), 'utf8'),
-					oldWarnings = scribuntoTests[file],
-					warnings = await diagnose(codes, file);
-				assert.deepStrictEqual(warnings, oldWarnings);
-			});
-		}
+	for (const file of fs.globSync('spec/Scribunto/*.lua')) {
+		const desc = path.basename(file);
+		it(desc, async () => {
+			const codes = fs.readFileSync(file, 'utf8'),
+				oldWarnings = scribuntoTests[desc],
+				warnings = await diagnose(codes, desc);
+			assert.deepStrictEqual(warnings, oldWarnings);
+		});
 	}
 };
 

@@ -1,7 +1,7 @@
 # Luacheck-browserify
 
 [![npm version](https://badge.fury.io/js/luacheck-browserify.svg)](https://www.npmjs.com/package/luacheck-browserify)
-[![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7d86d36b2b6f4e389578670f5b2a0cba)](https://app.codacy.com/gh/bhsd-harry/luacheck-browserify/dashboard)
 
 [Luacheck](https://github.com/lunarmodules/luacheck) is a static analyzer and a linter for [Lua](https://www.lua.org/). Luacheck detects various issues such as usage of undefined global variables, unused variables and values, accessing uninitialized variables, unreachable code and more. Most aspects of checking are configurable: there are options for defining custom project-related globals, for selecting set of standard globals (version of Lua standard library), for filtering warnings by type and name of related variable, etc.
 

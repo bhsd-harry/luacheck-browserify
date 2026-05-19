@@ -1,4 +1,12 @@
 <!-- markdownlint-disable first-line-h1 -->
+## v0.11.1
+
+*2026-05-20*
+
+**Changed**
+
+- Upgrade dev dependencies to resolve version conflicts
+
 ## v0.11.0
 
 *2026-04-29*

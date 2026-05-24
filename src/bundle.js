@@ -2,7 +2,7 @@
 
 const fs = require('fs'),
 	{bundle} = require('luabundle'),
-	luamin = require('luamin');
+	luamin = require('lua-format');
 
 const bundledLua = bundle('./luacheck/init.lua', {
 		force: true,
@@ -35,7 +35,10 @@ const bundledLua = bundle('./luacheck/init.lua', {
 	extra = fs.readFileSync('wasm.lua', 'utf8'),
 	j = extra.indexOf('\n') + 1,
 	full = `${bundledLua.slice(0, i)}local luacheck=${bundledLua.slice(i + 7)}\n${extra.slice(j)}`,
-	min = luamin.minify(full);
+	min = luamin.Minify(full, { // eslint-disable-line new-cap
+		RenameVariables: true,
+		Solvemath: true,
+	});
 fs.writeFileSync('../esbuild/bundle.lua', full);
 fs.writeFileSync('bundle.lua', `${min}\nreturn check`);
 fs.writeFileSync('bundle.json', `${JSON.stringify({script: min}, null, '\t')}\n`);

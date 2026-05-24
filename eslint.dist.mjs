@@ -15,7 +15,6 @@ export default [
 	{
 		rules: {
 			'es-x/no-resizable-and-growable-arraybuffers': 0,
-			'es-x/no-weakrefs': 0,
 		},
 	},
 ];

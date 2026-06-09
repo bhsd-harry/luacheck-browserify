@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "0.11.1",
+	"version": "1.0.0",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"lua",
@@ -37,9 +37,9 @@
 		"test": "npm run test:main && npm run test:es8 && npm run test:lua"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^2.6.2",
+		"@bhsd/code-standard": "^3.0.0",
 		"@types/mocha": "^10.0.10",
-		"esbuild": "^0.28.0",
+		"esbuild": "^0.28.1",
 		"eslint": "^10.4.1",
 		"globals": "^17.6.0",
 		"lua-format": "^1.6.1-b",

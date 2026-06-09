@@ -1,4 +1,12 @@
 <!-- markdownlint-disable first-line-h1 -->
+## v1.0.0
+
+*2026-06-13*
+
+**Changed**
+
+- Luacheck source code is now minified using [lua-format](https://www.npmjs.com/package/lua-format) instead of unmaintained [luamin](https://www.npmjs.com/package/luamin)
+
 ## v0.11.1
 
 *2026-05-20*

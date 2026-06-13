@@ -31,21 +31,19 @@
 		"lint:md": "markdownlint-cli2 '**/*.md'",
 		"lint": "npm run lint:ts && npm run lint:md",
 		"build": "cd src; node ./bundle.js && cd .. && tsc && node build.js && eslint --no-config-lookup -c eslint.dist.mjs dist/*.min.js",
-		"test:main": "mocha --require dist/index.min.js",
-		"test:es8": "mocha --require dist/es8.min.js",
+		"test:main": "npx testUtil --require=./dist/index.min.js spec/test.js",
+		"test:es8": "npx testUtil --require=./dist/es8.min.js spec/test.js",
 		"test:lua": "cd src; lua test.lua && cd ..",
 		"test": "npm run test:main && npm run test:es8 && npm run test:lua"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^3.0.0",
-		"@types/mocha": "^10.0.10",
+		"@bhsd/code-standard": "^3.1.0",
+		"@bhsd/test-util": "^3.1.0",
 		"esbuild": "^0.28.1",
-		"eslint": "^10.4.1",
-		"globals": "^17.6.0",
+		"eslint": "^10.6.0",
 		"lua-format": "^1.6.1-b",
 		"luabundle": "^1.7.0",
-		"markdownlint-cli2": "^0.22.1",
-		"mocha": "^11.7.6",
+		"markdownlint-cli2": "^0.23.0",
 		"typescript": "^6.0.3",
 		"wasmoon": "^1.16.0"
 	}

@@ -7,6 +7,7 @@
 const fs = require('fs'),
 	path = require('path'),
 	assert = require('assert'),
+	{describe, it, after} = require('@bhsd/test-util/mocha'),
 	/** @type {Record<string, Diagnostic[]>} */ tests = require('./tests.json'),
 	/** @type {Record<string, Diagnostic[]>} */ scribuntoTests = require('./ScribuntoTests.json');
 

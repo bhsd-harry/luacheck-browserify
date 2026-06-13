@@ -1,5 +1,0 @@
-{
-	"diff": false,
-	"reporter": "progress",
-	"spec": "spec/test.js"
-}

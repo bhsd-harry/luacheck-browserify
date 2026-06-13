@@ -1,5 +1,4 @@
 import {jsDoc, node, browser, extend} from '@bhsd/code-standard';
-import globals from 'globals';
 
 export default extend(
 	jsDoc,
@@ -29,12 +28,6 @@ export default extend(
 					version: '^26.0.0',
 				},
 			],
-		},
-	},
-	{
-		files: ['spec/test.js'],
-		languageOptions: {
-			globals: globals.mocha,
 		},
 	},
 	{

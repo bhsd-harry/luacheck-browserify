@@ -1,6 +1,6 @@
 {
 	"name": "luacheck-browserify",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Luacheck in browser",
 	"keywords": [
 		"lua",
@@ -31,19 +31,19 @@
 		"lint:md": "markdownlint-cli2 '**/*.md'",
 		"lint": "npm run lint:ts && npm run lint:md",
 		"build": "cd src; node ./bundle.js && cd .. && tsc && node build.js && eslint --no-config-lookup -c eslint.dist.mjs dist/*.min.js",
-		"test:main": "npx testUtil --require=./dist/index.min.js spec/test.js",
-		"test:es8": "npx testUtil --require=./dist/es8.min.js spec/test.js",
+		"test:main": "testUtil --require=./dist/index.min.js spec/test.js",
+		"test:es10": "testUtil --require=./dist/es10.min.js spec/test.js",
 		"test:lua": "cd src; lua test.lua && cd ..",
-		"test": "npm run test:main && npm run test:es8 && npm run test:lua"
+		"test": "npm run test:main && npm run test:es10 && npm run test:lua"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^3.1.0",
+		"@bhsd/code-standard": "^4.0.0",
 		"@bhsd/test-util": "^3.1.0",
 		"esbuild": "^0.28.1",
-		"eslint": "^10.6.0",
+		"eslint": "^10.8.0",
 		"lua-format": "^1.6.1-b",
 		"luabundle": "^1.7.0",
-		"markdownlint-cli2": "^0.23.0",
+		"markdownlint-cli2": "^0.23.2",
 		"typescript": "^6.0.3",
 		"wasmoon": "^1.16.0"
 	}

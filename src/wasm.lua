@@ -172,6 +172,7 @@ local scribunto = {
 						contentNamespaces = obj,
 						subjectNamespaces = obj,
 						talkNamespaces = obj,
+						interwikiMap = empty,
 						stats = {
 							fields = {
 								pages = empty,

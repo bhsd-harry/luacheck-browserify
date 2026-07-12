@@ -106,8 +106,10 @@ const addMsg = (errors: LuaReport[]): Diagnostic[] => errors
 		return {
 			...e,
 			code,
+			/* eslint-disable unicorn/no-unsafe-string-replacement */
 			msg: msg ?? warnings[code]?.replace('$1', e.func ? 'function' : 'variable')
 				.replace('$2', e.indirect ? ' using a local alias' : ''),
+			/* eslint-enable unicorn/no-unsafe-string-replacement */
 			severity: getSeverity(code),
 		};
 	}).filter((error): error is Diagnostic => Boolean(error.msg));
@@ -232,8 +234,7 @@ const checkAsync: checkFuncAsync = async (text, std) => {
 const luaCheck = (std?: string | Config): Luacheck => new Luacheck(checkAsync, std);
 luaCheck.check = checkAsync;
 
-// eslint-disable-next-line unicorn/prefer-global-this
-Object.assign(typeof globalThis === 'object' ? globalThis : self, {luacheck: luaCheck});
+Object.assign(globalThis, {luacheck: luaCheck});
 
 declare global {
 	const luacheck: typeof luaCheck;

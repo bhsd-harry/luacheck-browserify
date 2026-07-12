@@ -1,4 +1,12 @@
 <!-- markdownlint-disable first-line-h1 -->
+## v1.1.0
+
+*2026-08-01*
+
+**Added**
+
+- [`mw.site.interwikiMap`](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual#mw.site.interwikiMap) in a MediaWiki environment
+
 ## v1.0.0
 
 *2026-06-13*

@@ -71,8 +71,8 @@ export default URL.createObjectURL(blob);`,
 	options = {
 		...config,
 		minify: true,
-		target: 'es2017',
-		outfile: 'dist/es8.min.js',
+		target: 'es2019',
+		outfile: 'dist/es10.min.js',
 		plugins: [
 			{
 				name: 'alias',

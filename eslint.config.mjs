@@ -1,4 +1,4 @@
-import {jsDoc, node, browser, extend} from '@bhsd/code-standard';
+import {jsDoc, node, browserES10, extend} from '@bhsd/code-standard';
 
 export default extend(
 	jsDoc,
@@ -32,6 +32,6 @@ export default extend(
 	},
 	{
 		files: ['src/wasm.ts'],
-		...browser,
+		...browserES10,
 	},
 );

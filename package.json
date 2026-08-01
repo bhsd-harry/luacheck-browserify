@@ -44,7 +44,7 @@
 		"lua-format": "^1.6.1-b",
 		"luabundle": "^1.7.0",
 		"markdownlint-cli2": "^0.23.2",
-		"typescript": "^6.0.3",
+		"typescript": "^7.0.2",
 		"wasmoon": "^1.16.0"
 	}
 }

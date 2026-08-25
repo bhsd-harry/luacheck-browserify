@@ -6,6 +6,7 @@ local obj = {other_fields = true}
 local scribunto = {
 	read_globals = {
 		_VERSION = empty,
+		arg = obj,
 		assert = empty,
 		error = empty,
 		getfenv = empty,

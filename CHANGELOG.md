@@ -1,4 +1,12 @@
 <!-- markdownlint-disable first-line-h1 -->
+## v1.1.1
+
+*2026-08-28*
+
+**Fixed**
+
+- `arg` in a MediaWiki environment for [Lua 5.0 vararg functions](https://www.lua.org/manual/5.0/manual.html#2.5.8)
+
 ## v1.1.0
 
 *2026-08-01*

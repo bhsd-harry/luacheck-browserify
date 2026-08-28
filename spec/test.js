@@ -17,22 +17,24 @@ const fs = require('fs'),
  * @param {Set<string>} [ignores] 忽略的问题
  */
 const execute = (diagnose, ignores) => {
-	for (const file of fs.globSync('spec/samples/*.lua')) {
-		const desc = path.basename(file);
-		it(desc, async () => {
-			const codes = fs.readFileSync(file, 'utf8');
-			let oldWarnings = tests[desc],
-				warnings = await diagnose(codes, desc);
-			if (ignores) {
-				const predicate = ({code, name}) => !ignores.has(code)
-					|| code === '111' && name !== '_ENV'
-					|| code === '122' && name !== 'package'
-					|| code === '143' && name !== 'os';
-				oldWarnings = oldWarnings.filter(warning => predicate(warning));
-				warnings = warnings.filter(warning => predicate(warning));
-			}
-			assert.deepStrictEqual(warnings, oldWarnings);
-		});
+	if (!process.env.MW) {
+		for (const file of fs.globSync('spec/samples/*.lua')) {
+			const desc = path.basename(file);
+			it(desc, async () => {
+				const codes = fs.readFileSync(file, 'utf8');
+				let oldWarnings = tests[desc],
+					warnings = await diagnose(codes, desc);
+				if (ignores) {
+					const predicate = ({code, name}) => !ignores.has(code)
+						|| code === '111' && name !== '_ENV'
+						|| code === '122' && name !== 'package'
+						|| code === '143' && name !== 'os';
+					oldWarnings = oldWarnings.filter(warning => predicate(warning));
+					warnings = warnings.filter(warning => predicate(warning));
+				}
+				assert.deepStrictEqual(warnings, oldWarnings);
+			});
+		}
 	}
 };
 

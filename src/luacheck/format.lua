@@ -1,4 +1,4 @@
-local stages = require "luacheck.stages.init"
+local stages = require "luacheck.stages"
 local utils = require "luacheck.utils"
 
 local format = {}

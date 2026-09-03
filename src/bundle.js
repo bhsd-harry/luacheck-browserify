@@ -9,7 +9,7 @@ const fs = require('fs'),
 	{ReplacableString} = require('@bhsd/nodejs');
 
 const preprocess = ({name, content}) => {
-	if (name === 'luacheck.builtin_standards.init') {
+	if (name === 'luacheck.builtin_standards') {
 		const s = new ReplacableString(content, 'luacheck/builtin_standards/init.lua');
 		s.replaceAll(
 			/^builtin_standards\.(?:busted|rockspec|luacheckrc|ldoc|sile) = \{$.+?^\}$/gmsu,
@@ -25,6 +25,10 @@ const preprocess = ({name, content}) => {
 
 const bundleLua = proc => {
 	const bundledLua = bundle('./luacheck/init.lua', {
+			paths: [
+				'./?.lua',
+				'./?/init.lua',
+			],
 			force: true,
 			isolate: true,
 			metadata: false,

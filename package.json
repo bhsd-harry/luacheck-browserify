@@ -37,11 +37,11 @@
 		"test": "npm run test:main && npm run test:es10 && npm run test:lua"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^4.1.0",
+		"@bhsd/code-standard": "^4.2.0",
 		"@bhsd/nodejs": "^1.2.1",
-		"@bhsd/test-util": "^3.1.2",
+		"@bhsd/test-util": "^3.2.0",
 		"esbuild": "^0.28.2",
-		"eslint": "^10.9.1",
+		"eslint": "^10.10.0",
 		"lua-format": "^1.6.1-b",
 		"luabundle": "^1.7.0",
 		"markdownlint-cli2": "^0.23.2",

@@ -1,6 +1,6 @@
 local options = {}
 
-local builtin_standards = require "luacheck.builtin_standards.init"
+local builtin_standards = require "luacheck.builtin_standards"
 local standards = require "luacheck.standards"
 local utils = require "luacheck.utils"
 

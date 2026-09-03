@@ -3,11 +3,21 @@
 [![npm version](https://badge.fury.io/js/luacheck-browserify.svg)](https://www.npmjs.com/package/luacheck-browserify)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/7d86d36b2b6f4e389578670f5b2a0cba)](https://app.codacy.com/gh/bhsd-harry/luacheck-browserify/dashboard)
 
-[Luacheck](https://github.com/lunarmodules/luacheck) is a static analyzer and a linter for [Lua](https://www.lua.org/). Luacheck detects various issues such as usage of undefined global variables, unused variables and values, accessing uninitialized variables, unreachable code and more. Most aspects of checking are configurable: there are options for defining custom project-related globals, for selecting set of standard globals (version of Lua standard library), for filtering warnings by type and name of related variable, etc.
+[Luacheck](https://github.com/lunarmodules/luacheck) is a static analyzer and a
+linter for [Lua](https://www.lua.org/). Luacheck detects various issues such as
+usage of undefined global variables, unused variables and values, accessing
+uninitialized variables, unreachable code and more. Most aspects of checking are
+configurable: there are options for defining custom project-related globals, for
+selecting set of standard globals (version of Lua standard library), for
+filtering warnings by type and name of related variable, etc.
 
-Luacheck supports checking Lua files using syntax of Lua 5.1 - 5.4, and LuaJIT. Luacheck itself is written in Lua and runs on all of mentioned Lua versions.
+Luacheck supports checking Lua files using syntax of Lua 5.1 - 5.4, and LuaJIT.
+Luacheck itself is written in Lua and runs on all of mentioned Lua versions.
 
-Luacheck-browserify is a fork of Luacheck that has been modified to work in browser environments. The Lua code is executed using [Wasmoon](https://www.npmjs.com/package/wasmoon). Luacheck-browserify can also be specifically configured to check [Lua modules in MediaWiki sites](https://www.mediawiki.org/wiki/Lua/Overview).
+Luacheck-browserify is a fork of Luacheck that has been modified to work in
+browser environments. The Lua code is executed using [Wasmoon](https://www.npmjs.com/package/wasmoon).
+Luacheck-browserify can also be specifically configured to check
+[Lua modules in MediaWiki sites](https://www.mediawiki.org/wiki/Lua/Overview).
 
 ## Contents
 
@@ -20,7 +30,8 @@ Luacheck-browserify is a fork of Luacheck that has been modified to work in brow
 
 ## Installation
 
-As a NPM package, Luacheck-browserify can be included in a project using a CDN. Add the following script tag to the HTML file:
+As a NPM package, Luacheck-browserify can be included in a project using a CDN.
+Add the following script tag to the HTML file:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/luacheck-browserify"></script>
@@ -34,7 +45,9 @@ or
 
 ## Basic usage
 
-After Luacheck-browserify is installed, a global async function `luacheck` is available. The `luacheck` function takes a **required** second argument which is one of the following:
+After Luacheck-browserify is installed, a global async function `luacheck` is
+available. The `luacheck` function takes a **required** second argument which is
+one of the following:
 
 - a string to specify the standard globals similar to the [`--std` CLI option](https://luacheck.readthedocs.io/en/stable/cli.html#command-line-options);
 
@@ -51,24 +64,33 @@ const Luacheck = luacheck({
 });
 ```
 
-- a Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options) that **must** contain a `std` key. This is especially useful for [filtering warnings](https://luacheck.readthedocs.io/en/stable/cli.html#patterns-1) by [warning codes](https://luacheck.readthedocs.io/en/stable/warnings.html) and/or variable names.
+- a Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options)
+  that **must** contain a `std` key. This is especially useful for
+  [filtering warnings](https://luacheck.readthedocs.io/en/stable/cli.html#patterns-1)
+  by [warning codes](https://luacheck.readthedocs.io/en/stable/warnings.html)
+  and/or variable names.
 
 ```javascript
 const Luacheck = luacheck({std: 'max'});
 ```
 
-In addition to the standard globals provided by Luacheck (e.g., `lua53` for Lua 5.3), Luacheck-browserify also supports `mediawiki` for MediaWiki-specific globals implemented in the [Scribunto extension](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual).
+In addition to the standard globals provided by Luacheck (e.g., `lua53` for Lua
+5.3), Luacheck-browserify also supports `mediawiki` for MediaWiki-specific
+globals implemented in the [Scribunto extension](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual).
 
 ### Class instance methods
 
-The `luacheck` function returns a class instance with an async `queue` method that can be called with a string of Lua code to check. The `queue` method returns a promise that resolves with an array of warnings.
+The `luacheck` function returns a class instance with an async `queue` method
+that can be called with a string of Lua code to check. The `queue` method
+returns a promise that resolves with an array of warnings.
 
 ```javascript
 const Luacheck = luacheck('max');
 console.log(await Luacheck.queue('local a, b, c = nil'));
 ```
 
-The `setConfig` method of the class instance can be used to dynamically configure the checker.
+The `setConfig` method of the class instance can be used to dynamically
+configure the checker.
 
 ```javascript
 const Luacheck = luacheck('max');
@@ -77,7 +99,9 @@ Luacheck.setConfig('lua55c');
 
 ### Static method
 
-Otherwise, the `luacheck.check` static method can be called with a string of Lua code and specified standard globals or Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options) to return a promise that resolves with an array of warnings.
+Otherwise, the `luacheck.check` static method can be called with a string of Lua
+code and specified standard globals or Luacheck [configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options)
+to return a promise that resolves with an array of warnings.
 
 ```javascript
 console.log(await luacheck.check('local a, b, c = nil', 'lua55c'));
@@ -112,10 +136,13 @@ For more info about the warnings, see [Luacheck documentation](https://luacheck.
 
 ## Related projects
 
-There are a few plugins which allow using Luacheck directly inside an editor, showing warnings inline:
+There are a few plugins which allow using Luacheck directly inside an editor,
+showing warnings inline:
 
-- For CodeMirror, [CodeMirror-MediaWiki](https://www.npmjs.com/package/@bhsd/codemirror-mediawiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/codemirror-mediawiki/#Lua)).
-- For Monaco editor, [Monaco-Wiki](https://www.npmjs.com/package/monaco-wiki) contains luacheck checker ([Demo](https://bhsd-harry.github.io/monaco-wiki/#Lua)).
+- For CodeMirror, [CodeMirror-MediaWiki](https://www.npmjs.com/package/@bhsd/codemirror-mediawiki)
+  contains luacheck checker ([Demo](https://bhsd-harry.github.io/codemirror-mediawiki/#Lua)).
+- For Monaco editor, [Monaco-Wiki](https://www.npmjs.com/package/monaco-wiki)
+  contains luacheck checker ([Demo](https://bhsd-harry.github.io/monaco-wiki/#Lua)).
 
 ## Documentation
 

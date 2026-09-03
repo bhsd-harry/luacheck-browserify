@@ -226,10 +226,10 @@ const checkAsync: checkFuncAsync = async (text, std) => {
  * Create a `Luacheck` instance
  *
  * 创建一个`Luacheck`实例
- * @param std {@link https://luacheck.readthedocs.io/en/stable/config.html#custom-sets-of-globals standard globals }
- * or a {@link https://luacheck.readthedocs.io/en/stable/config.html#config-options Luacheck configuration object }
- * / {@link https://luacheck.readthedocs.io/en/stable/config.html#custom-sets-of-globals 全局变量集}
- * 或{@link https://luacheck.readthedocs.io/en/stable/config.html#config-options Luacheck配置对象}
+ * @param std [standard globals](https://luacheck.readthedocs.io/en/stable/config.html#custom-sets-of-globals)
+ * or a [Luacheck configuration object](https://luacheck.readthedocs.io/en/stable/config.html#config-options)
+ * / [全局变量集](https://luacheck.readthedocs.io/en/stable/config.html#custom-sets-of-globals)或
+ * [Luacheck 配置对象](https://luacheck.readthedocs.io/en/stable/config.html#config-options)
  */
 const luaCheck = (std?: string | Config): Luacheck => new Luacheck(checkAsync, std);
 luaCheck.check = checkAsync;

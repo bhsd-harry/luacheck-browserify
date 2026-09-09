@@ -65,7 +65,7 @@ const bundleLua = proc => {
 			Solvemath: true,
 		});
 	if (proc) {
-		fs.writeFileSync('../esbuild/bundle.lua', full);
+		fs.writeFileSync('../build/bundle.lua', full);
 	} else {
 		fs.writeFileSync('bundle.lua', `${min}\nreturn check`);
 	}
@@ -133,7 +133,7 @@ export default URL.createObjectURL(blob);`,
 	await esbuild.build({
 		...esbuildConfig,
 		format: 'esm',
-		outfile: '../esbuild/index.js',
+		outfile: '../build/index.js',
 		plugins: [plugin],
 	});
 

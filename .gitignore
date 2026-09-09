@@ -4,5 +4,5 @@
 /doc/
 /dist/
 /.vscode/
-/esbuild
+/build
 /package-lock.json

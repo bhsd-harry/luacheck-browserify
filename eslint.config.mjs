@@ -6,10 +6,7 @@ export default extend(
 	{
 		ignores: [
 			'doc/',
-			'esbuild/',
-			'*.yml',
-			'*.yaml',
-			'!.codacy.yml',
+			'build/',
 		],
 	},
 	{

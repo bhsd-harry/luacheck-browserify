@@ -7,10 +7,7 @@ export default [
 		languageOptions: {
 			ecmaVersion: 10,
 		},
-		rules: {
-			...distES10.rules,
-			'es-x/no-promise-prototype-finally': 0,
-		},
+		rules: distES10.rules,
 	},
 	{
 		rules: {

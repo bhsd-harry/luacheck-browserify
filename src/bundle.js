@@ -84,23 +84,22 @@ const /** @type {esbuild.BuildOptions} */ esbuildConfig = {
 	],
 };
 
+const stub = 'wasm-stub',
+	binary = 'wasm-binary';
 const /** @type {esbuild.Plugin} */ plugin = {
 	name: 'wasm',
 	setup(build) {
 		build.onResolve(
 			{filter: /\.wasm$/},
-			({namespace, path: p}) => {
-				if (namespace === 'wasm-stub') {
-					return {path: p, namespace: 'wasm-binary'};
-				}
-				return {
+			({namespace, path: p}) => namespace === stub
+				? {path: p, namespace: binary}
+				: {
 					path: path.relative('.', require.resolve(p)),
-					namespace: 'wasm-stub',
-				};
-			},
+					namespace: stub,
+				},
 		);
 		build.onLoad(
-			{filter: /.*/, namespace: 'wasm-stub'},
+			{filter: /^/, namespace: stub},
 			({path: p}) => ({
 				contents: `import wasm from ${JSON.stringify(p)};
 const blob = new Blob([wasm], {type: 'application/wasm'});
@@ -108,7 +107,7 @@ export default URL.createObjectURL(blob);`,
 			}),
 		);
 		build.onLoad(
-			{filter: /.*/, namespace: 'wasm-binary'},
+			{filter: /^/, namespace: binary},
 			({path: p}) => ({
 				contents: fs.readFileSync(p),
 				loader: 'binary',
@@ -150,6 +149,7 @@ export default URL.createObjectURL(blob);`,
 						{filter: /\/wasmoon\/dist\/index.js$/},
 						({path: p}) => {
 							const contents = new ReplacableString(fs.readFileSync(p, 'utf8'), p);
+							/** @todo ES2020可移除dynamic import和BigInt的polyfill */
 							contents.replaceAll('await import(', 'require(', 1)
 								.replaceAll(
 									'BigInt(',
@@ -163,19 +163,5 @@ export default URL.createObjectURL(blob);`,
 			},
 			plugin,
 		],
-		banner: {
-			js: `if (!Promise.prototype.finally) {
-	Promise.prototype.finally = function(callback) {
-		if (typeof callback !== 'function') {
-			return this.then(callback, callback);
-		}
-		const P = this.constructor || Promise;
-		return this.then(
-			value => P.resolve(callback()).then(() => value),
-			reason => P.resolve(callback()).then(() => { throw reason; })
-		);
-	};
-}`,
-		},
 	});
 })();

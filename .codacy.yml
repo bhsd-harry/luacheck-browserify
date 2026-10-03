@@ -1,10 +1,5 @@
 ---
 exclude_paths:
   - '*.yml'
-  - '.*.yaml'
-  - 'bin/**'
-  - 'scripts/**'
   - 'src/luacheck/**'
-  - 'spec/*.lua'
-  - 'spec/**/*.lua'
-  - 'spec/**/*.sh'
+  - 'spec/*/*.lua'

@@ -116,6 +116,9 @@ export default URL.createObjectURL(blob);`,
 	},
 };
 
+const read = p => fs.readFileSync(p, 'utf8')
+	.replaceAll('await import(', 'require(');
+
 (async () => {
 	// bundle for common use
 	bundleLua();
@@ -124,7 +127,18 @@ export default URL.createObjectURL(blob);`,
 		minify: true,
 		target: 'es2019',
 		outfile: '../dist/index.min.js',
-		plugins: [plugin],
+		plugins: [
+			{
+				name: 'alias',
+				setup(build) {
+					build.onLoad(
+						{filter: /\/wasmoon\/dist\/index.js$/},
+						({path: p}) => ({contents: read(p)}),
+					);
+				},
+			},
+			plugin,
+		],
 	});
 
 	// bundle for MediaWiki
@@ -148,14 +162,13 @@ export default URL.createObjectURL(blob);`,
 					build.onLoad(
 						{filter: /\/wasmoon\/dist\/index.js$/},
 						({path: p}) => {
-							const contents = new ReplacableString(fs.readFileSync(p, 'utf8'), p);
-							/** @todo ES2020可移除dynamic import和BigInt的polyfill */
-							contents.replaceAll('await import(', 'require(', 1)
-								.replaceAll(
-									'BigInt(',
-									'(typeof BigInt === "function" ? BigInt : Number)(',
-									7,
-								);
+							const contents = new ReplacableString(read(p), p);
+							/** @todo ES2020可移除BigInt的polyfill */
+							contents.replaceAll(
+								'BigInt(',
+								'(typeof BigInt === "function" ? BigInt : Number)(',
+								7,
+							);
 							return {contents: contents.input};
 						},
 					);

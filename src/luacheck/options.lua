@@ -88,7 +88,7 @@ utils.update(options.all_options, options.variadic_inline_options)
 
 -- Returns true if opts is valid option_set or is nil.
 -- Otherwise returns false and an error message.
-function options.validate(option_set, opts, stds)
+function options.validate(option_set, opts)
    if opts == nil then
       return true
    end
@@ -97,11 +97,9 @@ function options.validate(option_set, opts, stds)
       return false, "option table expected, got " .. type(opts)
    end
 
-   stds = stds or builtin_standards
-
    for option, validator in utils.sorted_pairs(option_set) do
       if opts[option] ~= nil then
-         local ok, err = validator(opts[option], stds)
+         local ok, err = validator(opts[option], builtin_standards)
 
          if not ok then
             return false, ("invalid value of option '%s': %s"):format(option, err)
@@ -421,10 +419,9 @@ local scalar_options = {
 --    unused_secondaries, self, module, allow_defined, allow_defined_top: booleans;
 --    max_line_length: number or false;
 --    rules: see get_rules.
-function options.normalize(opts_stack, stds)
+function options.normalize(opts_stack)
    local res = {}
-   stds = stds or builtin_standards
-   res.std = get_final_std(opts_stack, stds)
+   res.std = get_final_std(opts_stack, builtin_standards)
    res.operators = get_operators(opts_stack)
 
    for option, default in pairs(scalar_options) do

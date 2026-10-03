@@ -205,7 +205,7 @@ local empty_options = {}
 -- Updates option_stack for given line with next_index pointing to the inline option past the previous line.
 -- Adds warnings for invalid inline options to check_result, filtered_warnings.
 -- Returns updated next_index.
-local function update_option_stack_for_new_line(check_result, stds, option_stack, line, next_index)
+local function update_option_stack_for_new_line(check_result, option_stack, line, next_index)
    local inline_option = check_result.inline_options[next_index]
 
    if not inline_option or inline_option.line > line then
@@ -226,7 +226,7 @@ local function update_option_stack_for_new_line(check_result, stds, option_stack
       return next_index
    end
 
-   local options_ok, err_msg = options.validate(options.all_options, inline_option.options, stds)
+   local options_ok, err_msg = options.validate(options.all_options, inline_option.options)
 
    if not options_ok then
       -- Warn about invalid inline option, push a dummy empty table instead to keep pop counts correct.
@@ -298,7 +298,7 @@ function CachingOptionsNormalizer:__init()
    self.result_trie = {}
 end
 
-function CachingOptionsNormalizer:normalize_options(stds, option_stack)
+function CachingOptionsNormalizer:normalize_options(option_stack)
    local result_node = self.result_trie
 
    for _, option_table in ipairs(option_stack) do
@@ -313,13 +313,13 @@ function CachingOptionsNormalizer:normalize_options(stds, option_stack)
       return result_node.result
    end
 
-   local result = options.normalize(option_stack, stds)
+   local result = options.normalize(option_stack)
    result_node.result = result
    return result
 end
 
 -- May mutate base_opts_stack.
-local function filter_not_global_related_in_file(check_result, options_normalizer, stds, option_stack)
+local function filter_not_global_related_in_file(check_result, options_normalizer, option_stack)
    check_result.filtered_warnings = {}
    check_result.normalized_options = {}
 
@@ -329,8 +329,8 @@ local function filter_not_global_related_in_file(check_result, options_normalize
 
    for line in ipairs(check_result.line_lengths) do
       next_inline_option_index = update_option_stack_for_new_line(
-         check_result, stds, option_stack, line, next_inline_option_index)
-      local normalized_options = options_normalizer:normalize_options(stds, option_stack)
+         check_result, option_stack, line, next_inline_option_index)
+      local normalized_options = options_normalizer:normalize_options(option_stack)
       check_line_length(check_result, normalized_options, line)
       next_warning_index = filter_warnings_on_new_line(check_result, normalized_options, line, next_warning_index)
    end
@@ -368,7 +368,7 @@ end
 -- * Stores invalid inline options, not filtered out not global-related warnings, and newly created line length warnings
 --   in .filtered_warnings.
 -- * Stores a map from line numbers to normalized options for lines of global-related warnings in .normalized_options.
-local function filter_not_global_related(check_results, opts, stds)
+local function filter_not_global_related(check_results, opts)
    local caching_options_normalizer = CachingOptionsNormalizer()
 
    for file_index, check_result in ipairs(check_results) do
@@ -379,7 +379,7 @@ local function filter_not_global_related(check_results, opts, stds)
             check_result.normalized_options = {}
          else
             local base_file_option_stack = get_option_stack(opts, file_index)
-            filter_not_global_related_in_file(check_result, caching_options_normalizer, stds, base_file_option_stack)
+            filter_not_global_related_in_file(check_result, caching_options_normalizer, base_file_option_stack)
          end
       end
    end
@@ -523,8 +523,8 @@ end
 -- Processes an array of results of the check stage (or tables with .fatal field) into the final report.
 -- `opts[i]`, if present, is used as options when processing `report[i]` together with options in its array part.
 -- This function may mutate check results or reuse its parts in the return value.
-function filter.filter(check_results, opts, stds)
-   filter_not_global_related(check_results, opts, stds)
+function filter.filter(check_results, opts)
+   filter_not_global_related(check_results, opts)
    filter_global_related(check_results)
 
    local report = {}

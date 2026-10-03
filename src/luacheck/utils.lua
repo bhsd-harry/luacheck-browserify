@@ -5,94 +5,6 @@ local pack = table.pack or function(...) return {n = select("#", ...), ...} end
 
 local utils = {}
 
-utils.dir_sep = package.config:sub(1,1)
-utils.is_windows = utils.dir_sep == "\\"
-
-local bom = "\239\187\191"
-
--- Returns all contents of file (path or file handler) or nil + error message.
-function utils.read_file(file)
-   local handler
-
-   if type(file) == "string" then
-      local open_err
-      handler, open_err = io.open(file, "rb")
-
-      if not handler then
-         open_err = utils.unprefix(open_err, file .. ": ")
-         return nil, "couldn't read: " .. open_err
-      end
-   else
-      handler = file
-   end
-
-   local res, read_err = handler:read("*a")
-   handler:close()
-
-   if not res then
-      return nil, "couldn't read: " .. read_err
-   end
-
-   -- Use :len() instead of # operator because in some environments
-   -- string library is patched to handle UTF.
-   if res:sub(1, bom:len()) == bom then
-      res = res:sub(bom:len() + 1)
-   end
-
-   return res
-end
-
--- luacheck: push
--- luacheck: compat
-if _VERSION:find "5.1" then
-   -- Loads Lua source string in an environment, returns function or nil, error.
-   function utils.load(src, env, chunkname)
-      local func, err = loadstring(src, chunkname)
-
-      if func then
-         if env then
-            setfenv(func, env)
-         end
-
-         return func
-      else
-         return nil, err
-      end
-   end
-else
-   -- Loads Lua source string in an environment, returns function or nil, error.
-   function utils.load(src, env, chunkname)
-      return load(src, chunkname, "t", env or _ENV)
-   end
-end
--- luacheck: pop
-
--- Loads config containing assignments to global variables from path.
--- Returns config table and return value of config or nil and error type
--- ("I/O" or "syntax" or "runtime") and error message.
-function utils.load_config(path, env)
-   env = env or {}
-   local src, read_err = utils.read_file(path)
-
-   if not src then
-      return nil, "I/O", read_err
-   end
-
-   local func, load_err = utils.load(src, env, "chunk")
-
-   if not func then
-      return nil, "syntax", "line " .. utils.unprefix(load_err, "[string \"chunk\"]:")
-   end
-
-   local ok, res = pcall(func)
-
-   if not ok then
-      return nil, "runtime", "line " .. utils.unprefix(res, "[string \"chunk\"]:")
-   end
-
-   return env, res
-end
-
 function utils.array_to_set(array)
    local set = {}
 
@@ -238,14 +150,6 @@ function utils.sorted_pairs(t)
    end
 end
 
-function utils.unprefix(str, prefix)
-   if str:sub(1, #prefix) == prefix then
-      return str:sub(#prefix + 1)
-   else
-      return str
-   end
-end
-
 function utils.after(str, pattern)
    local _, last_matched_index = str:find(pattern)
 
@@ -307,17 +211,6 @@ function utils.pmatch(str, pattern)
    end
 end
 
--- Maps func over array.
-function utils.map(func, array)
-   local res = {}
-
-   for i, item in ipairs(array) do
-      res[i] = func(item)
-   end
-
-   return res
-end
-
 -- Returns validator checking type.
 function utils.has_type(type_)
    return function(x)
@@ -342,17 +235,6 @@ function utils.has_type_or_false(type_)
          end
       else
          return false, ("%s or false expected, got %s"):format(type_, type(x))
-      end
-   end
-end
-
--- Returns validator checking two type possibilities.
-function utils.has_either_type(type1, type2)
-   return function(x)
-      if type(x) == type1 or type(x) == type2 then
-         return true
-      else
-         return false, ("%s or %s expected, got %s"):format(type1, type2, type(x))
       end
    end
 end

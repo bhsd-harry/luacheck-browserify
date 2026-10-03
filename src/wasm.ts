@@ -214,7 +214,9 @@ const uri = typeof process === 'object' && typeof process.versions?.node === 'st
  * @param std standard globals or a Luacheck configuration object / 全局变量集或Luacheck配置对象
  */
 const checkAsync: checkFuncAsync = async (text, std) => {
-	if (!lua) {
+	if (typeof text !== 'string') {
+		throw new TypeError('Code to check must be a string');
+	} else if (!lua) {
 		lua = new LuaFactory(uri).createEngine({enableProxy: false});
 		await (await lua).doString(script);
 	}

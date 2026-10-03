@@ -1,4 +1,13 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
+## v1.2.0
+
+*2026-10-03*
+
+**Removed**
+
+- JavaScript polyfill for [`Promise#finally`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)
+- Unused Luacheck source code, including `luacheck.check_files` and CLI-related code
+
 ## v1.1.1
 
 *2026-08-31*

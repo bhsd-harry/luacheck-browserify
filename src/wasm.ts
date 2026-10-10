@@ -118,17 +118,12 @@ class Luacheck {
 	// @ts-expect-error 无需初始化
 	#text: string;
 	#running: Promise<Diagnostic[]> | undefined;
-	#check;
 	#std;
 	#serialized: string | undefined;
 	#configured = true;
 
-	/**
-	 * @param check Luacheck
-	 * @param std 全局变量集或Luacheck配置对象
-	 */
-	constructor(check: checkFuncAsync, std?: string | Config) {
-		this.#check = check;
+	/** @param std 全局变量集或Luacheck配置对象 */
+	constructor(std?: string | Config) {
 		this.#std = std;
 		this.#serialized = JSON.stringify(std);
 	}
@@ -180,7 +175,7 @@ class Luacheck {
 		this.#configured = false;
 		let errors: Diagnostic[] = [];
 		try {
-			errors = await this.#check(text, this.#std);
+			errors = await checkAsync(text, this.#std);
 		} catch (e) {
 			if (configured) {
 				console.error(e);
@@ -233,7 +228,7 @@ const checkAsync: checkFuncAsync = async (text, std) => {
  * / [全局变量集](https://luacheck.readthedocs.io/en/stable/config.html#custom-sets-of-globals)或
  * [Luacheck 配置对象](https://luacheck.readthedocs.io/en/stable/config.html#config-options)
  */
-const luaCheck = (std?: string | Config): Luacheck => new Luacheck(checkAsync, std);
+const luaCheck = (std?: string | Config): Luacheck => new Luacheck(std);
 luaCheck.check = checkAsync;
 
 Object.assign(globalThis, {luacheck: luaCheck});

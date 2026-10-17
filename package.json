@@ -26,11 +26,11 @@
 		"url": "git+https://github.com/bhsd-harry/luacheck-browserify.git"
 	},
 	"scripts": {
-		"ls": "npm i --package-lock-only && npm ls --package-lock-only --all --omit=dev",
-		"lint:ts": "tsc --noEmit && eslint --cache .",
+		"lint:ts": "tsc --noEmit && oxlint && eslint --cache .",
 		"lint:md": "myMarkdownlint",
 		"lint:bundle": "eslint --no-config-lookup --no-inline-config --rule 'no-unused-vars: [2, {args: none, caughtErrors: none}]' build/index.js",
 		"lint": "npm run lint:ts && npm run lint:md",
+		"migrate": "oxlint-migrate eslint.config.mjs",
 		"build": "cd src; node ./bundle.js && cd .. && tsc && eslint --no-config-lookup -c eslint.dist.mjs dist/*.min.js",
 		"test:main": "testUtil --require=./dist/index.min.js spec/test.js",
 		"test:es10": "MW=1 testUtil --require=./dist/es.min.js spec/test.js",
@@ -38,13 +38,15 @@
 		"test": "npm run test:main && npm run test:es10 && npm run test:lua"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^5.0.0",
+		"@bhsd/code-standard": "^5.1.0",
 		"@bhsd/nodejs": "^1.2.1",
-		"@bhsd/test-util": "^3.2.1",
+		"@bhsd/test-util": "^3.3.0",
+		"@oxlint/migrate": "^1.89.0",
 		"esbuild": "^0.28.2",
-		"eslint": "^10.12.0",
+		"eslint": "^10.14.0",
 		"lua-format": "^1.6.1-b",
 		"luabundle": "^1.7.0",
+		"oxlint": "^1.89.0",
 		"typescript": "^6.0.3",
 		"wasmoon": "^1.16.0"
 	}

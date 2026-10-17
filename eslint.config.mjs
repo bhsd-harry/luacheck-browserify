@@ -1,6 +1,6 @@
-import {jsDoc, node, browserES10, extend} from '@bhsd/code-standard';
+import {jsDoc, node, browserES10, extend, getOxlintConfig} from '@bhsd/code-standard';
 
-const config = extend(
+const config = getOxlintConfig(extend(
 	jsDoc,
 	...node,
 	{
@@ -31,6 +31,6 @@ const config = extend(
 		files: ['src/wasm.ts'],
 		...browserES10,
 	},
-);
+));
 
 export default config;

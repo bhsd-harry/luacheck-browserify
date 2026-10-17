@@ -1,4 +1,4 @@
-/* eslint-disable require-unicode-regexp */
+/* oxlint-disable require-unicode-regexp */
 'use strict';
 
 const fs = require('fs'),
@@ -60,7 +60,7 @@ const bundleLua = proc => {
 		extra = fs.readFileSync('wasm.lua', 'utf8'),
 		j = extra.indexOf('\n') + 1,
 		full = `${bundledLua.slice(0, i)}local luacheck=${bundledLua.slice(i + 7)}\n${extra.slice(j)}`,
-		min = luamin.Minify(full, { // eslint-disable-line new-cap
+		min = luamin.Minify(full, { // oxlint-disable-line new-cap
 			RenameVariables: true,
 			Solvemath: true,
 		});

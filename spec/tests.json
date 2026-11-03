@@ -32,7 +32,7 @@
 			"column": 1,
 			"end_column": 3,
 			"line": 523,
-			"msg": "A line contains only whitespace",
+			"msg": "A line consists of nothing but whitespace",
 			"severity": 0
 		},
 		{
@@ -228,7 +228,7 @@
 			"column": 1,
 			"end_column": 1,
 			"line": 26,
-			"msg": "A line contains only whitespace",
+			"msg": "A line consists of nothing but whitespace",
 			"severity": 0
 		},
 		{
@@ -236,7 +236,7 @@
 			"column": 1,
 			"end_column": 1,
 			"line": 27,
-			"msg": "A line contains only whitespace",
+			"msg": "A line consists of nothing but whitespace",
 			"severity": 0
 		},
 		{
@@ -244,7 +244,7 @@
 			"column": 1,
 			"end_column": 2,
 			"line": 28,
-			"msg": "A line contains only whitespace",
+			"msg": "A line consists of nothing but whitespace",
 			"severity": 0
 		},
 		{
@@ -252,7 +252,7 @@
 			"column": 1,
 			"end_column": 3,
 			"line": 29,
-			"msg": "A line contains only whitespace",
+			"msg": "A line consists of nothing but whitespace",
 			"severity": 0
 		},
 		{

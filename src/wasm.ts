@@ -43,7 +43,7 @@ const warnings: Record<string, string> = {
 	211: 'Unused local $1',
 	212: 'Unused argument',
 	213: 'Unused loop variable',
-	214: 'Unused variable',
+	214: 'Used variable',
 	221: 'Local variable is accessed but never set',
 	231: 'Local variable is set but never accessed',
 	232: 'Argument is set but never accessed',
@@ -77,7 +77,7 @@ const warnings: Record<string, string> = {
 	571: 'A numeric for loop goes from #(expr) down to 1 or less without negative step',
 	581: 'Negation of a relational operator: operator can be flipped',
 	582: 'Error prone negation: negation has a higher priority than equality',
-	611: 'A line contains only whitespace',
+	611: 'A line consists of nothing but whitespace',
 	612: 'A line contains trailing whitespace',
 	613: 'Trailing whitespace in a string',
 	614: 'Trailing whitespace in a comment',
@@ -215,8 +215,13 @@ const checkAsync: checkFuncAsync = async (text, std) => {
 		lua = new LuaFactory(uri).createEngine({enableProxy: false});
 		await (await lua).doString(script);
 	}
-	const errors = ((await lua).global.get('check') as checkFunc)(text, std);
-	return Array.isArray(errors) ? addMsg(errors) : [];
+	try {
+		const errors = ((await lua).global.get('check') as checkFunc)(text, std);
+		return Array.isArray(errors) ? addMsg(errors) : [];
+	} catch (e) {
+		lua = undefined;
+		throw e;
+	}
 };
 
 /**

@@ -1,4 +1,12 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
+## v1.2.1
+
+*2026-11-15*
+
+**Fixed**
+
+- The error message for code [`214`](https://luacheck.readthedocs.io/en/stable/warnings.html#list-of-warnings) is corrected
+
 ## v1.2.0
 
 *2026-10-03*

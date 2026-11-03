@@ -1,4 +1,5 @@
 /.eslintcache
+/.coderabbit.yaml
 /src/bundle.lua
 /src/bundle.json
 /doc/
